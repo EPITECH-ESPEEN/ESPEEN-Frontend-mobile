@@ -1,0 +1,26 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "node_modules": true,
+        ".vscode": true,
+        ".expo": true,
+        "app.json": true,
+        "babel.config.js": true,
+        "package-lock.json": true,
+        "tsconfig.json": true
+    },
+    "hide-files.files": [
+        "node_modules",
+        ".vscode",
+        ".expo",
+        "app.json",
+        "babel.config.js",
+        "package-lock.json",
+        "tsconfig.json"
+    ]
+}

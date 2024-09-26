@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Define colors for better output readability
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+RED='\033[0;31m'
+NC='\033[0m'  # No Color
+
+REQUIRED_VERSION="v14"  # Adjust to your project's required Node.js version
+
+echo -e "${GREEN}Checking project environment...${NC}\n"
+
+# Check if nvm is installed
+if ! command -v nvm &> /dev/null; then
+    echo -e "${YELLOW}nvm is not installed. Installing nvm...${NC}"
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+    # Load nvm
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+else
+    # Load nvm
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+fi
+echo -e ""  # Jump line
+
+# Check Node.js installation and version
+if ! command -v node &> /dev/null; then
+    echo -e "${RED}Node.js is not installed. Installing Node.js version $REQUIRED_VERSION...${NC}"
+    nvm install $REQUIRED_VERSION
+else
+    NODE_VERSION=$(node -v)
+    if [[ "$NODE_VERSION" < "$REQUIRED_VERSION" ]]; then
+        echo -e "${RED}Node.js version $NODE_VERSION detected. Installing Node.js version $REQUIRED_VERSION...${NC}"
+        nvm install $REQUIRED_VERSION
+    else
+        echo -e "${GREEN}Node.js version $NODE_VERSION is sufficient.${NC}"
+    fi
+fi
+echo -e ""  # Jump line
+
+# Check Expo CLI installation
+if ! command -v expo &> /dev/null; then
+    echo -e "${RED}Expo CLI is not installed. Please install it before starting the project.${NC}"
+    exit 1
+else
+    echo -e "${GREEN}Expo CLI is installed.${NC}"
+fi
+echo -e ""  # Jump line
+
+# Start the project in a new terminal tab with the title "Espeen Mobile"
+echo -e "${GREEN}Starting the project in a new terminal tab titled 'Espeen Mobile'...${NC}"
+gnome-terminal --tab --title="Espeen Mobile" -- bash -c "npm start"

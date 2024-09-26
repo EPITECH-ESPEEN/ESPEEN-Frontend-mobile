@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Check if the script is run with sudo
+if [ "$EUID" -ne 0 ]; then
+    echo -e "\033[0;31mPlease run this script with sudo.\033[0m"
+    exit 1
+fi
+
+set -e  # Exit immediately if a command exits with a non-zero status.
+
+# Define colors for better output readability
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+NC='\033[0m'  # No Color
+
+echo -e "${GREEN}Starting installation...${NC}\n"
+
+# Install Node.js and npm (if not already installed)
+if ! command -v node &> /dev/null; then
+    echo -e "${YELLOW}Node.js is not installed. Installing Node.js and npm...${NC}"
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt install -y nodejs
+else
+    echo -e "${GREEN}Node.js is already installed.${NC}"
+fi
+echo -e ""  # Jump line
+
+# Install Expo CLI globally
+if ! command -v expo &> /dev/null; then
+    echo -e "${YELLOW}Installing Expo CLI globally...${NC}"
+    npm install -g expo-cli
+else
+    echo -e "${GREEN}Expo CLI is already installed.${NC}"
+fi
+echo -e ""  # Jump line
+
+# Install project dependencies
+echo -e "${YELLOW}Installing project dependencies...${NC}"
+npm install
+echo -e ""  # Jump line
+
+echo -e "${GREEN}Installation complete! You can now start your project with 'npm start'.${NC}"
