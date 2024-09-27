@@ -12,34 +12,42 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { EventArg, NavigationContainer } from '@react-navigation/native';
 import * as React from 'react';
+import * as Font from 'expo-font';
 import { getScreensConfigs } from './router/routerConfig';
-import { colors } from './assets/colors';
+import { colors } from './styles/colors';
 import { isAuthenticated } from './services/authService';
 import LoadingPage from './components/loading/LoadingPage';
+import EspeenIcon from './components/icons/espeenIcon';
+
+
+/* ----- LOAD FONTS ----- */
+const loadFonts = async () => {
+    await Font.loadAsync({
+        'montserrat-alternates-regular': require('./assets/fonts/MontserratAlternates-Regular.ttf'),
+        'montserrat-alternates-semibold': require('./assets/fonts/MontserratAlternates-SemiBold.ttf'),
+        'montserrat-alternates-bold': require('./assets/fonts/MontserratAlternates-Bold.ttf'),
+        'montserrat-alternates-black': require('./assets/fonts/MontserratAlternates-Black.ttf'),
+    });
+};
+
 
 /* ----- COMPONENT ----- */
 function App() {
     const TabNav = createBottomTabNavigator();
     const tabConfig = getScreensConfigs();
     const [loading, setLoading] = React.useState(false);
-    const [loadingTimeout, setLoadingTimeout] = React.useState<NodeJS.Timeout | null>(null);
+    const [isFontLoaded, setIsFontLoaded] = React.useState(false);
 
     const accessibleTabs = tabConfig.filter(screen => screen.accessible);
     const unaccessibleTabs = tabConfig.filter(screen => !screen.accessible);
 
     const handleTabPress = async (e: EventArg<"tabPress", true, undefined>, navigation: { navigate: (arg0: string) => void; }, logged: boolean) => {
         e.preventDefault();
-        
-        // Start the timeout for loading indicator
         const timeout = setTimeout(() => {
             setLoading(true);
-        }, 500); // 0.5 seconds delay
-
+        }, 200);
         const auth = await isAuthenticated();
-        
-        // Clear the timeout if it hasn't triggered yet
         clearTimeout(timeout);
-        
         if (logged && !auth) {
             navigation.navigate('Login');
         } else {
@@ -49,10 +57,21 @@ function App() {
             else
                 navigation.navigate('Espeen');
         }
-
-        // Set loading to false after the request completes
         setLoading(false);
     };
+
+    React.useEffect(() => {
+        const loadResources = async () => {
+            await loadFonts();
+            setIsFontLoaded(true);
+        };
+
+        loadResources();
+    }, []);
+
+    if (!isFontLoaded) {
+        return <LoadingPage />;
+    }
 
     return (
         <NavigationContainer>
@@ -62,9 +81,9 @@ function App() {
                     tabBarActiveTintColor: colors.light,
                     tabBarInactiveTintColor: colors.gray,
                     tabBarLabelStyle: {
-                        fontSize: 14,
+                        fontSize: 16,
                         paddingBottom: 5,
-                        fontWeight: 'bold',
+                        fontFamily: 'montserrat-alternates-semibold',
                     },
                     tabBarStyle: {
                         height: 60,
@@ -80,7 +99,7 @@ function App() {
                         component={content}
                         options={{
                             tabBarIcon: ({ focused }) =>
-                                icon ? React.createElement(icon, { size: 24, stroke: focused ? colors.light : colors.gray }) : "?",
+                                icon ? React.createElement(icon, { size: 24, stroke: focused ? colors.light : colors.gray }) : <EspeenIcon size={24} stroke={focused ? colors.light : colors.gray} />,
                         }}
                         listeners={({ navigation }) => ({
                             tabPress: (e) => handleTabPress(e, navigation, logged),

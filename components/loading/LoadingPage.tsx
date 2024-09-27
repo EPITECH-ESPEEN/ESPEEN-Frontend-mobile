@@ -11,7 +11,7 @@
 /* ----- IMPORTS ----- */
 import React from 'react';
 import { ActivityIndicator, View, StyleSheet } from 'react-native';
-import { colors } from '../../assets/colors';
+import { colors } from '../../styles/colors';
 
 
 /* ----- COMPONENT ----- */
