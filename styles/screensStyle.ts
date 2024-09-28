@@ -8,9 +8,12 @@
     ┗━━━━━━━━━━━━━━━━━━━┛
 */
 
+/* ----- IMPORTS ----- */
 import { StyleSheet } from "react-native";
-import { colors } from "../assets/colors";
+import { colors } from "./colors";
 
+
+/* ----- STYLES ----- */
 export const screensStyle = StyleSheet.create({
     screen: {
         flex: 1,
@@ -18,7 +21,4 @@ export const screensStyle = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: colors.dark,
     },
-    text: {
-        color: colors.light,
-    }
 });

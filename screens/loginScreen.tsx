@@ -10,19 +10,49 @@
 
 /* ----- IMPORTS ----- */
 import React from "react";
-import { View } from "react-native";
-import Text_ from "../components/overwrite/Text";
-import { screensStyle } from "../styles/screensStyle";
-
+import { View, Text, StyleSheet, ScrollView, Dimensions } from "react-native";
+import { textsStyle } from "../styles/textsStyle";
+import { colors, colorsStyle } from "../styles/colors";
+import EspeenIcon from "../components/icons/espeenIcon";
+import LoginForm from "../components/form/loginForm";
 
 /* ----- COMPONENT ----- */
 const LoginScreen: React.FC = () => {
+    const windowHeight = Dimensions.get('window').height;
+
     return (
-        <View style={screensStyle.screen}>
-            <Text_>Login Screen</Text_>
-        </View>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
+            <View style={[styles.container, { height: windowHeight }]}>
+                <EspeenIcon size={100} stroke={colors.green} />
+                <Text style={[textsStyle.huge, colorsStyle.green, styles.textCenter]}>Espeen</Text>
+                <Text style={[textsStyle.title, colorsStyle.green, styles.textCenter]}>Spin actions into reactions!</Text>
+            </View>
+            <LoginForm />
+        </ScrollView>
     );
 };
 
-export default LoginScreen;
+/* ----- STYLES ----- */
+const styles = StyleSheet.create({
+    scrollContainer: {
+        flexGrow: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        backgroundColor: colors.dark,
+    },
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 20,
+        textAlign: 'center',
+    },
+    textCenter: {
+        textAlign: 'center',
+    },
+});
 
+export default LoginScreen;

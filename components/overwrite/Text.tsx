@@ -11,7 +11,7 @@
 /* ----- IMPORTS ----- */
 import React from "react";
 import { Text, StyleSheet, TextProps } from "react-native";
-import { colors } from "../../assets/colors";
+import { colors } from "../../styles/colors";
 
 
 /* ----- COMPONENT ----- */
@@ -28,6 +28,8 @@ const Text_: React.FC<TextProps> = (props) => {
 const styles = StyleSheet.create({
     defaultText: {
         color: colors.light,
+        fontFamily: "montserrat-alternates-regular",
+        fontSize: 16,
     },
 });
 
