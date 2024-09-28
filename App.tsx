@@ -18,6 +18,7 @@ import { colors } from './styles/colors';
 import { isAuthenticated } from './services/authService';
 import LoadingPage from './components/loading/LoadingPage';
 import EspeenIcon from './components/icons/espeenIcon';
+import { Provider } from 'react-native-paper';
 
 
 /* ----- LOAD FONTS ----- */

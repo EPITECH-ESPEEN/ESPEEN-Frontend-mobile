@@ -24,7 +24,7 @@ export const textsStyle = StyleSheet.create({
     },
     text: {
         fontFamily: "montserrat-alternates-bold",
-        fontSize: 25,
+        fontSize: 20,
     },
     cardTitle: {
         fontFamily: "montserrat-alternates-bold",

@@ -12,6 +12,7 @@
 import React from 'react';
 import { ActivityIndicator, View, StyleSheet } from 'react-native';
 import { colors } from '../../styles/colors';
+import { Portal } from 'react-native-paper';
 
 
 /* ----- COMPONENT ----- */
@@ -35,6 +36,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        zIndex: 999,
     },
 });
 

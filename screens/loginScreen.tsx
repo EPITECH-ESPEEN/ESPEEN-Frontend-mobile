@@ -11,14 +11,14 @@
 /* ----- IMPORTS ----- */
 import React from "react";
 import { View, Text, StyleSheet, ScrollView, Dimensions } from "react-native";
-import { screensStyle } from "../styles/screensStyle";
 import { textsStyle } from "../styles/textsStyle";
 import { colors, colorsStyle } from "../styles/colors";
 import EspeenIcon from "../components/icons/espeenIcon";
+import LoginForm from "../components/form/loginForm";
 
 /* ----- COMPONENT ----- */
 const LoginScreen: React.FC = () => {
-    const windowHeight = Dimensions.get('window').height; // Get the window height
+    const windowHeight = Dimensions.get('window').height;
 
     return (
         <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -27,9 +27,7 @@ const LoginScreen: React.FC = () => {
                 <Text style={[textsStyle.huge, colorsStyle.green, styles.textCenter]}>Espeen</Text>
                 <Text style={[textsStyle.title, colorsStyle.green, styles.textCenter]}>Spin actions into reactions!</Text>
             </View>
-            <View>
-                <Text style={[textsStyle.text, colorsStyle.light, styles.textCenter]}>Login screen</Text>
-            </View>
+            <LoginForm />
         </ScrollView>
     );
 };
@@ -40,7 +38,7 @@ const styles = StyleSheet.create({
         flexGrow: 1,
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-start', // Align items from the top
+        justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor: colors.dark,
     },
