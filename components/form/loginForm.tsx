@@ -58,7 +58,6 @@ const LoginForm: React.FC = () => {
             }
             postValidation(true, timeout);
         }
-        postValidation(false, timeout);
     }
 
     const postValidation = (ok: boolean, timeout: NodeJS.Timeout, msg?: string) => {
@@ -79,7 +78,7 @@ const LoginForm: React.FC = () => {
                     <Text style={[textsStyle.title, colorsStyle.light]}>Log In</Text>
                 </View>
                 <View style={[styles.tab, { backgroundColor: !loginTab ? colors.green : colors.green2 }]} onTouchEnd={() => setLoginTab(false)}>
-                    <Text style={[textsStyle.title, colorsStyle.light]}>Sign In</Text>
+                    <Text style={[textsStyle.title, colorsStyle.light]}>Register</Text>
                 </View>
             </View>
             <View style={styles.form}>
