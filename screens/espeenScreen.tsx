@@ -10,19 +10,33 @@
 
 /* ----- IMPORTS ----- */
 import React from "react";
-import { View } from "react-native";
-import { screensStyle } from "../styles/screensStyle";
+import { StyleSheet, ScrollView } from "react-native";
 import Text_ from "../components/overwrite/Text";
+import { colors } from "../styles/colors";
 
 
 /* ----- COMPONENT ----- */
 const EspeenScreen: React.FC = () => {
     return (
-        <View style={screensStyle.screen}>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
             <Text_>Espeen Screen</Text_>
-        </View>
+        </ScrollView>
     );
 };
+
+
+/* ----- STYLES ----- */
+const styles = StyleSheet.create({
+    scrollContainer: {
+        flexGrow: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: colors.dark,
+    }
+});
+
 
 export default EspeenScreen;
 

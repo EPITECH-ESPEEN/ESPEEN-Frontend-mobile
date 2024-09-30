@@ -10,12 +10,12 @@
 
 /* ----- IMPORTS ----- */
 import React from "react";
-import { View } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import Text_ from "../components/overwrite/Text";
-import { screensStyle } from "../styles/screensStyle";
+import { colors } from "../styles/colors";
+import { useNavigation } from "@react-navigation/native";
 import { logout } from "../services/authService";
 import Button from "../components/inputs/button";
-import { useNavigation } from "@react-navigation/native";
 
 
 /* ----- COMPONENT ----- */
@@ -28,15 +28,29 @@ const ProfileScreen: React.FC = () => {
     }
 
     return (
-        <View style={screensStyle.screen}>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
             <Text_>Profile Screen</Text_>
             <Button
                 label="Logout"
                 onPress={logoutButton}
             />
-        </View>
+        </ScrollView>
     );
 };
+
+
+/* ----- STYLES ----- */
+const styles = StyleSheet.create({
+    scrollContainer: {
+        flexGrow: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: colors.dark,
+    }
+});
+
 
 export default ProfileScreen;
 

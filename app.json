@@ -18,13 +18,19 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/img/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.dragusheen.espeen"
     },
     "web": {
       "favicon": "./assets/img/favicon.png"
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "79306ff0-aecf-4849-8efa-50bfc7db6aa3"
+      }
+    }
   }
 }
