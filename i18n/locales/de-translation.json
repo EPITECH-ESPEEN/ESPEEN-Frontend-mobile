@@ -1,0 +1,30 @@
+{
+    "lang": "de",
+    "services": {
+        "linked": "Verknüpftes Konto",
+        "not_linked": "Ein Konto verknüpfen"
+    },
+    "languages": {
+        "select_lang": "Sprache auswählen",
+        "gb": "Englisch",
+        "es": "Spanisch",
+        "ru": "Russisch",
+        "fr": "Französisch",
+        "de": "Deutsch"
+    },
+    "dico": {
+        "area": "BEREICH",
+        "espeen": "Espeen",
+        "language": "Sprache",
+        "login": "Login",
+        "logout": "Ausloggen",
+        "name": "Name",
+        "password": "Passwort",
+        "profile": "Profil",
+        "register": "Registrieren",
+        "clear": "Klar",
+        "services": "Dienstleistungen",
+        "status": "Status",
+        "username": "Benutzername"
+    }
+}

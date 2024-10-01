@@ -1,0 +1,30 @@
+{
+    "lang": "es",
+    "services": {
+        "linked": "Cuenta vinculada",
+        "not_linked": "Vincular una cuenta"
+    },
+    "languages": {
+        "select_lang": "Seleccione idioma",
+        "gb": "Inglés",
+        "es": "Español",
+        "ru": "ruso",
+        "fr": "Francés",
+        "de": "Alemán"
+    },
+    "dico": {
+        "area": "ÁREA",
+        "espeen": "Esperen",
+        "language": "Idioma",
+        "login": "Acceso",
+        "logout": "Cerrar sesión",
+        "name": "Nombre",
+        "password": "Contraseña",
+        "profile": "Perfil",
+        "register": "Registro",
+        "clear": "Claro",
+        "services": "Servicios",
+        "status": "Estado",
+        "username": "Nombre de usuario"
+    }
+}

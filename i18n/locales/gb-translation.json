@@ -1,4 +1,5 @@
 {
+    "lang": "en",
     "services": {
         "linked": "Linked account",
         "not_linked": "Link an account"
@@ -6,8 +7,10 @@
     "languages": {
         "select_lang": "Select language",
         "gb": "English",
+        "es": "Spanish",
+        "ru": "Russian",
         "fr": "French",
-        "ru": "Russian"
+        "de": "German"
     },
     "dico": {
         "area": "AREA",

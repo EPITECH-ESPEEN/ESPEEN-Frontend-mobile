@@ -3,15 +3,26 @@
 from deep_translator import GoogleTranslator
 import json
 import sys
+import os
 
 filePath1 = "../i18n/lang.tsx"
 filePath2 = "../i18n/i18n.tsx"
 langCode = sys.argv[1]
+langName = sys.argv[2]
 
-if len(sys.argv) <= 1:
-    print(f"Usage: {sys.argv[0]} jsonfile.json lang")
-    print("Missing json file")
+if len(sys.argv) <= 2:
+    print(f"Usage: {sys.argv[0]} langCode langName")
     sys.exit(1)
+
+
+try:
+    open(f"../i18n/locales/{langCode}-translation.json", 'r')
+except:
+    pass
+else:
+    print(f"Translation for {langCode}-translation already exists")
+    sys.exit(1)
+
 
 def deep_translate(obj):
     if type(obj) == dict:
@@ -24,21 +35,35 @@ def deep_translate(obj):
 try:
     origin = json.load(open("../i18n/locales/gb-translation.json", 'r'))
 except Exception as e:
-    print(f"Error oppening the JSON file. Go fuck yourself: {e}")
+    print(f"Error oppening the JSON file: {e}")
     sys.exit(1)
 
 try:
     obj = deep_translate(origin)
 except Exception as e:
-    print(f"Error translating. Go fuck yourself: {e}")
+    print(f"Error translating: {e}")
     sys.exit(1)
 
+obj["lang"] = langCode;
 json.dump(obj, open(f"../i18n/locales/{langCode}-translation.json", 'w+'), indent=4, ensure_ascii=False)
 with open(filePath1, "r") as f:
     data = f.read().replace("//NEW", f"{{ name: \"languages.{langCode.lower()}\", code: \"{langCode.lower()}\", flag: \"https://flagsapi.com/{langCode.upper()}/flat/64.png\" }},\n    //NEW")
 with open(filePath1, "w+") as f:
     f.write(data)
 with open(filePath2, "r") as f:
-    data = f.read().replace("//NEW1", f"import {langCode.lower()}Translation from \"./locales/{langCode.lower()}-translation.json\";").replace("//NEW2", f"{langCode.lower()}: {{ translation: {langCode.lower()}Translation, }},\n    //NEW2")
+    data = f.read().replace("//NEW1", f"import {langCode.lower()}Translation from \"./locales/{langCode.lower()}-translation.json\";\n//NEW1").replace("//NEW2", f"{langCode.lower()}: {{ translation: {langCode.lower()}Translation, }},\n            //NEW2")
 with open(filePath2, "w+") as f:
     f.write(data)
+
+folderPath = "../i18n/locales/"
+for filePath in os.listdir(folderPath):
+    if filePath.startswith("."):
+        continue
+    path = os.path.join(folderPath, filePath)
+    try:
+        obj = json.load(open(path, 'r'))
+    except Exception as e:
+        print(f"Error oppening the JSON file: {e}")
+        sys.exit(1)
+    obj["languages"][langCode] = GoogleTranslator(source='auto', target=obj["lang"]).translate(langName)
+    json.dump(obj, open(path, "w+"), indent=4, ensure_ascii=False)

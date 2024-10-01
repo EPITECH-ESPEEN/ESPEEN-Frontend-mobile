@@ -1,27 +1,30 @@
 {
+    "lang": "fr",
     "services": {
         "linked": "Compte lié",
-        "not_linked": "Lier un compte"
+        "not_linked": "Associer un compte"
     },
     "languages": {
         "select_lang": "Sélectionner la langue",
         "gb": "Anglais",
+        "es": "Espagnol",
+        "ru": "russe",
         "fr": "Français",
-        "ru": "Russe"
+        "de": "Allemand"
     },
     "dico": {
-        "area": "AREA",
-        "espeen": "Espeen",
+        "area": "ZONE",
+        "espeen": "Espèce",
         "language": "Langue",
-        "login": "Connexion",
+        "login": "Se connecter",
         "logout": "Déconnexion",
         "name": "Nom",
         "password": "Mot de passe",
         "profile": "Profil",
-        "register": "Inscription",
-        "clear": "Effacer",
+        "register": "Registre",
+        "clear": "Clair",
         "services": "Services",
-        "status": "Status",
+        "status": "Statut",
         "username": "Nom d'utilisateur"
     }
 }
