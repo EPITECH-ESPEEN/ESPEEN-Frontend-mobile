@@ -11,9 +11,9 @@
 /* ----- IMPORTS ----- */
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import enTranslation from "./locales/en/translation.json";
-import frTranslation from "./locales/fr/translation.json";
-import ruTranslation from "./locales/ru/translation.json";
+import gbTranslation from "./locales/gb-translation.json";
+import frTranslation from "./locales/fr-translation.json";
+import ruTranslation from "./locales/ru-translation.json";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
@@ -23,18 +23,13 @@ i18n
     .init({
         compatibilityJSON: 'v3',
         resources: {
-            en: {
-                translation: enTranslation,
-            },
-            fr: {
-                translation: frTranslation,
-            },
-            ru: {
-                translation: ruTranslation,
-            },
+            gb: { translation: gbTranslation, },
+            fr: { translation: frTranslation, },
+            ru: { translation: ruTranslation, },
+            //NEW
         },
-        lng: "ru",
-        fallbackLng: "ru",
+        lng: "gb",
+        fallbackLng: "gb",
         interpolation: {
             escapeValue: false,
         },
@@ -53,7 +48,7 @@ export async function setDefaultLanguage() {
     if (language && i18n.language !== language)
         i18n.changeLanguage(language);
     else
-        AsyncStorage.setItem("language", "en");
+        AsyncStorage.setItem("language", "gb");
     defaultLanguagesSet = true;
 }
 

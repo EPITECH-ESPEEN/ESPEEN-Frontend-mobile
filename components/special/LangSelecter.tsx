@@ -35,7 +35,7 @@ const LangSelecter: React.FC = () => {
                         style={[styles.button, currentFlag?.code === language.code ? styles.activeButton : styles.inactiveButton]}
                         key={language.code}
                     >
-                        <Image source={language.flag} style={styles.img} />
+                        <Image source={{uri: `https://flagsapi.com/${language.code.toLocaleUpperCase()}/flat/64.png`}} style={styles.img} />
                         <Text style={[textsStyle.text, colorsStyle.light]}>{t(language.name)}</Text>
                     </View>
                 ))}
@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         borderWidth: 2,
         borderColor: colors.green,
+        objectFit: 'cover',
     }
 });
 

@@ -14,9 +14,10 @@ import { ILang } from "../types/Lang";
 
 /* ----- DATAS ----- */
 const lang: ILang[] = [
-    { name: "languages.fr", code: "fr", flag: require("../assets/img/flags/fr.png") },
-    { name: "languages.en", code: "en", flag: require("../assets/img/flags/en.png") },
-    { name: "languages.ru", code: "ru", flag: require("../assets/img/flags/ru.png") },
+    { name: "languages.fr", code: "fr", flag: "https://flagsapi.com/FR/flat/64.png" },
+    { name: "languages.gb", code: "gb", flag: "https://flagsapi.com/GB/flat/64.png" },
+    { name: "languages.ru", code: "ru", flag: "https://flagsapi.com/RU/flat/64.png" },
+    //NEW
 ]
 
 export default lang;
