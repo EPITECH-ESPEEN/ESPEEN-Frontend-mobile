@@ -16,11 +16,13 @@ import { colors } from "../styles/colors";
 import { useNavigation } from "@react-navigation/native";
 import { logout } from "../services/authService";
 import Button from "../components/inputs/button";
+import { useTranslation } from "react-i18next";
 
 
 /* ----- COMPONENT ----- */
 const ProfileScreen: React.FC = () => {
     const naviagtion = useNavigation();
+    const { t } = useTranslation();
 
     const logoutButton = async () => {
         await logout();
@@ -31,7 +33,7 @@ const ProfileScreen: React.FC = () => {
         <ScrollView contentContainerStyle={styles.scrollContainer}>
             <Text_>Profile Screen</Text_>
             <Button
-                label="Logout"
+                label={t('dico.logout')}
                 onPress={logoutButton}
             />
         </ScrollView>

@@ -1,0 +1,21 @@
+{
+    "services": {
+        "linked": "Compte lié",
+        "not_linked": "Lier un compte"
+    },
+    "dico": {
+        "area": "AREA",
+        "espeen": "Espeen",
+        "language": "Langue",
+        "login": "Connexion",
+        "logout": "Déconnexion",
+        "name": "Nom",
+        "password": "Mot de passe",
+        "profile": "Profil",
+        "register": "Inscription",
+        "clear": "Effacer",
+        "services": "Services",
+        "status": "Status",
+        "username": "Nom d'utilisateur"
+    }
+}

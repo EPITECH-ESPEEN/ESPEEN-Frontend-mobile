@@ -18,8 +18,8 @@ import { colors } from './styles/colors';
 import { isAuthenticated } from './services/authService';
 import LoadingPage from './components/loading/LoadingPage';
 import EspeenIcon from './components/icons/espeenIcon';
-import { Provider } from 'react-native-paper';
-
+import i18n from './i18n/i18n';
+import { useTranslation } from 'react-i18next';
 
 /* ----- LOAD FONTS ----- */
 const loadFonts = async () => {
@@ -37,8 +37,8 @@ function App() {
     const TabNav = createBottomTabNavigator();
     const tabConfig = getScreensConfigs();
     const [loading, setLoading] = React.useState(false);
-    const [isFontLoaded, setIsFontLoaded] = React.useState(false);
-
+    const [isRessourcesLoaded, setIsRessourcesLoaded] = React.useState(false);
+    const { t } = useTranslation();
     const accessibleTabs = tabConfig.filter(screen => screen.accessible);
     const unaccessibleTabs = tabConfig.filter(screen => !screen.accessible);
 
@@ -50,13 +50,13 @@ function App() {
         const auth = await isAuthenticated();
         clearTimeout(timeout);
         if (logged && !auth) {
-            navigation.navigate('Login');
+            navigation.navigate('login');
         } else {
             const tabName = e.target?.toString().split('-')[0];
             if (tabName)
                 navigation.navigate(tabName);
             else
-                navigation.navigate('Espeen');
+                navigation.navigate('espeen');
         }
         setLoading(false);
     };
@@ -64,13 +64,13 @@ function App() {
     React.useEffect(() => {
         const loadResources = async () => {
             await loadFonts();
-            setIsFontLoaded(true);
+            setIsRessourcesLoaded(true);
         };
 
         loadResources();
     }, []);
 
-    if (!isFontLoaded) {
+    if (!isRessourcesLoaded || !i18n.isInitialized) {
         return <LoadingPage />;
     }
 
@@ -96,7 +96,7 @@ function App() {
                 {accessibleTabs.map(({ name, content, icon, logged }) => (
                     <TabNav.Screen
                         key={name}
-                        name={name}
+                        name={t(`dico.${name}`)}
                         component={content}
                         options={{
                             tabBarIcon: ({ focused }) =>

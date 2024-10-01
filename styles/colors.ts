@@ -19,6 +19,7 @@ export const colors = {
     "dark": "#36454F",
     "light": "#F7F7F7",
     "gray": "#C3CCD2",
+    "red": "#FF6961",
 }
 
 export const colorsStyle = StyleSheet.create({
@@ -36,5 +37,8 @@ export const colorsStyle = StyleSheet.create({
     },
     gray: {
         color: colors.gray,
+    },
+    red: {
+        color: colors.red,
     },
 });

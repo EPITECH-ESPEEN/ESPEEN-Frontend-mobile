@@ -1,0 +1,21 @@
+{
+    "services": {
+        "linked": "Аккаунт связан",
+        "not_linked": "Привязать аккаунт"
+    },
+    "dico": {
+        "area": "AREA",
+        "espeen": "Espeen",
+        "language": "Язык",
+        "login": "Войти",
+        "logout": "Выйти",
+        "name": "Имя",
+        "password": "Пароль",
+        "profile": "Профиль",
+        "register": "Регистрация",
+        "clear": "Стереть",
+        "services": "Сервисы",
+        "status": "Статус",
+        "username": "Имя пользователя"
+    }
+}

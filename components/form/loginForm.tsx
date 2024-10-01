@@ -19,6 +19,7 @@ import PasswordInput from "../inputs/passwordInput";
 import { login, register } from "../../services/authService";
 import LoadingPage from "../loading/LoadingPage";
 import { useNavigation } from "@react-navigation/native";
+import { useTranslation } from "react-i18next";
 
 /* ----- COMPONENT ----- */
 const LoginForm: React.FC = () => {
@@ -27,6 +28,7 @@ const LoginForm: React.FC = () => {
     const [password, setPassword] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
     const navigation = useNavigation();
+    const { t } = useTranslation();
 
     const reset = () => {
         setUsername("");
@@ -75,20 +77,20 @@ const LoginForm: React.FC = () => {
         <View style={styles.container}>
             <View style={styles.tabs}>
                 <View style={[styles.tab, { backgroundColor: loginTab ? colors.green : colors.green2 }]} onTouchEnd={() => setLoginTab(true)}>
-                    <Text style={[textsStyle.title, colorsStyle.light]}>Log In</Text>
+                    <Text style={[textsStyle.title, colorsStyle.light]}>{ t('dico.login') }</Text>
                 </View>
                 <View style={[styles.tab, { backgroundColor: !loginTab ? colors.green : colors.green2 }]} onTouchEnd={() => setLoginTab(false)}>
-                    <Text style={[textsStyle.title, colorsStyle.light]}>Register</Text>
+                    <Text style={[textsStyle.title, colorsStyle.light]}>{ t('dico.register') }</Text>
                 </View>
             </View>
             <View style={styles.form}>
                 <View style={styles.inputs}>
-                    <TextInput label="Username" value={username} onChangeText={setUsername} />
-                    <PasswordInput label="Password" value={password} onChangeText={setPassword} />
+                    <TextInput label={ t('dico.username') } value={username} onChangeText={setUsername} />
+                    <PasswordInput label={ t('dico.password') } value={password} onChangeText={setPassword} />
                 </View>
                 <View style={styles.buttons}>
-                    <Button label="Reset" onPress={reset} />
-                    <Button label={loginTab ? "Login" : "Register"} onPress={validate} />
+                    <Button label={ t('dico.clear') } onPress={reset} />
+                    <Button label={loginTab ? t('dico.login') : t('dico.register')} onPress={validate} />
                 </View>
             </View>
             {loading && <LoadingPage />}
