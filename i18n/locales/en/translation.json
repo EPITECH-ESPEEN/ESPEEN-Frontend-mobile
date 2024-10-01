@@ -3,6 +3,12 @@
         "linked": "Linked account",
         "not_linked": "Link an account"
     },
+    "languages": {
+        "select_lang": "Select language",
+        "en": "English",
+        "fr": "French",
+        "ru": "Russian"
+    },
     "dico": {
         "area": "AREA",
         "espeen": "Espeen",

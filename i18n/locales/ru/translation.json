@@ -3,6 +3,12 @@
         "linked": "Аккаунт связан",
         "not_linked": "Привязать аккаунт"
     },
+    "languages": {
+        "select_lang": "Выберите язык",
+        "en": "Английский",
+        "fr": "Французский",
+        "ru": "Русский"
+    },
     "dico": {
         "area": "AREA",
         "espeen": "Espeen",

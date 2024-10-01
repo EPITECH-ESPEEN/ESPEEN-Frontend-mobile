@@ -18,7 +18,7 @@ import { colors } from './styles/colors';
 import { isAuthenticated } from './services/authService';
 import LoadingPage from './components/loading/LoadingPage';
 import EspeenIcon from './components/icons/espeenIcon';
-import i18n from './i18n/i18n';
+import i18n, { setDefaultLanguage } from './i18n/i18n';
 import { useTranslation } from 'react-i18next';
 
 /* ----- LOAD FONTS ----- */
@@ -63,6 +63,7 @@ function App() {
 
     React.useEffect(() => {
         const loadResources = async () => {
+            await setDefaultLanguage();
             await loadFonts();
             setIsRessourcesLoaded(true);
         };
