@@ -1,0 +1,44 @@
+#!/usr/bin/python3
+
+from deep_translator import GoogleTranslator
+import json
+import sys
+
+filePath1 = "../i18n/lang.tsx"
+filePath2 = "../i18n/i18n.tsx"
+langCode = sys.argv[1]
+
+if len(sys.argv) <= 1:
+    print(f"Usage: {sys.argv[0]} jsonfile.json lang")
+    print("Missing json file")
+    sys.exit(1)
+
+def deep_translate(obj):
+    if type(obj) == dict:
+        final = {}
+        for k, v in obj.items():
+            final[k] = deep_translate(v)
+        return final
+    return GoogleTranslator(source='auto', target=langCode).translate(obj)
+
+try:
+    origin = json.load(open("../i18n/locales/gb-translation.json", 'r'))
+except Exception as e:
+    print(f"Error oppening the JSON file. Go fuck yourself: {e}")
+    sys.exit(1)
+
+try:
+    obj = deep_translate(origin)
+except Exception as e:
+    print(f"Error translating. Go fuck yourself: {e}")
+    sys.exit(1)
+
+json.dump(obj, open(f"../i18n/locales/{langCode}-translation.json", 'w+'), indent=4, ensure_ascii=False)
+with open(filePath1, "r") as f:
+    data = f.read().replace("//NEW", f"{{ name: \"languages.{langCode.lower()}\", code: \"{langCode.lower()}\", flag: \"https://flagsapi.com/{langCode.upper()}/flat/64.png\" }},\n    //NEW")
+with open(filePath1, "w+") as f:
+    f.write(data)
+with open(filePath2, "r") as f:
+    data = f.read().replace("//NEW1", f"import {langCode.lower()}Translation from \"./locales/{langCode.lower()}-translation.json\";").replace("//NEW2", f"{langCode.lower()}: {{ translation: {langCode.lower()}Translation, }},\n    //NEW2")
+with open(filePath2, "w+") as f:
+    f.write(data)
