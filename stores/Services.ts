@@ -74,15 +74,19 @@ const tmp: IService[] = [
     {
         service_id: 3,
         name: "Spotify",
-        status: false,
+        status: true,
         icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcDq7YmOwPrUEXB1gaGgWmgMYsqdYrtFu4sA&s",
         buttons: [
             {
-                name: "services.not_linked",
+                name: "services.linked",
                 path: "",
             },
         ],
         actions: [
+            {
+                action_id: 3,
+                name: "services.song_started",
+            },
         ],
         reactions: [
         ],
