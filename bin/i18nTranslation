@@ -82,7 +82,7 @@ def update_locale_files_with_language(lang_code, lang_name):
             continue
         full_path = os.path.join(LOCALES_PATH, file_path)
         obj = load_json(full_path)
-        obj["languages"][lang_code] = GoogleTranslator(source='auto', target=obj["lang"]).translate(lang_name)
+        obj["languages"][lang_code] = GoogleTranslator(source='auto', target=obj["langCode"]).translate(lang_name)
         write_json(full_path, obj)
 
 
@@ -93,7 +93,8 @@ def create_translation(lang_code, lang_name, update_files=True):
 
     # Translate the content to the new language
     translated_content = deep_translate(origin, lang_code)
-    translated_content["lang"] = lang_code
+    translated_content["langCode"] = lang_code
+    translated_content["langName"] = lang_name
 
     # Write the translated JSON to a new file
     write_json(f"{LOCALES_PATH}{lang_code}-translation.json", translated_content)
@@ -119,10 +120,15 @@ def recreate_all_translations():
         if lang_code == "gb":
             continue
 
-        print(f"Recreating translation for {lang_code}")
+        # Load the existing translation to get the actual langCode and langName
+        translation_data = load_json(os.path.join(LOCALES_PATH, file_path))
+        actual_lang_code = translation_data["langCode"]
+        actual_lang_name = translation_data["langName"]
+
+        print(f"Recreating translation for {actual_lang_code} ({actual_lang_name})")
 
         # Recreate the translation by re-translating from the reference file, without updating lang.tsx or i18n.tsx
-        create_translation(lang_code, lang_code.upper(), update_files=False)
+        create_translation(actual_lang_code, actual_lang_name, update_files=False)
 
 
 # Main function

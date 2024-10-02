@@ -1,18 +1,21 @@
 {
-    "lang": "en",
+    "langCode": "en",
+    "langName": "English",
     "services": {
         "linked": "Linked account",
-        "not_linked": "Link an account"
+        "not_linked": "Link an account",
+        "add_bot": "Add a bot"
     },
     "languages": {
         "select_lang": "Select language",
         "gb": "English",
         "fr": "French",
         "ru": "Russian",
-        "de": "German",
-        "es": "Spanish"
+        "es": "Spanish",
+        "de": "German"
     },
     "dico": {
+        "actions": "Actions",
         "language": "Language",
         "login": "Login",
         "logout": "Logout",

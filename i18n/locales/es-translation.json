@@ -1,18 +1,21 @@
 {
-    "lang": "es",
+    "langCode": "es",
+    "langName": "Spanish",
     "services": {
         "linked": "Cuenta vinculada",
-        "not_linked": "Vincular una cuenta"
+        "not_linked": "Vincular una cuenta",
+        "add_bot": "Agregar un bot"
     },
     "languages": {
         "select_lang": "Seleccione idioma",
         "gb": "Inglés",
         "fr": "Francés",
         "ru": "ruso",
-        "de": "Alemán",
-        "es": "Español"
+        "es": "Español",
+        "de": "Alemán"
     },
     "dico": {
+        "actions": "Comportamiento",
         "language": "Idioma",
         "login": "Acceso",
         "logout": "Cerrar sesión",

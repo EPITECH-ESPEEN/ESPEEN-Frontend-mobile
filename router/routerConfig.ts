@@ -11,7 +11,7 @@
 import { Library, UserRound, Waypoints } from "lucide-react-native";
 import EspeenIcon from "../components/icons/espeenIcon";
 import EspeenScreen from "../screens/espeenScreen";
-import LibrariesScreen from "../screens/librariesScreen";
+import ServicesScreen from "../screens/servicesScreen";
 import AreaScreen from "../screens/areaScreen";
 import ProfileScreen from "../screens/profileScreen";
 import LoginScreen from "../screens/loginScreen";
@@ -27,7 +27,7 @@ export type ScreenConfig = {
 
 const ScreensConfigs: ScreenConfig[] = [
     { name: 'Espeen', content: EspeenScreen, icon: EspeenIcon, logged: false, accessible: true },
-    { name: 'services', content: LibrariesScreen, icon: Library, logged: true, accessible: true },
+    { name: 'services', content: ServicesScreen, icon: Library, logged: true, accessible: true },
     { name: 'AREA', content: AreaScreen, icon: Waypoints, logged: true, accessible: true },
     { name : 'profile', content: ProfileScreen, icon: UserRound, logged: true, accessible: true },
     { name : 'login', content: LoginScreen, logged: false, accessible: false },

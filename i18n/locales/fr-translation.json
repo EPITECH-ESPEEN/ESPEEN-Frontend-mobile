@@ -1,18 +1,21 @@
 {
-    "lang": "fr",
+    "langCode": "fr",
+    "langName": "Français",
     "services": {
         "linked": "Compte lié",
-        "not_linked": "Associer un compte"
+        "not_linked": "Associer un compte",
+        "add_bot": "Ajouter un bot"
     },
     "languages": {
         "select_lang": "Sélectionner la langue",
         "gb": "Anglais",
         "fr": "Français",
         "ru": "russe",
-        "de": "Allemand",
-        "es": "Espagnol"
+        "es": "Espagnol",
+        "de": "Allemand"
     },
     "dico": {
+        "actions": "Actes",
         "language": "Langue",
         "login": "Se connecter",
         "logout": "Déconnexion",

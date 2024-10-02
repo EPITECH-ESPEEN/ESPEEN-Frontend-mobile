@@ -15,39 +15,37 @@ import { Button } from 'react-native-paper';
 import { textsStyle } from "../../styles/textsStyle";
 import { colors, colorsStyle } from "../../styles/colors";
 import { useTranslation } from "react-i18next";
+import { IService, IServiceAction } from "../../types/Services";
 
 
 /* ----- PROPS ----- */
-interface CardProps {
-    name: string;
-    status: boolean;
-    img: string;
-    loginPath: string,
-    logoutPath: string,
+interface ServiceCardProps {
+    service: IService;
 }
 
 /* ----- COMPONENT ----- */
-const LibraryCard: React.FC<CardProps> = ({ name, status, img, loginPath, logoutPath }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     const { t } = useTranslation();
 
-    const callPath = () => {
-        const pathToCall = status ? logoutPath : loginPath;
-        console.log(`${name}: ${status ? 'logout' : 'login'}`);
-        // Call the path
+    const callPath = (action: IServiceAction) => {
+        console.log(`${action.name} : ${action.path}`);
     }
 
     return (
         <View style={styles.container}>
-            <Image style={styles.img} source={{ uri: img }} />
+            <Image style={styles.img} source={{ uri: service.icon }} />
             <View style={styles.textsContainer}>
                 <View>
                     <Text style={[textsStyle.text, colorsStyle.gray]}>{ t('dico.name') }</Text>
-                    <Text style={[textsStyle.text, colorsStyle.dark]}>{name}</Text>
+                    <Text style={[textsStyle.text, colorsStyle.dark]}>{service.name}</Text>
                 </View>
-                <View>
-                    <Button mode="contained" onPress={callPath} buttonColor={status ? colors.green : colors.red} labelStyle={textsStyle.cardText}>
-                        {status ? t('services.linked') : t('services.not_linked')}
-                    </Button>
+                <View style={styles.buttonContainer}>
+                    <Text style={[textsStyle.text, colorsStyle.gray]}>{ t('dico.actions') }</Text>
+                    { service.actions.map((action, index) => (
+                        <Button key={index} mode="contained" onPress={() => callPath(action)} buttonColor={action.name === "services.linked" ? colors.green : action.name === "services.not_linked" ? colors.red : colors.dark} labelStyle={[textsStyle.cardText, colorsStyle.light]}>
+                            {t(action.name)}
+                        </Button>
+                    ))}
                 </View>
             </View>
         </View>
@@ -65,6 +63,7 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 20,
         gap: 20,
+        alignItems: "center",
     },
     img: {
         width: 120,
@@ -75,9 +74,17 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
+        gap: 20,
+        width: '60%',
+    },
+    buttonContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        gap: 10,
     },
 });
 
 
-export default LibraryCard;
+export default ServiceCard;
 

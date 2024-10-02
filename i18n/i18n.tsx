@@ -14,8 +14,8 @@ import { initReactI18next } from "react-i18next";
 import gbTranslation from "./locales/gb-translation.json";
 import frTranslation from "./locales/fr-translation.json";
 import ruTranslation from "./locales/ru-translation.json";
-import deTranslation from "./locales/de-translation.json";
 import esTranslation from "./locales/es-translation.json";
+import deTranslation from "./locales/de-translation.json";
 //NEW1
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -29,8 +29,8 @@ i18n
             gb: { translation: gbTranslation, },
             fr: { translation: frTranslation, },
             ru: { translation: ruTranslation, },
-            de: { translation: deTranslation, },
             es: { translation: esTranslation, },
+            de: { translation: deTranslation, },
             //NEW2
         },
         lng: "gb",

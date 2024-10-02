@@ -19,11 +19,12 @@ interface TextInputProps {
     label: string;
     value: string;
     onChangeText: (text: string) => void;
+    color?: keyof typeof colors;
 }
 
 
 /* ----- COMPONENT ----- */
-const TextInput: React.FC<TextInputProps> = ({ label, value, onChangeText }) => {
+const TextInput: React.FC<TextInputProps> = ({ label, value, onChangeText, color = "green" }) => {
     const [isFocused, setIsFocused] = useState(false);
 
     const handleFocus = () => setIsFocused(true);
@@ -40,7 +41,7 @@ const TextInput: React.FC<TextInputProps> = ({ label, value, onChangeText }) => 
                 placeholder=""
                 autoComplete="off"
             />
-            <Text style={[styles.label, isFocused || value ? styles.labelFocused : {}]}>
+            <Text style={[styles.label, isFocused || value ? [styles.labelFocused, {backgroundColor: colors[color]}] : {}]}>
                 {label}
             </Text>
         </View>
@@ -53,6 +54,7 @@ const styles = StyleSheet.create({
     inputGroup: {
         fontFamily: "montserrat-alternates-regular",
         position: "relative",
+        width: "100%",
     },
     input: {
         fontFamily: "montserrat-alternates-regular",
@@ -84,7 +86,6 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginTop: 0,
         paddingVertical: 8,
-        backgroundColor: colors.green,
     },
 });
 

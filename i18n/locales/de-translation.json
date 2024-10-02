@@ -1,18 +1,21 @@
 {
-    "lang": "de",
+    "langCode": "de",
+    "langName": "German",
     "services": {
         "linked": "Verknüpftes Konto",
-        "not_linked": "Ein Konto verknüpfen"
+        "not_linked": "Ein Konto verknüpfen",
+        "add_bot": "Einen Bot hinzufügen"
     },
     "languages": {
         "select_lang": "Sprache auswählen",
         "gb": "Englisch",
         "fr": "Französisch",
         "ru": "Russisch",
-        "de": "Deutsch",
-        "es": "Spanisch"
+        "es": "Spanisch",
+        "de": "Deutsch"
     },
     "dico": {
+        "actions": "Aktionen",
         "language": "Sprache",
         "login": "Login",
         "logout": "Ausloggen",
