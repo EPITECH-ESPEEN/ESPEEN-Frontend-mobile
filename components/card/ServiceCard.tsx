@@ -15,7 +15,7 @@ import { Button } from 'react-native-paper';
 import { textsStyle } from "../../styles/textsStyle";
 import { colors, colorsStyle } from "../../styles/colors";
 import { useTranslation } from "react-i18next";
-import { IService, IServiceAction } from "../../types/Services";
+import { IService, IServiceButton } from "../../types/Services";
 
 
 /* ----- PROPS ----- */
@@ -27,7 +27,7 @@ interface ServiceCardProps {
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     const { t } = useTranslation();
 
-    const callPath = (action: IServiceAction) => {
+    const callPath = (action: IServiceButton) => {
         console.log(`${action.name} : ${action.path}`);
     }
 
@@ -41,7 +41,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                 </View>
                 <View style={styles.buttonContainer}>
                     <Text style={[textsStyle.text, colorsStyle.gray]}>{ t('dico.actions') }</Text>
-                    { service.actions.map((action, index) => (
+                    { service.buttons.map((action, index) => (
                         <Button key={index} mode="contained" onPress={() => callPath(action)} buttonColor={action.name === "services.linked" ? colors.green : action.name === "services.not_linked" ? colors.red : colors.dark} labelStyle={[textsStyle.cardText, colorsStyle.light]}>
                             {t(action.name)}
                         </Button>
