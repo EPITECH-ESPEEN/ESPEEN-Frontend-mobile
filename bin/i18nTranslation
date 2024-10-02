@@ -1,0 +1,152 @@
+#!/usr/bin/python3
+
+from deep_translator import GoogleTranslator
+import json
+import sys
+import os
+
+# Constants for file paths relative to the project root
+LOCALES_PATH = "./i18n/locales/"
+LANG_FILE_PATH = "./i18n/lang.tsx"
+I18N_FILE_PATH = "./i18n/i18n.tsx"
+REFERENCE_FILE = f"{LOCALES_PATH}gb-translation.json"
+
+# Check if the script is being executed from the project root
+def check_project_root():
+    if not os.path.exists(REFERENCE_FILE):
+        print("Error: you have to execute this script from the project root")
+        sys.exit(1)
+
+
+# Helper function to load JSON from a file
+def load_json(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            return json.load(file)
+    except Exception as e:
+        print(f"Error opening the JSON file: {e}")
+        sys.exit(1)
+
+
+# Helper function to write JSON to a file
+def write_json(file_path, obj):
+    try:
+        with open(file_path, 'w+', encoding='utf-8') as file:
+            json.dump(obj, file, indent=4, ensure_ascii=False)
+    except Exception as e:
+        print(f"Error writing to the JSON file: {e}")
+        sys.exit(1)
+
+
+# Function to translate deeply nested dictionary
+def deep_translate(obj, target_lang):
+    if isinstance(obj, dict):
+        return {k: deep_translate(v, target_lang) for k, v in obj.items()}
+    return GoogleTranslator(source='auto', target=target_lang).translate(obj)
+
+
+# Function to check if translation already exists
+def translation_exists(lang_code):
+    return os.path.exists(f"{LOCALES_PATH}{lang_code}-translation.json")
+
+
+# Function to update language and i18n files for a new translation
+def update_language_files(lang_code, lang_name):
+    with open(LANG_FILE_PATH, "r") as f:
+        lang_data = f.read().replace(
+            "//NEW",
+            f'{{ name: "languages.{lang_code.lower()}", code: "{lang_code.lower()}", '
+            f'flag: "https://flagsapi.com/{lang_code.upper()}/flat/64.png" }},\n    //NEW'
+        )
+
+    with open(LANG_FILE_PATH, "w+") as f:
+        f.write(lang_data)
+
+    with open(I18N_FILE_PATH, "r") as f:
+        i18n_data = f.read().replace(
+            "//NEW1",
+            f'import {lang_code.lower()}Translation from "./locales/{lang_code.lower()}-translation.json";\n//NEW1'
+        ).replace(
+            "//NEW2",
+            f'{lang_code.lower()}: {{ translation: {lang_code.lower()}Translation, }},\n            //NEW2'
+        )
+
+    with open(I18N_FILE_PATH, "w+") as f:
+        f.write(i18n_data)
+
+
+# Function to update all JSON files with new language name
+def update_locale_files_with_language(lang_code, lang_name):
+    for file_path in os.listdir(LOCALES_PATH):
+        if file_path.startswith("."):
+            continue
+        full_path = os.path.join(LOCALES_PATH, file_path)
+        obj = load_json(full_path)
+        obj["languages"][lang_code] = GoogleTranslator(source='auto', target=obj["lang"]).translate(lang_name)
+        write_json(full_path, obj)
+
+
+# Function to translate and create a translation file
+def create_translation(lang_code, lang_name, update_files=True):
+    # Load the reference translation file (e.g., gb-translation.json)
+    origin = load_json(REFERENCE_FILE)
+
+    # Translate the content to the new language
+    translated_content = deep_translate(origin, lang_code)
+    translated_content["lang"] = lang_code
+
+    # Write the translated JSON to a new file
+    write_json(f"{LOCALES_PATH}{lang_code}-translation.json", translated_content)
+
+    if update_files:
+        # Update lang.tsx and i18n.tsx only for new translations
+        update_language_files(lang_code, lang_name)
+
+    # Update all locale JSON files with the new language
+    update_locale_files_with_language(lang_code, lang_name)
+
+
+# Function to recreate all existing translations except the reference file
+def recreate_all_translations():
+    for file_path in os.listdir(LOCALES_PATH):
+        if not file_path.endswith("-translation.json"):
+            continue
+
+        # Extract the language code from the file name
+        lang_code = file_path.split("-")[0]
+
+        # Skip the reference file (e.g., gb-translation.json)
+        if lang_code == "gb":
+            continue
+
+        print(f"Recreating translation for {lang_code}")
+
+        # Recreate the translation by re-translating from the reference file, without updating lang.tsx or i18n.tsx
+        create_translation(lang_code, lang_code.upper(), update_files=False)
+
+
+# Main function
+def main():
+    # Check if the script is being executed from the correct directory
+    check_project_root()
+
+    if len(sys.argv) == 1:
+        # No arguments passed: update all existing translations except reference file
+        recreate_all_translations()
+    elif len(sys.argv) == 3:
+        # Arguments provided: translate a single language
+        lang_code = sys.argv[1]
+        lang_name = sys.argv[2]
+
+        if translation_exists(lang_code):
+            print(f"Translation for {lang_code}-translation already exists")
+            sys.exit(1)
+
+        create_translation(lang_code, lang_name)
+    else:
+        print(f"Usage: {sys.argv[0]} [langCode langName]")
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

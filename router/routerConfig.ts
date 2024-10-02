@@ -27,10 +27,10 @@ export type ScreenConfig = {
 
 const ScreensConfigs: ScreenConfig[] = [
     { name: 'Espeen', content: EspeenScreen, icon: EspeenIcon, logged: false, accessible: true },
-    { name: 'Libraries', content: LibrariesScreen, icon: Library, logged: true, accessible: true },
+    { name: 'services', content: LibrariesScreen, icon: Library, logged: true, accessible: true },
     { name: 'AREA', content: AreaScreen, icon: Waypoints, logged: true, accessible: true },
-    { name : 'Profile', content: ProfileScreen, icon: UserRound, logged: true, accessible: true },
-    { name : 'Login', content: LoginScreen, logged: false, accessible: false },
+    { name : 'profile', content: ProfileScreen, icon: UserRound, logged: true, accessible: true },
+    { name : 'login', content: LoginScreen, logged: false, accessible: false },
 ]
 
 export function getScreensConfigs(): ScreenConfig[] {

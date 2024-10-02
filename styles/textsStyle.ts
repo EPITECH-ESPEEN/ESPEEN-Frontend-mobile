@@ -16,15 +16,15 @@ import { StyleSheet } from "react-native";
 export const textsStyle = StyleSheet.create({
     title: {
         fontFamily: "montserrat-alternates-bold",
-        fontSize: 40,
+        fontSize: 25,
     },
     huge: {
         fontFamily: "montserrat-alternates-black",
-        fontSize: 100,
+        fontSize: 80,
     },
     text: {
         fontFamily: "montserrat-alternates-bold",
-        fontSize: 20,
+        fontSize: 18,
     },
     cardTitle: {
         fontFamily: "montserrat-alternates-bold",
@@ -32,6 +32,6 @@ export const textsStyle = StyleSheet.create({
     },
     cardText: {
         fontFamily: "montserrat-alternates-regular",
-        fontSize: 20,
+        fontSize: 16,
     },
 });

@@ -1,0 +1,28 @@
+{
+    "lang": "fr",
+    "services": {
+        "linked": "Compte lié",
+        "not_linked": "Associer un compte"
+    },
+    "languages": {
+        "select_lang": "Sélectionner la langue",
+        "gb": "Anglais",
+        "fr": "Français",
+        "ru": "russe",
+        "de": "Allemand",
+        "es": "Espagnol"
+    },
+    "dico": {
+        "language": "Langue",
+        "login": "Se connecter",
+        "logout": "Déconnexion",
+        "name": "Nom",
+        "password": "Mot de passe",
+        "profile": "Profil",
+        "register": "Registre",
+        "clear": "Clair",
+        "services": "Services",
+        "status": "Statut",
+        "username": "Nom d'utilisateur"
+    }
+}

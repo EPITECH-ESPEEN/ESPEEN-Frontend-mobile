@@ -1,0 +1,28 @@
+{
+    "lang": "en",
+    "services": {
+        "linked": "Linked account",
+        "not_linked": "Link an account"
+    },
+    "languages": {
+        "select_lang": "Select language",
+        "gb": "English",
+        "fr": "French",
+        "ru": "Russian",
+        "de": "German",
+        "es": "Spanish"
+    },
+    "dico": {
+        "language": "Language",
+        "login": "Login",
+        "logout": "Logout",
+        "name": "Name",
+        "password": "Password",
+        "profile": "Profile",
+        "register": "Register",
+        "clear": "Clear",
+        "services": "Services",
+        "status": "Status",
+        "username": "Username"
+    }
+}

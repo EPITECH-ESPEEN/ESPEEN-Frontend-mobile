@@ -47,14 +47,14 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     buttonContent: {
-        padding: 10,
-        paddingLeft: 20,
-        paddingRight: 20,
+        padding: 8,
+        paddingLeft: 16,
+        paddingRight: 16,
     },
     label: {
         fontFamily: "montserrat-alternates-bold",
         color: colors.light,
-        fontSize: 20,
+        fontSize: 18,
     },
 });
 
