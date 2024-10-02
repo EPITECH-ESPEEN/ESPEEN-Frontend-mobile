@@ -7,14 +7,12 @@
     "languages": {
         "select_lang": "Sprache auswählen",
         "gb": "Englisch",
-        "es": "Spanisch",
-        "ru": "Russisch",
         "fr": "Französisch",
-        "de": "Deutsch"
+        "ru": "Russisch",
+        "de": "Deutsch",
+        "es": "Spanisch"
     },
     "dico": {
-        "area": "BEREICH",
-        "espeen": "Espeen",
         "language": "Sprache",
         "login": "Login",
         "logout": "Ausloggen",

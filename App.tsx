@@ -97,7 +97,7 @@ function App() {
                 {accessibleTabs.map(({ name, content, icon, logged }) => (
                     <TabNav.Screen
                         key={name}
-                        name={t(`dico.${name}`)}
+                        name={name === 'Espeen' ? 'Espeen' : name === 'AREA' ? 'AREA' : t(`dico.${name}`)}
                         component={content}
                         options={{
                             tabBarIcon: ({ focused }) =>

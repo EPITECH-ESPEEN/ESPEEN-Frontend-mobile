@@ -7,14 +7,12 @@
     "languages": {
         "select_lang": "Sélectionner la langue",
         "gb": "Anglais",
-        "es": "Espagnol",
-        "ru": "russe",
         "fr": "Français",
-        "de": "Allemand"
+        "ru": "russe",
+        "de": "Allemand",
+        "es": "Espagnol"
     },
     "dico": {
-        "area": "ZONE",
-        "espeen": "Espèce",
         "language": "Langue",
         "login": "Se connecter",
         "logout": "Déconnexion",
