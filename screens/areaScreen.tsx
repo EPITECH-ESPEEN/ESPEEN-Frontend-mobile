@@ -19,6 +19,7 @@ import { ISelecterItem } from "../types/Selecter";
 import { IServiceSelecterItem } from "../types/Services";
 import { getAreaServicesActions, getAreaServicesReactions } from "../services/services";
 import LoadingPage from "../components/loading/LoadingPage";
+import Button from "../components/inputs/button";
 
 
 /* ----- COMPONENT ----- */
@@ -45,6 +46,16 @@ const AreaScreen: React.FC = () => {
         setReactionDataOptions(servicesReaction!.find((service) => service.item.value === item.value)!.reactions);
     }
 
+    const handleSave = () => {
+        // TODO: Save the data
+        console.log("Save");
+    }
+
+    const handleDelete = () => {
+        // TODO: Delete the data
+        console.log("Delete");
+    }
+
     useEffect(() => {
         if (servicesAction && servicesReaction) return;
         const fetchData = async () => {
@@ -68,7 +79,7 @@ const AreaScreen: React.FC = () => {
     return (
         <ScrollView contentContainerStyle={styles.scrollContainer}>
             <View style={styles.container}>
-                <Text style={[textsStyle.title, colorsStyle.light]}>Action:</Text>
+                <Text style={[textsStyle.title, colorsStyle.light]}>Action</Text>
                 <Selecter
                     options={servicesAction.map((service) => service.item)}
                     selectedValue={selectedActionService}
@@ -84,7 +95,7 @@ const AreaScreen: React.FC = () => {
             </View>
             <Divider style={{ backgroundColor: colors.gray, width: '100%', marginVertical: 20, height: 2 }} />
             <View style={styles.container}>
-                <Text style={[textsStyle.title, colorsStyle.light]}>Reaction:</Text>
+                <Text style={[textsStyle.title, colorsStyle.light]}>Reaction</Text>
                 <Selecter
                     options={servicesReaction.map((service) => service.item)}
                     selectedValue={selectedReactionService}
@@ -96,6 +107,16 @@ const AreaScreen: React.FC = () => {
                     selectedValue={selectedReaction}
                     onItemChange={setSelectedReaction}
                     placeholder="Select an reaction"
+                />
+            </View>
+            <View style={styles.buttonContainer}>
+                <Button
+                    label="Save"
+                    onPress={() => handleSave()}
+                />
+                <Button
+                    label="Delete"
+                    onPress={() => handleDelete()}
                 />
             </View>
         </ScrollView>
@@ -120,6 +141,12 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    buttonContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        width: '100%',
     }
 });
 
