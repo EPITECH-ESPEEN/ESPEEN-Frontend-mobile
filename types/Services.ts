@@ -8,6 +8,8 @@
     ┗━━━━━━━━━━━━━━━━━━━┛
 */
 
+import { ISelecterItem } from "./Selecter";
+
 export interface IServiceButton {
     name: string;
     path: string;
@@ -32,3 +34,9 @@ export interface IService {
     actions: IServiceAction[];
     reactions: IServiceReaction[];
 };
+
+export interface IServiceSelecterItem {
+    item: ISelecterItem;
+    actions: ISelecterItem[];
+    reactions: ISelecterItem[];
+}
