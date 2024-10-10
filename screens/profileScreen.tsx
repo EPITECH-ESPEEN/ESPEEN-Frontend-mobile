@@ -18,6 +18,7 @@ import { logout } from "../services/authService";
 import Button from "../components/inputs/button";
 import { useTranslation } from "react-i18next";
 import LangSelecter from "../components/special/LangSelecter";
+import ColorBlindSelecter from "../components/special/ColorBlindSelector";
 
 
 /* ----- COMPONENT ----- */
@@ -32,12 +33,12 @@ const ProfileScreen: React.FC = () => {
 
     return (
         <ScrollView contentContainerStyle={styles.scrollContainer}>
-            <Text_>Profile Screen</Text_>
+            <LangSelecter />
+            <ColorBlindSelecter />
             <Button
                 label={t('dico.logout')}
                 onPress={logoutButton}
             />
-            <LangSelecter />
         </ScrollView>
     );
 };
@@ -52,6 +53,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: colors.dark,
+        gap: 40,
     }
 });
 

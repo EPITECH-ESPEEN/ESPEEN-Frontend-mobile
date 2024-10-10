@@ -1,11 +1,6 @@
 {
     "langCode": "en",
     "langName": "English",
-    "services": {
-        "linked": "Linked account",
-        "not_linked": "Link an account",
-        "add_bot": "Add a bot"
-    },
     "languages": {
         "select_lang": "Select language",
         "gb": "English",
@@ -14,16 +9,73 @@
         "es": "Spanish",
         "de": "German"
     },
+    "color_blind": {
+        "select_color_blind": "Select color blind mode",
+        "default": "Default",
+        "protanopia": "Protanopia",
+        "deuteranopia": "Deuteranopia",
+        "tritanopia": "Tritanopia",
+        "achromatopsia": "Achromatopsia"
+    },
+    "error": {
+        "invalid_login": "Invalid login or password",
+        "invalid_register": "Invalid registration"
+    },
+    "services": {
+        "search": "Search a service...",
+        "linked": "Linked account",
+        "not_linked": "Link an account",
+        "add_bot": "Add a bot"
+    },
+    "area": {
+        "select_service": "Select a service",
+        "select_action": "Select an action",
+        "select_reaction": "Select an reaction",
+        "label": {
+            "add_bot": "Add a bot",
+            "comment_video": "Comment a video",
+            "like_post": "Like a post",
+            "like_video": "Like a video",
+            "live_ended": "Live ended",
+            "live_started": "Live started",
+            "post_like": "Post liked",
+            "receive_calendar_event": "Receive a calendar event",
+            "receive_contact_request": "Receive a contact request",
+            "receive_document": "Receive a document",
+            "receive_email": "Receive an email",
+            "receive_friend_request": "Receive a friend request",
+            "receive_private_message": "Receive a private message",
+            "send_calendar_event": "Send a calendar event",
+            "send_chat_message": "Send a chat message",
+            "send_contact_request": "Send a contact request",
+            "send_document": "Send a document",
+            "send_donation": "Send a donation",
+            "send_email": "Send an email",
+            "send_friend_request": "Send a friend request",
+            "send_notification": "Send a notification",
+            "send_private_message": "Send a private message",
+            "share_story": "Share a story",
+            "share_video": "Share a video",
+            "song_started": "Song started",
+            "story_seen": "Story seen",
+            "video_liked": "Video liked",
+            "video_uploaded": "Video uploaded"
+        }
+    },
     "dico": {
+        "action": "Action",
         "actions": "Actions",
+        "clear": "Clear",
+        "email": "Email",
+        "error": "Error",
         "language": "Language",
         "login": "Login",
         "logout": "Logout",
         "name": "Name",
         "password": "Password",
         "profile": "Profile",
+        "reaction": "Reaction",
         "register": "Register",
-        "clear": "Clear",
         "services": "Services",
         "status": "Status",
         "username": "Username"

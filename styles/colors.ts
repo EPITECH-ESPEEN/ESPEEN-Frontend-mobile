@@ -13,7 +13,7 @@ import { StyleSheet } from "react-native";
 
 
 /* ----- STYLES ----- */
-export const colors = {
+export let colors = {
     "green": "#50C878",
     "green2": "#3E935A",
     "dark": "#36454F",

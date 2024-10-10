@@ -1,11 +1,6 @@
 {
     "langCode": "ru",
     "langName": "Russian",
-    "services": {
-        "linked": "Связанный аккаунт",
-        "not_linked": "Привязать аккаунт",
-        "add_bot": "Добавить бота"
-    },
     "languages": {
         "select_lang": "Выберите язык",
         "gb": "Английский",
@@ -14,16 +9,73 @@
         "es": "испанский",
         "de": "немецкий"
     },
+    "color_blind": {
+        "select_color_blind": "Выберите режим цветовой слепоты",
+        "default": "По умолчанию",
+        "protanopia": "протанопия",
+        "deuteranopia": "Дейтеранопия",
+        "tritanopia": "Тританопия",
+        "achromatopsia": "Ахроматопсия"
+    },
+    "error": {
+        "invalid_login": "Неверный логин или пароль",
+        "invalid_register": "Недействительная регистрация"
+    },
+    "services": {
+        "search": "Поиск услуги...",
+        "linked": "Связанный аккаунт",
+        "not_linked": "Привязать аккаунт",
+        "add_bot": "Добавить бота"
+    },
+    "area": {
+        "select_service": "Выберите услугу",
+        "select_action": "Выберите действие",
+        "select_reaction": "Выберите реакцию",
+        "label": {
+            "add_bot": "Добавить бота",
+            "comment_video": "Прокомментировать видео",
+            "like_post": "Поставить отметку «Нравится» на посте",
+            "like_video": "Нравится видео",
+            "live_ended": "Прямой эфир закончился",
+            "live_started": "Прямой эфир начался",
+            "post_like": "Пост понравился",
+            "receive_calendar_event": "Получить событие календаря",
+            "receive_contact_request": "Получить запрос на контакт",
+            "receive_document": "Получить документ",
+            "receive_email": "Получить электронное письмо",
+            "receive_friend_request": "Получить запрос на добавление в друзья",
+            "receive_private_message": "Получить личное сообщение",
+            "send_calendar_event": "Отправить событие календаря",
+            "send_chat_message": "Отправить сообщение в чате",
+            "send_contact_request": "Отправить запрос на контакт",
+            "send_document": "Отправить документ",
+            "send_donation": "Отправить пожертвование",
+            "send_email": "Отправить электронное письмо",
+            "send_friend_request": "Отправить запрос на добавление в друзья",
+            "send_notification": "Отправить уведомление",
+            "send_private_message": "Отправить личное сообщение",
+            "share_story": "Поделитесь историей",
+            "share_video": "Поделитесь видео",
+            "song_started": "Песня началась",
+            "story_seen": "История просмотрена",
+            "video_liked": "Видео понравилось",
+            "video_uploaded": "Видео загружено"
+        }
+    },
     "dico": {
+        "action": "Действие",
         "actions": "Действия",
+        "clear": "Прозрачный",
+        "email": "Электронная почта",
+        "error": "Ошибка",
         "language": "Язык",
         "login": "Авторизоваться",
         "logout": "Выйти",
         "name": "Имя",
         "password": "Пароль",
         "profile": "Профиль",
+        "reaction": "Реакция",
         "register": "Зарегистрироваться",
-        "clear": "Прозрачный",
         "services": "Услуги",
         "status": "Статус",
         "username": "Имя пользователя"

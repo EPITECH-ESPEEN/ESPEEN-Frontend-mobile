@@ -20,6 +20,7 @@ import LoadingPage from './components/loading/LoadingPage';
 import EspeenIcon from './components/icons/espeenIcon';
 import i18n, { setDefaultLanguage } from './i18n/i18n';
 import { useTranslation } from 'react-i18next';
+import { setDefaultColorBlind } from './services/colorBlind';
 
 /* ----- LOAD FONTS ----- */
 const loadFonts = async () => {
@@ -64,6 +65,7 @@ function App() {
     React.useEffect(() => {
         const loadResources = async () => {
             await setDefaultLanguage();
+            await setDefaultColorBlind();
             await loadFonts();
             setIsRessourcesLoaded(true);
         };

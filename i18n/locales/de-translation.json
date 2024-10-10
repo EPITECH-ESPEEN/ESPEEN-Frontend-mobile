@@ -1,11 +1,6 @@
 {
     "langCode": "de",
     "langName": "German",
-    "services": {
-        "linked": "Verknüpftes Konto",
-        "not_linked": "Ein Konto verknüpfen",
-        "add_bot": "Einen Bot hinzufügen"
-    },
     "languages": {
         "select_lang": "Sprache auswählen",
         "gb": "Englisch",
@@ -14,16 +9,73 @@
         "es": "Spanisch",
         "de": "Deutsch"
     },
+    "color_blind": {
+        "select_color_blind": "Wählen Sie den Farbenblindheitsmodus",
+        "default": "Standard",
+        "protanopia": "Protanopie",
+        "deuteranopia": "Deuteranopie",
+        "tritanopia": "Tritanopie",
+        "achromatopsia": "Achromatopsie"
+    },
+    "error": {
+        "invalid_login": "Ungültiger Login oder ungültiges Passwort",
+        "invalid_register": "Ungültige Registrierung"
+    },
+    "services": {
+        "search": "Suche einen Dienst...",
+        "linked": "Verknüpftes Konto",
+        "not_linked": "Ein Konto verknüpfen",
+        "add_bot": "Einen Bot hinzufügen"
+    },
+    "area": {
+        "select_service": "Wählen Sie einen Dienst aus",
+        "select_action": "Auswählen einer Aktion",
+        "select_reaction": "Wählen Sie eine Reaktion aus",
+        "label": {
+            "add_bot": "Einen Bot hinzufügen",
+            "comment_video": "Kommentieren Sie ein Video",
+            "like_post": "Einen Beitrag liken",
+            "like_video": "Ein Video liken",
+            "live_ended": "Live beendet",
+            "live_started": "Live gestartet",
+            "post_like": "Beitrag gefällt mir",
+            "receive_calendar_event": "Empfangen eines Kalenderereignisses",
+            "receive_contact_request": "Eine Kontaktanfrage erhalten",
+            "receive_document": "Erhalten Sie ein Dokument",
+            "receive_email": "Erhalten Sie eine E-Mail",
+            "receive_friend_request": "Eine Freundschaftsanfrage erhalten",
+            "receive_private_message": "Erhalten Sie eine private Nachricht",
+            "send_calendar_event": "Senden eines Kalenderereignisses",
+            "send_chat_message": "Senden einer Chat-Nachricht",
+            "send_contact_request": "Senden Sie eine Kontaktanfrage",
+            "send_document": "Senden eines Dokuments",
+            "send_donation": "Senden Sie eine Spende",
+            "send_email": "Senden Sie eine E-Mail",
+            "send_friend_request": "Senden Sie eine Freundschaftsanfrage",
+            "send_notification": "Senden einer Benachrichtigung",
+            "send_private_message": "Senden Sie eine private Nachricht",
+            "share_story": "Teilen Sie eine Geschichte",
+            "share_video": "Ein Video teilen",
+            "song_started": "Lied hat begonnen",
+            "story_seen": "Geschichte gesehen",
+            "video_liked": "Video gefällt mir",
+            "video_uploaded": "Video hochgeladen"
+        }
+    },
     "dico": {
+        "action": "Aktion",
         "actions": "Aktionen",
+        "clear": "Klar",
+        "email": "E-Mail",
+        "error": "Fehler",
         "language": "Sprache",
         "login": "Login",
         "logout": "Ausloggen",
         "name": "Name",
         "password": "Passwort",
         "profile": "Profil",
+        "reaction": "Reaktion",
         "register": "Registrieren",
-        "clear": "Klar",
         "services": "Dienstleistungen",
         "status": "Status",
         "username": "Benutzername"
