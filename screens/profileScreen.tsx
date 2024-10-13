@@ -27,8 +27,10 @@ const ProfileScreen: React.FC = () => {
     const navigation = useNavigation();
     const { t } = useTranslation();
 
+    const [logout] = useLazyLogoutQuery();
+
     const logoutButton = async () => {
-        await useLazyLogoutQuery();
+        await logout();
         navigation.navigate('Espeen');
     }
 

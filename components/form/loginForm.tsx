@@ -26,6 +26,8 @@ import { useSelector } from "react-redux";
 /* ----- COMPONENT ----- */
 const LoginForm: React.FC = () => {
     const [loginTab, setLoginTab] = useState<boolean>(true);
+
+    const [email, setEmail] = useState<string>("");
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
@@ -50,6 +52,7 @@ const LoginForm: React.FC = () => {
     }, [error, isAuthenticated, navigation]);
 
     const reset = () => {
+        setEmail("");
         setUsername("");
         setPassword("");
     }
@@ -62,8 +65,13 @@ const LoginForm: React.FC = () => {
         }
 
         setLoading(true);
-        const loginData = { username, password };
-        login(loginData);
+        if (loginTab) {
+            const loginData = { username, password };
+            login(loginData);
+        } else {
+            const registerData = { email, username, password };
+            register(registerData);
+        }
     };
     // const validate = async () => {
     //     if (username.length === 0 || password.length === 0) {
