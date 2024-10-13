@@ -15,20 +15,12 @@ import * as React from 'react';
 import * as Font from 'expo-font';
 import { getScreensConfigs } from './router/routerConfig';
 import { colors } from './styles/colors';
+import { isAuthenticated } from './services/authService';
 import LoadingPage from './components/loading/LoadingPage';
 import EspeenIcon from './components/icons/espeenIcon';
 import i18n, { setDefaultLanguage } from './i18n/i18n';
 import { useTranslation } from 'react-i18next';
 import { setDefaultColorBlind } from './services/colorBlind';
-import { Provider, useSelector } from 'react-redux';
-import { store } from './redux/store';
-
-
-// import { store, persistor } from './redux/store';
-// import { PersistGate } from 'redux-persist/integration/react';
-
-//TODO
-// import { isAuthenticated } from './services/authService';
 
 /* ----- LOAD FONTS ----- */
 const loadFonts = async () => {
@@ -47,20 +39,18 @@ function App() {
     const tabConfig = getScreensConfigs();
     const [loading, setLoading] = React.useState(false);
     const [isRessourcesLoaded, setIsRessourcesLoaded] = React.useState(false);
+    const { t } = useTranslation();
     const accessibleTabs = tabConfig.filter(screen => screen.accessible);
     const unaccessibleTabs = tabConfig.filter(screen => !screen.accessible);
-    
-    const { isAuthenticated } = useSelector((state: any) => state.auth);
-    const { t } = useTranslation();
 
     const handleTabPress = async (e: EventArg<"tabPress", true, undefined>, navigation: { navigate: (arg0: string) => void; }, logged: boolean) => {
         e.preventDefault();
         const timeout = setTimeout(() => {
             setLoading(true);
         }, 200);
-
+        const auth = await isAuthenticated();
         clearTimeout(timeout);
-        if (logged && !isAuthenticated) {
+        if (logged && !auth) {
             navigation.navigate('login');
         } else {
             const tabName = e.target?.toString().split('-')[0];
@@ -137,10 +127,4 @@ function App() {
     );
 }
 
-const AppWrapper = () => (
-    <Provider store={store}>
-            <App />
-    </Provider>
-);
-
-export default AppWrapper;
+export default App;
