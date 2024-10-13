@@ -1,5 +1,6 @@
 /*
     Author:
+    >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
     („• ֊ •„)❤
@@ -14,7 +15,7 @@ import { StyleSheet, ScrollView } from "react-native";
 import Text_ from "../components/overwrite/Text";
 import { colors } from "../styles/colors";
 import { useNavigation } from "@react-navigation/native";
-import { logout } from "../services/authService";
+import { useLazyLogoutQuery } from "../redux/api/authApi";
 import Button from "../components/inputs/button";
 import { useTranslation } from "react-i18next";
 import LangSelecter from "../components/special/LangSelecter";
@@ -23,12 +24,12 @@ import ColorBlindSelecter from "../components/special/ColorBlindSelector";
 
 /* ----- COMPONENT ----- */
 const ProfileScreen: React.FC = () => {
-    const naviagtion = useNavigation();
+    const navigation = useNavigation();
     const { t } = useTranslation();
 
     const logoutButton = async () => {
-        await logout();
-        naviagtion.navigate('Espeen');
+        await useLazyLogoutQuery();
+        navigation.navigate('Espeen');
     }
 
     return (

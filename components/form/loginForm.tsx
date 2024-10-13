@@ -1,5 +1,6 @@
 /*
     Author:
+    >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
     („• ֊ •„)❤
@@ -9,17 +10,18 @@
 */
 
 /* ----- IMPORTS ----- */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { colors, colorsStyle } from "../../styles/colors";
 import { textsStyle } from "../../styles/textsStyle";
 import Button from "../inputs/button";
 import TextInput from "../inputs/textInput";
 import PasswordInput from "../inputs/passwordInput";
-import { login, register } from "../../services/authService";
 import LoadingPage from "../loading/LoadingPage";
 import { useNavigation } from "@react-navigation/native";
 import { useTranslation } from "react-i18next";
+import { useLoginMutation, useRegisterMutation } from "../../redux/api/authApi";
+import { useSelector } from "react-redux";
 
 /* ----- COMPONENT ----- */
 const LoginForm: React.FC = () => {
@@ -27,40 +29,88 @@ const LoginForm: React.FC = () => {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
+    const [isError, setIsError] = useState<boolean>(false);
+
+
     const navigation = useNavigation();
     const { t } = useTranslation();
+
+    const [login, { error }] = useLoginMutation();
+    const [register] = useRegisterMutation();
+    const { isAuthenticated } = useSelector((state: any) => state.auth);
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigation.navigate('Espeen');
+        }
+        if (error) {
+            setIsError(true);
+            setLoading(false);
+        }
+    }, [error, isAuthenticated, navigation]);
 
     const reset = () => {
         setUsername("");
         setPassword("");
     }
 
+//TODO : i18n error message
     const validate = async () => {
         if (username.length === 0 || password.length === 0) {
-            alert("Please fill all fields.");
+            alert(t('error.fill_all_fields'));
             return;
         }
 
-        const timeout = setTimeout(() => {
-            setLoading(true);
-        }, 200);
+        setLoading(true);
+        const loginData = { username, password };
+        login(loginData);
+    };
+    // const validate = async () => {
+    //     if (username.length === 0 || password.length === 0) {
+    //         alert("Please fill all fields.");
+    //         return;
+    //     }
 
-        if (loginTab) {
-            const response = await login(username, password);
-            if (!response.success) {
-                postValidation(false, timeout, response.msg);
-                return;
-            }
-            postValidation(true, timeout);
-        } else {
-            const response = await register(username, password);
-            if (!response.success) {
-                postValidation(false, timeout, response.msg);
-                return;
-            }
-            postValidation(true, timeout);
-        }
-    }
+    //     const timeout = setTimeout(() => {
+    //         setLoading(true);
+    //     }, 200);
+
+    //     if (loginTab) {
+    //         const response = await login(username, password);
+    //         if (!response.success) {
+    //             postValidation(false, timeout, response.msg);
+    //             return;
+    //         }
+    //         postValidation(true, timeout);
+    //     } else {
+    //         const response = await register(username, password);
+    //         if (!response.success) {
+    //             postValidation(false, timeout, response.msg);
+    //             return;
+    //         }
+    //         postValidation(true, timeout);
+    //     }
+
+        // try {
+        //     if (loginTab) {
+        //         await login({ username, password }).unwrap();
+        //     } else {
+        //         await register({ username, email: username, password }).unwrap();
+        //     }
+        //     postValidation(true, timeout);
+        // } catch (error) {
+        //     clearTimeout(timeout);
+        //     setLoading(false);
+    
+        //     if (error && typeof error === 'object' && 'status' in error && error.status === 'FETCH_ERROR') {
+        //         alert("Network request failed. Please check your internet connection and try again.");
+        //     } else {
+        //         alert("Authentication failed. Please try again.");
+        //     }
+    
+        //     postValidation(false, timeout, "Authentication failed.");
+        // }
+    // }
 
     const postValidation = (ok: boolean, timeout: NodeJS.Timeout, msg?: string) => {
         if (!ok)
@@ -97,7 +147,6 @@ const LoginForm: React.FC = () => {
         </View>
     );
 };
-
 
 /* ----- STYLES ----- */
 const styles = StyleSheet.create({

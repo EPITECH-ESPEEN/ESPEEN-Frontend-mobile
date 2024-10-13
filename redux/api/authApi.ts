@@ -13,6 +13,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { userApi } from "./userApi";
 import { logout } from "../features/userSlice";
+import { API_BASE_URL } from '@env'
 
 
 /* ----- TYPES ----- */
@@ -31,7 +32,7 @@ interface RegisterRequestBody {
 /* ----- FUNCTIONS ----- */
 export const authApi = createApi({
     reducerPath: "authApi",
-    baseQuery: fetchBaseQuery({ baseUrl: "/api" }),
+    baseQuery: fetchBaseQuery({ baseUrl: `${API_BASE_URL}/api` }),
     endpoints: (builder) => ({
         login: builder.mutation<void, LoginRequestBody>({
             query(body) {

@@ -12,7 +12,7 @@
 /* ----- IMPORTS ----- */
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setIsAuthenticated, setUser } from "../features/userSlice";
-
+import { API_BASE_URL } from '@env'
 
 /* ----- TYPES ----- */
 interface User {
@@ -30,7 +30,7 @@ interface ProfileResponse {
 /* ----- FUNCTIONS ----- */
 export const userApi = createApi({
     reducerPath: "userApi",
-    baseQuery: fetchBaseQuery({ baseUrl: "/api" }),
+    baseQuery: fetchBaseQuery({ baseUrl: `${API_BASE_URL}/api` }),
     tagTypes: ["User"],
     endpoints: (builder) => ({
         getUsers: builder.query<User[], void>({
