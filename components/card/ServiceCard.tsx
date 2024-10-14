@@ -10,12 +10,13 @@
 
 /* ----- IMPORTS ----- */
 import React from "react";
-import { Text, StyleSheet, View, Image } from "react-native";
+import { Text, StyleSheet, View, Image, Linking } from "react-native";
 import { Button } from 'react-native-paper';
 import { textsStyle } from "../../styles/textsStyle";
 import { colors, colorsStyle } from "../../styles/colors";
 import { useTranslation } from "react-i18next";
 import { IService, IServiceButton } from "../../types/Services";
+import { getBaseUrl } from "../../services/fetch";
 
 
 /* ----- PROPS ----- */
@@ -27,9 +28,13 @@ interface ServiceCardProps {
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     const { t } = useTranslation();
 
-    const callPath = (action: IServiceButton) => {
-        console.log(`${action.name} : ${action.path}`);
-    }
+    const callPath = async (action: IServiceButton) => {
+        try {
+            await Linking.openURL(`${getBaseUrl()}/${action.path}`);
+        } catch (err) {
+            console.error("Failed to open URL: ", err);
+        }
+    };
 
     return (
         <View style={styles.container}>
@@ -43,7 +48,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                     <Text style={[textsStyle.text, colorsStyle.gray]}>{ t('dico.actions') }</Text>
                     { service.buttons.map((action, index) => (
                         <Button key={index} mode="contained" onPress={() => callPath(action)} buttonColor={action.name === "services.linked" ? colors.green : action.name === "services.not_linked" ? colors.red : colors.dark} labelStyle={[textsStyle.cardText, colorsStyle.light]}>
-                            {t(action.name)}
+                            {t(`services.${action.name}`)}
                         </Button>
                     ))}
                 </View>

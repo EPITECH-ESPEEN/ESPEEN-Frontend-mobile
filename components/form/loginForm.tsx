@@ -26,6 +26,7 @@ const LoginForm: React.FC = () => {
     const [loginTab, setLoginTab] = useState<boolean>(true);
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
     const navigation = useNavigation();
     const { t } = useTranslation();
@@ -33,6 +34,7 @@ const LoginForm: React.FC = () => {
     const reset = () => {
         setUsername("");
         setPassword("");
+        setEmail("");
     }
 
     const validate = async () => {
@@ -47,15 +49,15 @@ const LoginForm: React.FC = () => {
 
         if (loginTab) {
             const response = await login(username, password);
-            if (!response.success) {
-                postValidation(false, timeout, response.msg);
+            if (!response) {
+                postValidation(false, timeout, "Failed to login.");
                 return;
             }
             postValidation(true, timeout);
         } else {
-            const response = await register(username, password);
-            if (!response.success) {
-                postValidation(false, timeout, response.msg);
+            const response = await register(username, email, password);
+            if (!response) {
+                postValidation(false, timeout, "Failed to register.");
                 return;
             }
             postValidation(true, timeout);
@@ -86,6 +88,7 @@ const LoginForm: React.FC = () => {
             <View style={styles.form}>
                 <View style={styles.inputs}>
                     <TextInput label={ t('dico.username') } value={username} onChangeText={setUsername} />
+                    {!loginTab && <TextInput label={ t('dico.email') } value={email} onChangeText={setEmail} />}
                     <PasswordInput label={ t('dico.password') } value={password} onChangeText={setPassword} />
                 </View>
                 <View style={styles.buttons}>

@@ -20,6 +20,7 @@ import { IServiceSelecterItem } from "../types/Services";
 import { getAreaServicesActions, getAreaServicesReactions } from "../services/services";
 import LoadingPage from "../components/loading/LoadingPage";
 import Button from "../components/inputs/button";
+import { fetchPost } from "../services/fetch";
 
 
 /* ----- COMPONENT ----- */
@@ -47,13 +48,8 @@ const AreaScreen: React.FC = () => {
     }
 
     const handleSave = () => {
-        // TODO: Save the data
-        console.log("Save");
-    }
-
-    const handleDelete = () => {
-        // TODO: Delete the data
-        console.log("Delete");
+        const response = fetchPost("area", {})
+        console.log(response);
     }
 
     useEffect(() => {
@@ -113,10 +109,6 @@ const AreaScreen: React.FC = () => {
                 <Button
                     label="Save"
                     onPress={() => handleSave()}
-                />
-                <Button
-                    label="Delete"
-                    onPress={() => handleDelete()}
                 />
             </View>
         </ScrollView>

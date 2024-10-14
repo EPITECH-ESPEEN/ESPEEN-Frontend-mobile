@@ -12,34 +12,58 @@
 import { getToken } from "./authService";
 
 
+/* ----- DATAS ----- */
+const API_URL = "http://10.73.190.103:8080/api";
+
+
 /* ----- FUNCTIONS ----- */
-export function fetchGet(url: string) {
-    const token = getToken() || "";
-    return fetch(url, {
+export async function fetchGet(url: string) {
+    const completeUrl = `${API_URL}/${url}`;
+    const authToken = await getToken();
+    return fetch(completeUrl, {
         headers: {
-            Authorization: "Bearer " + token,
+            Authorization: "Bearer " + authToken || "",
         },
     });
 }
 
-export function fetchPut(url: string, body: unknown) {
-    const token = getToken() || "";
-    return fetch(url, {
+export async function fetchPut(url: string, body: unknown) {
+    const completeUrl = `${API_URL}/${url}`;
+    const authToken = await getToken();
+    return fetch(completeUrl, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json',
-            Authorization: "Bearer " + token,
+            Authorization: "Bearer " + authToken || "",
         },
         body: JSON.stringify(body),
     });
 }
 
-export function fetchDelete(url: string) {
-    const token = getToken() || "";
-    return fetch(url, {
+export async function fetchPost(url: string, body: unknown) {
+    const completeUrl = `${API_URL}/${url}`;
+    const authToken = await getToken();
+    return fetch(completeUrl, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: "Bearer " + authToken || "",
+        },
+        body: JSON.stringify(body),
+    });
+}
+
+export async function fetchDelete(url: string) {
+    const completeUrl = `${API_URL}/${url}`;
+    const authToken = await getToken();
+    return fetch(completeUrl, {
         method: "DELETE",
         headers: {
-            Authorization: "Bearer " + token,
+            Authorization: "Bearer " + authToken || "",
         },
     });
+}
+
+export function getBaseUrl() {
+    return API_URL;
 }
