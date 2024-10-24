@@ -18,8 +18,12 @@
         "achromatopsia": "Achromatopsie"
     },
     "error": {
+        "fill_all_actions_reactions": "Sie müssen alle Aktionen und Reaktionen ausfüllen",
         "invalid_login": "Ungültiger Login oder ungültiges Passwort",
-        "invalid_register": "Ungültige Registrierung"
+        "invalid_register": "Ungültige Registrierung",
+        "link_all_actions_reactions": "Sie müssen alle Aktionen und Reaktionen verknüpfen",
+        "save_failed": "Speichern fehlgeschlagen. Später erneut versuchen ...",
+        "user_not_found": "Benutzer nicht gefunden. Versuchen Sie es später erneut ..."
     },
     "services": {
         "search": "Suche einen Dienst...",
@@ -31,36 +35,33 @@
         "select_service": "Wählen Sie einen Dienst aus",
         "select_action": "Auswählen einer Aktion",
         "select_reaction": "Wählen Sie eine Reaktion aus",
-        "label": {
-            "add_bot": "Einen Bot hinzufügen",
-            "comment_video": "Kommentieren Sie ein Video",
-            "like_post": "Einen Beitrag liken",
-            "like_video": "Ein Video liken",
-            "live_ended": "Live beendet",
-            "live_started": "Live gestartet",
-            "post_like": "Beitrag gefällt mir",
-            "receive_calendar_event": "Empfangen eines Kalenderereignisses",
-            "receive_contact_request": "Eine Kontaktanfrage erhalten",
-            "receive_document": "Erhalten Sie ein Dokument",
-            "receive_email": "Erhalten Sie eine E-Mail",
-            "receive_friend_request": "Eine Freundschaftsanfrage erhalten",
-            "receive_private_message": "Erhalten Sie eine private Nachricht",
-            "send_calendar_event": "Senden eines Kalenderereignisses",
-            "send_chat_message": "Senden einer Chat-Nachricht",
-            "send_contact_request": "Senden Sie eine Kontaktanfrage",
-            "send_document": "Senden eines Dokuments",
-            "send_donation": "Senden Sie eine Spende",
-            "send_email": "Senden Sie eine E-Mail",
-            "send_friend_request": "Senden Sie eine Freundschaftsanfrage",
-            "send_notification": "Senden einer Benachrichtigung",
-            "send_private_message": "Senden Sie eine private Nachricht",
-            "share_story": "Teilen Sie eine Geschichte",
-            "share_video": "Ein Video teilen",
-            "song_started": "Lied hat begonnen",
-            "story_seen": "Geschichte gesehen",
-            "video_liked": "Video gefällt mir",
-            "video_uploaded": "Video hochgeladen"
+        "discord": {
+            "bot": {
+                "receive_message": "Erhalten Sie eine Nachricht"
+            },
+            "webhook": {
+                "send_message": "Senden Sie eine Nachricht"
+            }
+        },
+        "google": {
+            "gmail": {
+                "receive_email": "Erhalten Sie eine E-Mail",
+                "send_email": "Senden Sie eine E-Mail"
+            }
         }
+    },
+    "espeen": {
+        "moto": "Verwandeln Sie Aktionen in Reaktionen!",
+        "presentation": "Espeen ist eine innovative Plattform zur Automatisierung von Arbeitsabläufen durch die nahtlose Verbindung von APIs in einem „Aktions- und Reaktions“-Modell. Inspiriert von Tools wie Microsoft Power Automate ermöglicht Espeen Benutzern, anpassbare Trigger (Aktionen) zu erstellen, die automatisch Antworten (Reaktionen) über verschiedene Anwendungen und Dienste hinweg auslösen. Dies ermöglicht eine mühelose Integration und Automatisierung sich wiederholender Aufgaben, Benachrichtigungen und Datenverwaltung. Espeen vereinfacht komplexe Prozesse, erleichtert die Optimierung täglicher Arbeitsabläufe und verbessert die Produktivität im persönlichen und beruflichen Kontext.",
+        "team_description": "Unser Team besteht aus fünf leidenschaftlichen Studenten, von denen jeder einzigartige Fähigkeiten in das Espeen-Projekt einbringt. Mit Hintergründen in Softwareentwicklung, UI/UX-Design und API-Integration arbeiten wir zusammen, um innovative Ideen zum Leben zu erwecken. Unser Engagement für Zugänglichkeit und benutzerfreundliches Design treibt uns an, Lösungen zu entwickeln, die nicht nur technische Anforderungen erfüllen, sondern auch das Benutzererlebnis verbessern. Gemeinsam widmen wir uns dem Aufbau einer Plattform, die neu definiert, wie Menschen mit ihren digitalen Umgebungen interagieren und diese automatisieren.",
+        "team_presentation": "Lernen Sie das Team kennen"
+    },
+    "team": {
+        "caroline_boilly": "Fullstack-Entwickler & SCRUM-Master",
+        "clement_piasco": "CyberSecurity- und DevOps-Entwickler",
+        "daniil_stepanov": "Datenbank- und Backend-Entwickler",
+        "leonard_oursel": "Datenbank- und Backend-Entwickler",
+        "nathan_tirolf": "Frontend- und Mobile-Entwickler"
     },
     "dico": {
         "action": "Aktion",

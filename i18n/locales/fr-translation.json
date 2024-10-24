@@ -5,7 +5,7 @@
         "select_lang": "Sélectionner la langue",
         "gb": "Anglais",
         "fr": "Français",
-        "ru": "russe",
+        "ru": "Russe",
         "es": "Espagnol",
         "de": "Allemand"
     },
@@ -18,8 +18,12 @@
         "achromatopsia": "Achromatopsie"
     },
     "error": {
+        "fill_all_actions_reactions": "Vous devez remplir toutes les actions et réactions",
         "invalid_login": "Login ou mot de passe invalide",
-        "invalid_register": "Inscription invalide"
+        "invalid_register": "Inscription invalide",
+        "link_all_actions_reactions": "Vous devez lier toutes les actions et réactions",
+        "save_failed": "L'enregistrement a échoué. Réessayez plus tard...",
+        "user_not_found": "Utilisateur non trouvé. Réessayez plus tard..."
     },
     "services": {
         "search": "Rechercher un service...",
@@ -31,36 +35,33 @@
         "select_service": "Sélectionnez un service",
         "select_action": "Sélectionnez une action",
         "select_reaction": "Sélectionnez une réaction",
-        "label": {
-            "add_bot": "Ajouter un bot",
-            "comment_video": "Commenter une vidéo",
-            "like_post": "Aimer une publication",
-            "like_video": "Aimer une vidéo",
-            "live_ended": "Fin du direct",
-            "live_started": "Début du live",
-            "post_like": "Publication appréciée",
-            "receive_calendar_event": "Recevoir un événement du calendrier",
-            "receive_contact_request": "Recevoir une demande de contact",
-            "receive_document": "Recevoir un document",
-            "receive_email": "Recevoir un email",
-            "receive_friend_request": "Recevoir une demande d'ami",
-            "receive_private_message": "Recevoir un message privé",
-            "send_calendar_event": "Envoyer un événement de calendrier",
-            "send_chat_message": "Envoyer un message de discussion",
-            "send_contact_request": "Envoyer une demande de contact",
-            "send_document": "Envoyer un document",
-            "send_donation": "Envoyer un don",
-            "send_email": "Envoyer un email",
-            "send_friend_request": "Envoyer une demande d'ami",
-            "send_notification": "Envoyer une notification",
-            "send_private_message": "Envoyer un message privé",
-            "share_story": "Partager une histoire",
-            "share_video": "Partager une vidéo",
-            "song_started": "La chanson a commencé",
-            "story_seen": "Histoire vue",
-            "video_liked": "Vidéo aimée",
-            "video_uploaded": "Vidéo téléchargée"
+        "discord": {
+            "bot": {
+                "receive_message": "Recevoir un message"
+            },
+            "webhook": {
+                "send_message": "Envoyer un message"
+            }
+        },
+        "google": {
+            "gmail": {
+                "receive_email": "Recevoir un email",
+                "send_email": "Envoyer un email"
+            }
         }
+    },
+    "espeen": {
+        "moto": "Transformez les actions en réactions !",
+        "presentation": "Espeen est une plateforme innovante conçue pour automatiser les flux de travail en connectant de manière transparente les API dans un modèle « action et réaction ». Inspirée par des outils tels que Microsoft Power Automate, Espeen permet aux utilisateurs de créer des déclencheurs personnalisables (actions) qui déclenchent automatiquement des réponses (réactions) dans diverses applications et services. Cela permet une intégration et une automatisation sans effort des tâches répétitives, des notifications et de la gestion des données. Espeen simplifie les processus complexes, facilitant ainsi la rationalisation des flux de travail quotidiens et améliorant la productivité dans les contextes personnels et professionnels.",
+        "team_description": "Notre équipe est composée de cinq étudiants passionnés, chacun apportant un ensemble de compétences unique au projet Espeen. Avec des antécédents en développement de logiciels, en conception UI/UX et en intégration d'API, nous collaborons pour donner vie à des idées innovantes. Notre engagement envers l'accessibilité et la conception conviviale nous pousse à créer des solutions qui non seulement répondent aux exigences techniques, mais améliorent également l'expérience utilisateur. Ensemble, nous nous consacrons à la construction d'une plateforme qui redéfinit la manière dont les gens interagissent avec leurs environnements numériques et les automatisent.",
+        "team_presentation": "Rencontrez l'équipe"
+    },
+    "team": {
+        "caroline_boilly": "Développeur Fullstack & SCRUM Master",
+        "clement_piasco": "Développeur Cybersécurité & DevOps",
+        "daniil_stepanov": "Développeur de bases de données et back-end",
+        "leonard_oursel": "Développeur de bases de données et back-end",
+        "nathan_tirolf": "Développeur Front-End et Mobile"
     },
     "dico": {
         "action": "Action",

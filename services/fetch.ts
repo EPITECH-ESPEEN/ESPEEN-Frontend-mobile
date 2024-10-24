@@ -13,7 +13,7 @@ import { getToken } from "./authService";
 
 
 /* ----- DATAS ----- */
-const API_URL = "http://10.73.190.103:8080/api";
+const API_URL = "http://10.73.190.221:8080/api";
 
 
 /* ----- FUNCTIONS ----- */
