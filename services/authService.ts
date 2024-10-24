@@ -15,13 +15,13 @@ import { reloadAsync } from 'expo-updates';
 
 
 /* ----- FUNCTIONS ----- */
-const setTokenCookie = (token: string): void => {
+const setTokenCookie = (token: string) => {
     // const expires = new Date();
     // expires.setTime(expires.getTime() + 7 * 24 * 60 * 60 * 1000);
     // document.cookie = `authToken=${token};expires=${expires.toUTCString()};path=/`;
 };
 
-const deleteTokenCookie = (): void => {
+const deleteTokenCookie = () => {
     // document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 };
 
@@ -79,8 +79,3 @@ export const logout = async (): Promise<void> => {
     deleteTokenCookie();
     reloadAsync();
 };
-
-export const getToken = async (): Promise<string> => {
-    const token = await AsyncStorage.getItem('authToken');
-    return token || "";
-}
