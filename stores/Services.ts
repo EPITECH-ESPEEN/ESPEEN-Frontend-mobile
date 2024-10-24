@@ -26,7 +26,7 @@ export async function fetchServices() {
         lastFetch = Date.now();
         for (let i = 0; i < jsonResponse.services.length; i++) {
             const tmp = { ...(jsonResponse.services[i] as IService) };
-            services.set(tmp.service_id, { fetch: Date.now(), service: tmp });
+            services.set(tmp.uid, { fetch: Date.now(), service: tmp });
         }
     } catch (error) {
         console.error("Error fetching services: ", error);
@@ -38,7 +38,7 @@ export async function fetchService(service_id: number) {
         const response = await fetchGet(`services/${service_id}`);
         const jsonResponse = await response.json();
         const tmp = { ...(jsonResponse as IService) };
-        services.set(tmp.service_id, { fetch: Date.now(), service: tmp });
+        services.set(tmp.uid, { fetch: Date.now(), service: tmp });
     } catch (error) {
         console.error("Error fetching service: ", error);
     }

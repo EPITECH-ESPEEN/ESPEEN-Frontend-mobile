@@ -57,8 +57,8 @@ const ServicesScreen: React.FC = () => {
                 <TextInput label="Search" value={search} onChangeText={updateSearch} color="dark" />
             </View>
             <View style={styles.libraryContainer}>
-                {filteredServices.map((service: IService) => (
-                    <ServiceCard service={service} key={service.service_id} />
+                {filteredServices.map((service: IService, key: number) => (
+                    <ServiceCard service={service} key={key} />
                 ))}
             </View>
         </ScrollView>
