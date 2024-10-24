@@ -13,13 +13,17 @@
         "select_color_blind": "Seleccionar el modo para daltónicos",
         "default": "Por defecto",
         "protanopia": "Protanopía",
-        "deuteranopia": "Deuteranopia",
+        "deuteranopia": "Deuteranopía",
         "tritanopia": "Tritanopía",
         "achromatopsia": "acromatopsia"
     },
     "error": {
+        "fill_all_actions_reactions": "Debes completar todas las acciones y reacciones.",
         "invalid_login": "Usuario o contraseña no válidos",
-        "invalid_register": "Registro inválido"
+        "invalid_register": "Registro inválido",
+        "link_all_actions_reactions": "Debes vincular todas las acciones y reacciones.",
+        "save_failed": "Error al guardar. Inténtalo de nuevo más tarde...",
+        "user_not_found": "Usuario no encontrado. Inténtalo más tarde..."
     },
     "services": {
         "search": "Buscar un servicio...",
@@ -31,36 +35,33 @@
         "select_service": "Seleccione un servicio",
         "select_action": "Seleccione una acción",
         "select_reaction": "Seleccione una reacción",
-        "label": {
-            "add_bot": "Agregar un bot",
-            "comment_video": "Comentar un video",
-            "like_post": "Me gusta una publicación",
-            "like_video": "Me gusta un video",
-            "live_ended": "La vida terminó",
-            "live_started": "Comenzó la vida",
-            "post_like": "Publicación que me gustó",
-            "receive_calendar_event": "Recibir un evento del calendario",
-            "receive_contact_request": "Recibir una solicitud de contacto",
-            "receive_document": "Recibir un documento",
-            "receive_email": "Recibir un correo electrónico",
-            "receive_friend_request": "Recibir una solicitud de amistad",
-            "receive_private_message": "Recibir un mensaje privado",
-            "send_calendar_event": "Enviar un evento del calendario",
-            "send_chat_message": "Enviar un mensaje de chat",
-            "send_contact_request": "Enviar una solicitud de contacto",
-            "send_document": "Enviar un documento",
-            "send_donation": "Enviar una donación",
-            "send_email": "Enviar un correo electrónico",
-            "send_friend_request": "Enviar una solicitud de amistad",
-            "send_notification": "Enviar una notificación",
-            "send_private_message": "Enviar un mensaje privado",
-            "share_story": "Comparte una historia",
-            "share_video": "Compartir un video",
-            "song_started": "La canción empezó",
-            "story_seen": "Historia vista",
-            "video_liked": "Video que me gustó",
-            "video_uploaded": "Vídeo subido"
+        "discord": {
+            "bot": {
+                "receive_message": "Recibir un mensaje"
+            },
+            "webhook": {
+                "send_message": "Enviar un mensaje"
+            }
+        },
+        "google": {
+            "gmail": {
+                "receive_email": "Recibir un correo electrónico",
+                "send_email": "Enviar un correo electrónico"
+            }
         }
+    },
+    "espeen": {
+        "moto": "¡Convierte las acciones en reacciones!",
+        "presentation": "Espeen es una plataforma innovadora diseñada para automatizar flujos de trabajo mediante la conexión fluida de API en un modelo de \"acción y reacción\". Inspirada en herramientas como Microsoft Power Automate, Espeen permite a los usuarios crear activadores personalizables (acciones) que inician automáticamente respuestas (reacciones) en varias aplicaciones y servicios. Esto permite una integración y automatización sin esfuerzo de tareas repetitivas, notificaciones y gestión de datos. Espeen simplifica procesos complejos, lo que facilita la optimización de los flujos de trabajo diarios y la mejora de la productividad tanto en contextos personales como profesionales.",
+        "team_description": "Nuestro equipo está compuesto por cinco estudiantes apasionados, cada uno de los cuales aporta un conjunto único de habilidades al proyecto Espeen. Con experiencia en desarrollo de software, diseño de UI/UX e integración de API, colaboramos para dar vida a ideas innovadoras. Nuestro compromiso con la accesibilidad y el diseño fácil de usar nos impulsa a crear soluciones que no solo satisfacen las demandas técnicas, sino que también mejoran la experiencia del usuario. Juntos, nos dedicamos a construir una plataforma que redefina la forma en que las personas interactúan con sus entornos digitales y los automatizan.",
+        "team_presentation": "Conozca al equipo"
+    },
+    "team": {
+        "caroline_boilly": "Desarrollador Fullstack y SCRUM Master",
+        "clement_piasco": "Desarrollador de ciberseguridad y DevOps",
+        "daniil_stepanov": "Desarrollador de bases de datos y backend",
+        "leonard_oursel": "Desarrollador de bases de datos y backend",
+        "nathan_tirolf": "Desarrollador de frontend y móvil"
     },
     "dico": {
         "action": "Acción",

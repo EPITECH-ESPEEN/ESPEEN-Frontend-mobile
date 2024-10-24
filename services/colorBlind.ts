@@ -99,7 +99,6 @@ export async function setDefaultColorBlind() {
         setDefaultColor();
     else
         changeColorBlind(color);
-    console.log("ColorBlind set to", color);
 }
 
 export function getActualColorBlind() {
