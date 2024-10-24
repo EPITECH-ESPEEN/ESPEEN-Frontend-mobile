@@ -33,9 +33,9 @@ export async function fetchServices() {
     }
 }
 
-export async function fetchService(service_id: number) {
+export async function fetchService(uid: number) {
     try {
-        const response = await fetchGet(`services/${service_id}`);
+        const response = await fetchGet(`services/${uid}`);
         const jsonResponse = await response.json();
         const tmp = { ...(jsonResponse as IService) };
         services.set(tmp.uid, { fetch: Date.now(), service: tmp });
@@ -54,8 +54,8 @@ export async function getServices() {
     return tmp;
 }
 
-export async function getService(service_id: number) {
-    const service = services.get(service_id);
-    if (service === undefined || Date.now() - service.fetch > 1000 * 60 * 60 * 24) await fetchService(service_id);
-    return services.get(service_id)?.service;
+export async function getService(uid: number) {
+    const service = services.get(uid);
+    if (service === undefined || Date.now() - service.fetch > 1000 * 60 * 60 * 24) await fetchService(uid);
+    return services.get(uid)?.service;
 }

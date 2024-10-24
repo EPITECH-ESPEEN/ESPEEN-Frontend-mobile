@@ -21,7 +21,7 @@ async function getAreaServices(): Promise<IServiceSelecterItem[]> {
         services.push({
             item: {
                 label: service.name,
-                value: service.service_id.toString(),
+                value: service.uid.toString(),
             },
             actions: service.actions.map((action) => {
                 return {

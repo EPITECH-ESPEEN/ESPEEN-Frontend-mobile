@@ -23,7 +23,6 @@ export async function fetchGet(url: string) {
     return fetch(completeUrl, {
         headers: {
             Authorization: "Bearer " + authToken || "",
-            credentials: 'include',
         },
     });
 }
@@ -36,7 +35,6 @@ export async function fetchPut(url: string, body: unknown) {
         headers: {
             'Content-Type': 'application/json',
             Authorization: "Bearer " + authToken || "",
-            credentials: 'include',
         },
         body: JSON.stringify(body),
     });
@@ -44,13 +42,14 @@ export async function fetchPut(url: string, body: unknown) {
 
 export async function fetchPost(url: string, body: unknown) {
     const completeUrl = `${API_URL}/${url}`;
+    console.log("completeUrl", completeUrl);
     const authToken = await getToken();
+    console.log("token: ", authToken);
     return fetch(completeUrl, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
             Authorization: "Bearer " + authToken || "",
-            credentials: 'include',
         },
         body: JSON.stringify(body),
     });
@@ -63,7 +62,6 @@ export async function fetchDelete(url: string) {
         method: "DELETE",
         headers: {
             Authorization: "Bearer " + authToken || "",
-            credentials: 'include',
         },
     });
 }
