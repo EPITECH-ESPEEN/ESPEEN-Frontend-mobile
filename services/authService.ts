@@ -11,6 +11,7 @@
 /* ----- IMPORTS ----- */
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { fetchPost } from './fetch';
+import { reloadAsync } from 'expo-updates';
 
 
 /* ----- FUNCTIONS ----- */
@@ -76,7 +77,7 @@ export const isAuthenticated = async (): Promise<boolean> => {
 export const logout = async (): Promise<void> => {
     await AsyncStorage.removeItem('authToken');
     deleteTokenCookie();
-    window.location.reload();
+    reloadAsync();
 };
 
 export const getToken = async (): Promise<string> => {
