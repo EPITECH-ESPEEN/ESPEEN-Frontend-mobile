@@ -10,17 +10,17 @@
 
 /* ----- IMPORTS ----- */
 import React, { useEffect, useState } from "react";
-import { StyleSheet, ScrollView } from "react-native";
-import Text_ from "../components/overwrite/Text";
-import { colors } from "../styles/colors";
-import { useNavigation } from "@react-navigation/native";
+import { StyleSheet, ScrollView, Text } from "react-native";
+import { colors, colorsStyle } from "../styles/colors";
 import { logout } from "../services/authService";
 import Button from "../components/inputs/button";
 import { useTranslation } from "react-i18next";
 import LangSelecter from "../components/special/LangSelecter";
 import ColorBlindSelecter from "../components/special/ColorBlindSelector";
-import { getUser, setUser } from "../stores/User";
+import { getUser } from "../stores/User";
 import { IUser } from "../types/User";
+import { textsStyle } from "../styles/textsStyle";
+import LoadingPage from "../components/loading/LoadingPage";
 
 
 /* ----- COMPONENT ----- */
@@ -48,8 +48,16 @@ const ProfileScreen: React.FC = () => {
         return () => clearInterval(interval);
     }, [user]);
 
+    if (!user)
+        return (
+            <ScrollView contentContainerStyle={styles.scrollContainer}>
+                <LoadingPage />
+            </ScrollView>
+        );
+
     return (
         <ScrollView contentContainerStyle={styles.scrollContainer}>
+            <Text style={[textsStyle.title, colorsStyle.light]}>{user.username} {t('dico.profile')}</Text>
             <LangSelecter />
             <ColorBlindSelecter />
             <Button

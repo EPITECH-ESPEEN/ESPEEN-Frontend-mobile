@@ -12,28 +12,13 @@ export interface INodeDatas {
 }
 
 export interface INode {
-    id: string;
-    position: { x: number, y: number };
-    data: any;
-    type?: string;
-};
-
-export interface IEdge {
-    id: string;
+    data: INodeDatas;
     type: string;
-    source: string;
-    target: string;
 };
 
-export interface INodeTypes {
-    [key: string]: React.FC<any>;
-};
-
-export interface INodesIds {
-    [key: string]: number;
-}
 
 export interface IGraphNode {
+    id: number;
     source: INode;
     targets: INode[];
 }

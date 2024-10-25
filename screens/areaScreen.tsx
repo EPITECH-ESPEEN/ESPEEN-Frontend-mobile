@@ -4,62 +4,94 @@
 
     („• ֊ •„)❤
     ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
+    ┃ Have a good day !        ┃
     ┗━━━━━━━━━━━━━━━━━━━┛
 */
 
+
 /* ----- IMPORTS ----- */
-import React from "react";
-import { StyleSheet, ScrollView, Text } from "react-native";
-import ReactDOMServer from 'react-dom/server';
-import { colors, colorsStyle } from "../styles/colors";
-import WebView from "react-native-webview";
-import { textsStyle } from "../styles/textsStyle";
+import React, { useEffect, useState } from "react";
+import { StyleSheet, View } from "react-native";
+import Swiper from "../components/swiper/swiper";
+import { initialNodes, setInitialNodes } from "../stores/Nodes";
+import NodePage from "../components/nodes/nodePage";
+import { Plus } from 'lucide-react-native';
+import { colors } from "../styles/colors";
+import IconButton from "../components/inputs/buttonIcon";
+import { getUser } from "../stores/User";
+import LoadingPage from "../components/loading/LoadingPage";
 
 
 /* ----- COMPONENT ----- */
-const AreaScreenContent: React.FC = () => {
+const AddNodePage: React.FC = () => {
+    function addPage() {
+        const tmp = initialNodes;
+        const newPage = {
+            id: initialNodes.length,
+            source: {
+                data: {service: null, option: null},
+                type: "action"
+            },
+            targets: [
+                {
+                    data: {service: null, option: null},
+                    type: "reaction"
+                }
+            ]
+        };
+        tmp.push(newPage);
+        setInitialNodes(tmp);
+    }
+
     return (
-        <div style={styles.container}>
-            <div style={colorsStyle.light}>
-                Area Page
-            </div>
-        </div>
+        <View style={styles.button}>
+            <IconButton icon={Plus} onPress={addPage} size={32} color="light"/>
+        </View>
     );
 }
 
 const AreaScreen: React.FC = () => {
-    const htmlString = ReactDOMServer.renderToString(<AreaScreenContent />);
+    const [childrens, setChildrens] = useState<React.ReactNode[]>([]);
+    const updateChildrens = () => {
+        const tmp = [];
+        for (let i = 0; i < initialNodes.length; i++)
+            tmp.push(<NodePage key={i} graph={initialNodes[i]} />);
+        tmp.push(<AddNodePage />);
+        setChildrens(tmp);
+    }
+
+    const handleDelete = (id: number) => {
+        if (id < 0) return;
+        const tmp = initialNodes.filter((_, index) => index !== id);
+        setInitialNodes(tmp);
+    }
+
+    useEffect(() => {
+        setInterval(() => {
+            if (childrens.length <= 1) {
+                getUser();
+                updateChildrens();
+                return;
+            }
+            if (childrens.length - 1 != initialNodes.length) {
+                updateChildrens();
+                return;
+            }
+        }, 1000);
+    }, [initialNodes]);
 
     return (
-        <WebView
-            source={{ html: htmlString }}
-            style={styles.scrollContainer}
-        />
+        <Swiper childrens={childrens} deleteChild={handleDelete} />
     );
 };
 
-
 /* ----- STYLES ----- */
 const styles = StyleSheet.create({
-    scrollContainer: {
-        flexGrow: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: colors.dark,
-    },
-    container: {
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
+    button: {
+        padding: 10,
+        borderRadius: 100,
+        backgroundColor: colors.green,
     }
 });
 
-
 export default AreaScreen;
-

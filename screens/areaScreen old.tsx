@@ -59,7 +59,6 @@ const AreaScreenOld: React.FC = () => {
             setServicesAction(tmp);
             const tmp2 = await getAreaServicesReactions();
             setServicesReaction(tmp2);
-            console.log("data fetched");
         }
         fetchData();
     });

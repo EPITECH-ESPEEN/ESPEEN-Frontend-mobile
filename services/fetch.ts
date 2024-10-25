@@ -13,7 +13,7 @@ import { getToken } from "./token";
 
 
 /* ----- DATAS ----- */
-const API_URL = "http://10.73.190.221:8080/api";
+const API_URL = "http://10.73.190.160:8080/api";
 
 
 /* ----- FUNCTIONS ----- */
@@ -42,9 +42,7 @@ export async function fetchPut(url: string, body: unknown) {
 
 export async function fetchPost(url: string, body: unknown) {
     const completeUrl = `${API_URL}/${url}`;
-    console.log("completeUrl", completeUrl);
     const authToken = await getToken();
-    console.log("token: ", authToken);
     return fetch(completeUrl, {
         method: "POST",
         headers: {

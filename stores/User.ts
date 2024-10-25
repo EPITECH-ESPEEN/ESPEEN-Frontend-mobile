@@ -8,8 +8,9 @@
 
 /* ----- IMPORTS ----- */
 import { fetchGet } from "../services/fetch";
-import { setDefaultNodes, tableToGraph } from "../services/nodes";
+import { tableToGraph } from "../services/nodes";
 import { IUser } from "../types/User";
+import { setInitialNodes } from "./Nodes";
 
 
 /* ----- DATAS ----- */
@@ -29,7 +30,7 @@ export async function fetchUser() {
         const graph = tableToGraph(user.actionReaction);
         if (typeof graph === "boolean")
             throw new Error("Error while converting table to nodes");
-        setDefaultNodes(graph);
+        setInitialNodes(graph);
     } catch (error) {
         console.error("Error fetching services: ", error);
     }

@@ -22,11 +22,12 @@ interface SelectorProps {
     selectedValue: ISelecterItem | null;
     onItemChange: (item: ISelecterItem) => void;
     placeholder: string;
+    color?: keyof typeof colors;
 }
 
 
 /* ----- COMPONENT ----- */
-const Selecter: React.FC<SelectorProps> = ({ options, selectedValue, onItemChange, placeholder }) => {
+const Selecter: React.FC<SelectorProps> = ({ options, selectedValue, onItemChange, placeholder, color = "light" }) => {
     const [isModalVisible, setModalVisible] = useState(false);
 
     const handleSelect = (value: { label: string, value: string }) => {
@@ -37,13 +38,13 @@ const Selecter: React.FC<SelectorProps> = ({ options, selectedValue, onItemChang
     return (
         <View style={styles.container}>
             <TouchableOpacity
-                style={styles.selector}
+                style={[styles.selector, {borderColor: colors[color]}]}
                 onPress={() => setModalVisible(true)}
             >
-                <Text style={styles.text}>
+                <Text style={[styles.text, {color: colors[color]}]}>
                     {selectedValue ? selectedValue.label : placeholder}
                 </Text>
-                <ChevronDown size={24} color={colors.light} />
+                <ChevronDown size={24} color={colors[color]} />
             </TouchableOpacity>
 
             <Modal visible={isModalVisible} transparent={true} animationType="fade">
@@ -86,14 +87,12 @@ const styles = StyleSheet.create({
         padding: 12,
         borderWidth: 2,
         borderRadius: 10,
-        borderColor: colors.light,
         backgroundColor: 'transparent',
         width: '100%',
     },
     text: {
         fontFamily: 'montserrat-alternates-regular',
         fontSize: 18,
-        color: colors.light,
     },
     modalOverlay: {
         flex: 1,
