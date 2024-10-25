@@ -18,8 +18,12 @@ import NodePage from "../components/nodes/nodePage";
 import { Plus } from 'lucide-react-native';
 import { colors } from "../styles/colors";
 import IconButton from "../components/inputs/buttonIcon";
-import { getUser } from "../stores/User";
+import { getUser, setUser } from "../stores/User";
 import LoadingPage from "../components/loading/LoadingPage";
+import { graphToTable } from "../services/nodes";
+import { useTranslation } from "react-i18next";
+import { fetchPost } from "../services/fetch";
+import ErrorPage from "../components/error/ErrorPage";
 
 
 /* ----- COMPONENT ----- */
@@ -52,6 +56,10 @@ const AddNodePage: React.FC = () => {
 
 const AreaScreen: React.FC = () => {
     const [childrens, setChildrens] = useState<React.ReactNode[]>([]);
+    const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState<boolean>(false);
+    const { t } = useTranslation();
+
     const updateChildrens = () => {
         const tmp = [];
         for (let i = 0; i < initialNodes.length; i++)
@@ -64,6 +72,31 @@ const AreaScreen: React.FC = () => {
         if (id < 0) return;
         const tmp = initialNodes.filter((_, index) => index !== id);
         setInitialNodes(tmp);
+    }
+
+    const handleSave = async () => {
+        const graph = initialNodes;
+        const table = graphToTable(graph);
+        if (typeof table === "boolean") {
+            setError(t("error.fill_all_actions_reactions"));
+            return;
+        }
+        setLoading(true);
+        const user = await getUser();
+        if (!user) {
+            setLoading(false);
+            setError(t("error.user_not_found"));
+            return;
+        }
+        user.actionReaction = table;
+        const response = await fetchPost("user", user);
+        if (!response.ok) {
+            setLoading(false);
+            setError(t("error.save_failed"));
+            return;
+        }
+        setUser({ ...user });
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -81,7 +114,16 @@ const AreaScreen: React.FC = () => {
     }, [initialNodes]);
 
     return (
-        <Swiper childrens={childrens} deleteChild={handleDelete} />
+        <>
+            { loading || error ?
+                error ?
+                    <ErrorPage error={error} onConfirm={() => setError(null)} />
+                    :
+                    <LoadingPage />
+                :
+                <Swiper childrens={childrens} deleteChild={handleDelete} saveChilds={handleSave} />
+            }
+        </>
     );
 };
 

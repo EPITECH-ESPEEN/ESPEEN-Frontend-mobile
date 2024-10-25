@@ -31,7 +31,6 @@ const EspeenScreen: React.FC = () => {
                 <Text style={[textsStyle.text, colorsStyle.light, styles.text]}>{t('espeen.presentation')}</Text>
             </View>
             <View style={styles.textContainer}>
-                <Text style={[textsStyle.huge, colorsStyle.light, styles.text]}>Espeen</Text>
                 <Text style={[textsStyle.title, colorsStyle.light, styles.text]}>{t('espeen.team_presentation')}</Text>
                 <Text style={[textsStyle.text, colorsStyle.light, styles.text]}>{t('espeen.team_description')}</Text>
             </View>

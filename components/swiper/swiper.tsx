@@ -13,18 +13,19 @@ import React, { useState } from "react";
 import { ScrollView, StyleSheet, View, Text } from "react-native";
 import { colors, colorsStyle } from "../../styles/colors";
 import IconButton from "../inputs/buttonIcon";
-import { ChevronLeft, ChevronRight, Trash2 } from "lucide-react-native";
+import { ChevronLeft, ChevronRight, Trash2, Save } from "lucide-react-native";
 
 
 /* ----- PROPS ----- */
 interface SwiperProps {
     childrens: React.ReactNode[];
     deleteChild: (id: number) => void;
+    saveChilds: () => void;
 }
 
 
 /* ----- COMPONENT ----- */
-const Swiper: React.FC<SwiperProps> = ({ childrens, deleteChild }) => {
+const Swiper: React.FC<SwiperProps> = ({ childrens, deleteChild, saveChilds }) => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const modifyInfex = (value: number) => {
@@ -56,6 +57,9 @@ const Swiper: React.FC<SwiperProps> = ({ childrens, deleteChild }) => {
                     <IconButton icon={Trash2} onPress={() => deleteChild(activeIndex)} size={32} color="red"/>
                 </View>
             }
+            <View style={styles.buttonBottomLeft}>
+                <IconButton icon={Save} onPress={saveChilds} size={32} color="light"/>
+            </View>
         </>
     );
 };
@@ -95,6 +99,14 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 60,
         right: 15,
+    },
+    buttonBottomLeft: {
+        position: 'absolute',
+        bottom: 20,
+        left: 20,
+        backgroundColor: colors.green,
+        padding: 10,
+        borderRadius: 100,
     },
 });
 
