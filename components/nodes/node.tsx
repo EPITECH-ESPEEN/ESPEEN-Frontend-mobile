@@ -49,6 +49,12 @@ const Node: React.FC<NodeProps> = ({id = -1, node, canBeDeleted = false, deleteN
         const tmp = services!.find((s) => s.item.value === service.value);
         setOptions(node.type === "action" ? tmp!.actions : tmp!.reactions);
         setSelectedOption(null);
+        node.data.service = service.label;
+    }
+
+    const handleOptionChange = (option: ISelecterItem) => {
+        setSelectedOption(option);
+        node.data.option = option.label;
     }
 
     useEffect(() => {
@@ -94,7 +100,7 @@ const Node: React.FC<NodeProps> = ({id = -1, node, canBeDeleted = false, deleteN
                 <SelecterWithTraduction
                     options={options}
                     selectedValue={selectedOption}
-                    onItemChange={setSelectedOption}
+                    onItemChange={handleOptionChange}
                     placeholder={t('select_reaction')}
                     color="dark"
                     baseTraduction="area."
