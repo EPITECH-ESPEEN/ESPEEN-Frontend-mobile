@@ -23,6 +23,7 @@ import { textsStyle } from "../../styles/textsStyle";
 import { useTranslation } from "react-i18next";
 import IconButton from "../inputs/buttonIcon";
 import { X } from "lucide-react-native";
+import SelecterWithTraduction from "../inputs/selecterWithTrad";
 
 
 /* ----- PROPS ----- */
@@ -43,6 +44,13 @@ const Node: React.FC<NodeProps> = ({id = -1, node, canBeDeleted = false, deleteN
     const [options, setOptions] = useState<ISelecterItem[] | null>(null);
     const [selectedOption, setSelectedOption] = useState<ISelecterItem | null>(null);
 
+    const handleChangeService = (service: ISelecterItem) => {
+        setSelectedService(service);
+        const tmp = services!.find((s) => s.item.value === service.value);
+        setOptions(node.type === "action" ? tmp!.actions : tmp!.reactions);
+        setSelectedOption(null);
+    }
+
     useEffect(() => {
         if (services) return;
         const fetchData = async () => {
@@ -52,6 +60,14 @@ const Node: React.FC<NodeProps> = ({id = -1, node, canBeDeleted = false, deleteN
             else
                 tmp = await getAreaServicesReactions();
             setServices(tmp);
+            if (!node.data.option) return;
+            const service = tmp.find((s) => s.item.label === node.data.service);
+            if (!service) return;
+            setSelectedService(service.item);
+            setOptions(node.type === "action" ? service!.actions : service!.reactions);
+            const option = service.actions.find((a) => a.label === node.data.option);
+            if (!option) return;
+            setSelectedOption(option);
         }
         fetchData();
     });
@@ -69,18 +85,19 @@ const Node: React.FC<NodeProps> = ({id = -1, node, canBeDeleted = false, deleteN
             <Selecter
                 options={services.map((service) => service.item)}
                 selectedValue={selectedService}
-                onItemChange={setSelectedService}
-                placeholder="Select a service"
+                onItemChange={handleChangeService}
+                placeholder={t('area.select_service')}
                 color="dark"
             />
             {
-                selectedService &&
-                <Selecter
-                    options={services.find((service) => service.item.value === selectedService.value)!.actions}
+                selectedService && options &&
+                <SelecterWithTraduction
+                    options={options}
                     selectedValue={selectedOption}
                     onItemChange={setSelectedOption}
-                    placeholder="Select an action"
+                    placeholder={t('select_reaction')}
                     color="dark"
+                    baseTraduction="area."
                 />
             }
         </View>

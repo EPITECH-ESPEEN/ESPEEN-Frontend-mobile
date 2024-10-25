@@ -24,11 +24,12 @@ interface SelectorProps {
     onItemChange: (item: ISelecterItem) => void;
     placeholder: string;
     baseTraduction: string;
+    color?: keyof typeof colors;
 }
 
 
 /* ----- COMPONENT ----- */
-const SelecterWithTraduction: React.FC<SelectorProps> = ({ options, selectedValue, onItemChange, placeholder, baseTraduction }) => {
+const SelecterWithTraduction: React.FC<SelectorProps> = ({ options, selectedValue, onItemChange, placeholder, baseTraduction, color = "light" }) => {
     const { t } = useTranslation();
     const [isModalVisible, setModalVisible] = useState(false);
 
@@ -40,13 +41,13 @@ const SelecterWithTraduction: React.FC<SelectorProps> = ({ options, selectedValu
     return (
         <View style={styles.container}>
             <TouchableOpacity
-                style={styles.selector}
+                style={[styles.selector, {borderColor: colors[color]}]}
                 onPress={() => setModalVisible(true)}
             >
-                <Text style={styles.text}>
+                <Text style={[styles.text, {color: colors[color]}]}>
                     {selectedValue ? t(`${baseTraduction}${selectedValue.label}`) : t(`${baseTraduction}${placeholder}`)}
                 </Text>
-                <ChevronDown size={24} color={colors.light} />
+                <ChevronDown size={24} color={colors[color]} />
             </TouchableOpacity>
 
             <Modal visible={isModalVisible} transparent={true} animationType="fade">

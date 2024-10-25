@@ -34,7 +34,7 @@
     "area": {
         "select_service": "Select a service",
         "select_action": "Select an action",
-        "select_reaction": "Select an reaction",
+        "select_reaction": "Select a reaction",
         "discord": {
             "bot": {
                 "receive_message": "Receive a message"
