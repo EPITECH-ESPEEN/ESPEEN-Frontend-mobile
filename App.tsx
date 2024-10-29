@@ -21,6 +21,7 @@ import EspeenIcon from './components/icons/espeenIcon';
 import i18n, { setDefaultLanguage } from './i18n/i18n';
 import { useTranslation } from 'react-i18next';
 import { setDefaultColorBlind } from './services/colorBlind';
+import { getUser } from './stores/User';
 
 /* ----- LOAD FONTS ----- */
 const loadFonts = async () => {
@@ -67,6 +68,7 @@ function App() {
             await setDefaultLanguage();
             await setDefaultColorBlind();
             await loadFonts();
+            await getUser();
             setIsRessourcesLoaded(true);
         };
 
@@ -96,9 +98,9 @@ function App() {
                 }}
                 initialRouteName='Espeen'
             >
-                {accessibleTabs.map(({ name, content, icon, logged }) => (
+                {accessibleTabs.map(({ name, content, icon, logged }, index) => (
                     <TabNav.Screen
-                        key={name}
+                        key={index}
                         name={name === 'Espeen' ? 'Espeen' : name === 'AREA' ? 'AREA' : t(`dico.${name}`)}
                         component={content}
                         options={{
@@ -110,9 +112,9 @@ function App() {
                         })}
                     />
                 ))}
-                {unaccessibleTabs.map(({ name, content }) => (
+                {unaccessibleTabs.map(({ name, content }, index) => (
                     <TabNav.Screen
-                        key={name}
+                        key={index}
                         name={name}
                         component={content}
                         options={{

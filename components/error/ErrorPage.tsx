@@ -10,16 +10,25 @@
 
 /* ----- IMPORTS ----- */
 import React from 'react';
-import { ActivityIndicator, View, StyleSheet } from 'react-native';
-import { colors } from '../../styles/colors';
-import { Portal } from 'react-native-paper';
+import { View, StyleSheet, Text } from 'react-native';
+import { colors, colorsStyle } from '../../styles/colors';
+import { CircleArrowLeft } from 'lucide-react-native';
+import IconButton from '../inputs/buttonIcon';
+import { textsStyle } from '../../styles/textsStyle';
+
+/* ----- PROPS ----- */
+interface ErrorPageProps {
+    error: string;
+    onConfirm: () => void;
+}
 
 
 /* ----- COMPONENT ----- */
-const LoadingPage = () => {
+const ErrorPage: React.FC<ErrorPageProps> = ({ error, onConfirm }) => {
     return (
         <View style={styles.loaderContainer}>
-            <ActivityIndicator size="large" color={colors.green} />
+            <Text style={[textsStyle.title, colorsStyle.red]}>{error}</Text>
+            <IconButton icon={CircleArrowLeft} onPress={onConfirm} size={32} color="red"/>
         </View>
     );
 };
@@ -37,7 +46,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: colors.dark,
         zIndex: 999,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 20,
     },
 });
 
-export default LoadingPage;
+export default ErrorPage;

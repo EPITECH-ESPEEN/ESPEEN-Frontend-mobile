@@ -51,12 +51,12 @@ def translation_exists(lang_code):
 
 
 # Function to update language and i18n files for a new translation
-def update_language_files(lang_code, lang_name):
+def update_language_files(lang_code, lang_name, flag_code):
     with open(LANG_FILE_PATH, "r") as f:
         lang_data = f.read().replace(
             "//NEW",
             f'{{ name: "languages.{lang_code.lower()}", code: "{lang_code.lower()}", '
-            f'flag: "https://flagsapi.com/{lang_code.upper()}/flat/64.png" }},\n    //NEW'
+            f'flag: "https://flagsapi.com/{flag_code.upper()}/flat/64.png" }},\n    //NEW'
         )
 
     with open(LANG_FILE_PATH, "w+") as f:
@@ -87,7 +87,7 @@ def update_locale_files_with_language(lang_code, lang_name):
 
 
 # Function to translate and create a translation file
-def create_translation(lang_code, lang_name, update_files=True):
+def create_translation(lang_code, lang_name, flag_code, update_files=True):
     # Load the reference translation file (e.g., gb-translation.json)
     origin = load_json(REFERENCE_FILE)
 
@@ -101,7 +101,7 @@ def create_translation(lang_code, lang_name, update_files=True):
 
     if update_files:
         # Update lang.tsx and i18n.tsx only for new translations
-        update_language_files(lang_code, lang_name)
+        update_language_files(lang_code, lang_name, flag_code)
 
     # Update all locale JSON files with the new language
     update_locale_files_with_language(lang_code, lang_name)
@@ -128,7 +128,7 @@ def recreate_all_translations():
         print(f"Recreating translation for {actual_lang_code} ({actual_lang_name})")
 
         # Recreate the translation by re-translating from the reference file, without updating lang.tsx or i18n.tsx
-        create_translation(actual_lang_code, actual_lang_name, update_files=False)
+        create_translation(actual_lang_code, actual_lang_name, actual_lang_code, update_files=False)
 
 
 # Main function
@@ -139,18 +139,19 @@ def main():
     if len(sys.argv) == 1:
         # No arguments passed: update all existing translations except reference file
         recreate_all_translations()
-    elif len(sys.argv) == 3:
+    elif len(sys.argv) >= 3:
         # Arguments provided: translate a single language
         lang_code = sys.argv[1]
         lang_name = sys.argv[2]
+        flag_code = sys.argv[3] if len(sys.argv) > 3 else lang_code  # Default to lang_code if no flag_code provided
 
         if translation_exists(lang_code):
             print(f"Translation for {lang_code}-translation already exists")
             sys.exit(1)
 
-        create_translation(lang_code, lang_name)
+        create_translation(lang_code, lang_name, flag_code)
     else:
-        print(f"Usage: {sys.argv[0]} [langCode langName]")
+        print(f"Usage: {sys.argv[0]} [LangCode LangName [FlagCode]]")
         sys.exit(1)
 
 

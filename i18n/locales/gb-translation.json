@@ -29,7 +29,8 @@
         "search": "Search a service...",
         "linked": "Linked account",
         "not_linked": "Link an account",
-        "add_bot": "Add a bot"
+        "add_bot": "Add a bot",
+        "logout": "Logout"
     },
     "area": {
         "select_service": "Select a service",

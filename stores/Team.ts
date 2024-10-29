@@ -20,9 +20,9 @@ export const teamMembers: ITeamMember[] = [
 ];
 
 export const teamPictures: { [key: string]: any } = {
-    caroline_boilly: require("../assets/img/teamMember/caroline_boilly.jpeg"),
-    clement_piasco: require("../assets/img/teamMember/clement_piasco.jpeg"),
-    daniil_stepanov: require("../assets/img/teamMember/daniil_stepanov.jpeg"),
+    caroline_boilly: require("../assets/img/teamMember/caroline_boilly.jpg"),
+    clement_piasco: require("../assets/img/teamMember/clement_piasco.png"),
+    daniil_stepanov: require("../assets/img/teamMember/daniil_stepanov.jpg"),
     leonard_oursel: require("../assets/img/teamMember/leonard_oursel.jpg"),
     nathan_tirolf: require("../assets/img/teamMember/nathan_tirolf.png"),
 }

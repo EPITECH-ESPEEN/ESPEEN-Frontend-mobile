@@ -47,7 +47,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                 <View style={styles.buttonContainer}>
                     <Text style={[textsStyle.text, colorsStyle.gray]}>{ t('dico.actions') }</Text>
                     { service.buttons.map((action, index) => (
-                        <Button key={index} mode="contained" onPress={() => callPath(action)} buttonColor={action.name === "services.linked" ? colors.green : action.name === "services.not_linked" ? colors.red : colors.dark} labelStyle={[textsStyle.cardText, colorsStyle.light]}>
+                        <Button key={index} mode="contained" onPress={() => callPath(action)} buttonColor={action.name === "linked" ? colors.green : action.name === "not_linked" ? colors.red : colors.dark} labelStyle={[textsStyle.cardText, colorsStyle.light]}>
                             {t(`services.${action.name}`)}
                         </Button>
                     ))}

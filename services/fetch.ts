@@ -13,7 +13,7 @@ import { getToken } from "./token";
 
 
 /* ----- DATAS ----- */
-const API_URL = "http://10.73.190.221:8080/api";
+const API_URL = "http://10.73.190.160:8080/api";
 
 
 /* ----- FUNCTIONS ----- */
@@ -23,7 +23,6 @@ export async function fetchGet(url: string) {
     return fetch(completeUrl, {
         headers: {
             Authorization: "Bearer " + authToken || "",
-            credentials: 'include',
         },
     });
 }
@@ -36,7 +35,6 @@ export async function fetchPut(url: string, body: unknown) {
         headers: {
             'Content-Type': 'application/json',
             Authorization: "Bearer " + authToken || "",
-            credentials: 'include',
         },
         body: JSON.stringify(body),
     });
@@ -50,7 +48,6 @@ export async function fetchPost(url: string, body: unknown) {
         headers: {
             'Content-Type': 'application/json',
             Authorization: "Bearer " + authToken || "",
-            credentials: 'include',
         },
         body: JSON.stringify(body),
     });
@@ -63,7 +60,6 @@ export async function fetchDelete(url: string) {
         method: "DELETE",
         headers: {
             Authorization: "Bearer " + authToken || "",
-            credentials: 'include',
         },
     });
 }

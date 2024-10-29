@@ -20,10 +20,8 @@ import { ChevronsDown } from "lucide-react-native";
 const LoginScreen: React.FC = () => {
     const windowHeight = Dimensions.get('window').height;
 
-    // Create a reference for the animation value
     const floatAnim = useRef(new Animated.Value(0)).current;
 
-    // Set up the floating animation
     useEffect(() => {
         Animated.loop(
             Animated.sequence([
