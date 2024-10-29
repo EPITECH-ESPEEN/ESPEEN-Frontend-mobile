@@ -29,7 +29,8 @@
         "search": "Rechercher un service...",
         "linked": "Compte lié",
         "not_linked": "Associer un compte",
-        "add_bot": "Ajouter un bot"
+        "add_bot": "Ajouter un bot",
+        "logout": "Déconnexion"
     },
     "area": {
         "select_service": "Sélectionnez un service",

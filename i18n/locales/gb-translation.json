@@ -29,12 +29,13 @@
         "search": "Search a service...",
         "linked": "Linked account",
         "not_linked": "Link an account",
-        "add_bot": "Add a bot"
+        "add_bot": "Add a bot",
+        "logout": "Logout"
     },
     "area": {
         "select_service": "Select a service",
         "select_action": "Select an action",
-        "select_reaction": "Select a reaction",
+        "select_reaction": "Select an reaction",
         "discord": {
             "bot": {
                 "receive_message": "Receive a message"

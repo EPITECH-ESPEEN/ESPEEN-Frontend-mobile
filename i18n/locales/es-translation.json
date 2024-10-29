@@ -29,7 +29,8 @@
         "search": "Buscar un servicio...",
         "linked": "Cuenta vinculada",
         "not_linked": "Vincular una cuenta",
-        "add_bot": "Agregar un bot"
+        "add_bot": "Agregar un bot",
+        "logout": "Cerrar sesión"
     },
     "area": {
         "select_service": "Seleccione un servicio",
