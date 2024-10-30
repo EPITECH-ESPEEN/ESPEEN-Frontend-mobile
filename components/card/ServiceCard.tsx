@@ -2,14 +2,12 @@
     Author:
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Text, StyleSheet, View, Image, Modal } from "react-native";
 import { Button } from 'react-native-paper';
 import { WebView } from "react-native-webview";
@@ -18,6 +16,8 @@ import { colors, colorsStyle } from "../../styles/colors";
 import { useTranslation } from "react-i18next";
 import { IService, IServiceButton } from "../../types/Services";
 import { getBaseUrl } from "../../services/fetch";
+import LoadingPage from "../loading/LoadingPage";
+import { isServiceLinked } from "../../services/services";
 
 /* ----- PROPS ----- */
 interface ServiceCardProps {
@@ -28,6 +28,23 @@ interface ServiceCardProps {
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     const { t } = useTranslation();
     const [webViewUrl, setWebViewUrl] = useState<string | null>(null);
+    const [isLinked, setIsLinked] = useState<boolean | null>(null);
+
+
+    useEffect(() => {
+        const getDatas = async () => {
+            const linked = await isServiceLinked(service.name);
+            setIsLinked(linked);
+        };
+        if (isLinked === null) {
+            getDatas();
+        }
+    }, [isLinked, service.name]);
+
+    if (isLinked === null) {
+        return <LoadingPage />;
+    }
+
 
     const setAuthTokenCookie = `
         (function() {
@@ -54,11 +71,15 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                 </View>
                 <View style={styles.buttonContainer}>
                     <Text style={[textsStyle.text, colorsStyle.gray]}>{t('dico.actions')}</Text>
-                    {service.buttons.map((action, index) => (
-                        <Button key={index} mode="contained" onPress={() => openWebViewWithCookie(action)} buttonColor={action.name === "linked" ? colors.green : action.name === "not_linked" ? colors.red : colors.dark} labelStyle={[textsStyle.cardText, colorsStyle.light]}>
-                            {t(`services.${action.name}`)}
-                        </Button>
-                    ))}
+                    {service.buttons.map((action, index) => {
+                        if (action.name === "logout" && !isLinked) return null;
+                        if (action.name === "not_linked" && isLinked) return null;
+                        return (
+                            <Button key={index} mode="contained" onPress={() => openWebViewWithCookie(action)} buttonColor={action.name === "linked" ? colors.green : action.name === "not_linked" ? colors.red : colors.dark} labelStyle={[textsStyle.cardText, colorsStyle.light]}>
+                                {t(`services.${action.name}`)}
+                            </Button>
+                        );
+                    })}
                 </View>
             </View>
 

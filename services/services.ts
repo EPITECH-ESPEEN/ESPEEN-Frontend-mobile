@@ -2,15 +2,13 @@
     Author:
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
-import { getServices } from '../stores/Services';
-import { IServiceSelecterItem } from '../types/Services';
+import { getLinkedServices, getServices } from "../stores/Services";
+import { IServiceSelecterItem } from "../types/Services";
 
 
 /* ----- FUNCTIONS ----- */
@@ -41,13 +39,22 @@ async function getAreaServices(): Promise<IServiceSelecterItem[]> {
 }
 
 export async function getAreaServicesActions(): Promise<IServiceSelecterItem[]> {
-    return getAreaServices().then((services) => {
-        return services.filter((service) => service.actions.length > 0);
-    });
+    const services = await getAreaServices();
+    const filteredServices = services.filter((service) => service.actions.length > 0);
+    return filteredServices;
 }
 
 export async function getAreaServicesReactions(): Promise<IServiceSelecterItem[]> {
-    return getAreaServices().then((services) => {
-        return services.filter((service) => service.reactions.length > 0);
-    });
+
+    const services = await getAreaServices();
+    const filteredServices = services.filter((service) => service.reactions.length > 0);
+    return filteredServices;
+}
+
+export async function isServiceLinked(serviceName: string): Promise<boolean> {
+    const tmp = await getLinkedServices();
+    for (let i = 0; i < tmp.length; i++)
+        if (tmp[i].toLowerCase() === serviceName.toLowerCase())
+            return true;
+    return false;
 }
