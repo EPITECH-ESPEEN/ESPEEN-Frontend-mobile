@@ -28,7 +28,14 @@ export async function fetchUser() {
         if (!response.ok)
             throw new Error("Error fetching user");
         const jsonResponse = await response.json();
-        user = { ...(jsonResponse.user as IUser) };
+        const tmp = { ...(jsonResponse.user as IUser) };
+        user = {
+            uid: tmp.uid,
+            username: tmp.username,
+            email: tmp.email,
+            actionReaction: tmp.actionReaction,
+            password: "",
+        }
         lastFetch = Date.now();
         const graph = tableToGraph(user.actionReaction);
         if (typeof graph === "boolean")
@@ -43,7 +50,7 @@ export async function fetchUser() {
 /* ----- GETTERS ----- */
 export async function getUser() {
     const token = await AsyncStorage.getItem('authToken');
-    if (!token) return;
+    if (!token) return null;
     if (Date.now() - lastFetch > 1000 * 60 * 60 * 24 || !user)
         await fetchUser();
     return user;

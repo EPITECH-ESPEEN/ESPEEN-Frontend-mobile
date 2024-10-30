@@ -11,4 +11,5 @@ export interface IUser {
     username: string;
     email: string;
     actionReaction: string[][];
+    password: string;
 };

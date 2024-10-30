@@ -32,4 +32,8 @@ export const textsStyle = StyleSheet.create({
         fontFamily: "montserrat-alternates-regular",
         fontSize: 16,
     },
+    hint: {
+        fontFamily: "montserrat-alternates-regular",
+        fontSize: 14,
+    }
 });

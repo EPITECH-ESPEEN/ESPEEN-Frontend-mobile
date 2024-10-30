@@ -13,6 +13,7 @@ import ServicesScreen from "../screens/servicesScreen";
 import AreaScreen from "../screens/areaScreen";
 import ProfileScreen from "../screens/profileScreen";
 import LoginScreen from "../screens/loginScreen";
+import ModifyProfileScreen from "../screens/modifyProfileScreen";
 
 export type ScreenConfig = {
     name: string;
@@ -29,6 +30,7 @@ const ScreensConfigs: ScreenConfig[] = [
     { name: 'AREA', content: AreaScreen, icon: Waypoints, logged: true, accessible: true },
     { name : 'profile', content: ProfileScreen, icon: UserRound, logged: true, accessible: true },
     { name : 'login', content: LoginScreen, logged: false, accessible: false },
+    { name : 'modifyProfile', content: ModifyProfileScreen, logged: true, accessible: false },
 ]
 
 export function getScreensConfigs(): ScreenConfig[] {

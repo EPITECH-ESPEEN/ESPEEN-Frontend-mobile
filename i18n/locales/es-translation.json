@@ -64,20 +64,29 @@
         "leonard_oursel": "Desarrollador de bases de datos y backend",
         "nathan_tirolf": "Desarrollador de frontend y móvil"
     },
+    "profile": {
+        "modify": "Modificar la información de tu perfil",
+        "modify_password": "Si desea modificar su contraseña, por favor rellene los siguientes campos, en caso contrario déjelos vacíos"
+    },
     "dico": {
         "action": "Acción",
         "actions": "Comportamiento",
+        "cancel": "Cancelar",
         "clear": "Claro",
         "email": "Correo electrónico",
         "error": "Error",
+        "hello": "Hola",
         "language": "Idioma",
         "login": "Acceso",
         "logout": "Cerrar sesión",
+        "modify_profile": "Modificar perfil",
         "name": "Nombre",
         "password": "Contraseña",
+        "password_confirm": "Confirmar Contraseña",
         "profile": "Perfil",
         "reaction": "Reacción",
         "register": "Registro",
+        "save": "Ahorrar",
         "services": "Servicios",
         "status": "Estado",
         "username": "Nombre de usuario"

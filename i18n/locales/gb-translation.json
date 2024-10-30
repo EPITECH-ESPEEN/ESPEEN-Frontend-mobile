@@ -64,20 +64,29 @@
         "leonard_oursel": "Database & Backend Developer",
         "nathan_tirolf": "Frontend & Mobile Developer"
     },
+    "profile": {
+        "modify": "Modify your profile informations",
+        "modify_password": "If you want to modify your password, please fill the following fields, otherwise leave them empty"
+    },
     "dico": {
         "action": "Action",
         "actions": "Actions",
+        "cancel": "Cancel",
         "clear": "Clear",
         "email": "Email",
         "error": "Error",
+        "hello": "Hello",
         "language": "Language",
         "login": "Login",
         "logout": "Logout",
+        "modify_profile": "Modify profile",
         "name": "Name",
         "password": "Password",
+        "password_confirm": "Confirm password",
         "profile": "Profile",
         "reaction": "Reaction",
         "register": "Register",
+        "save": "Save",
         "services": "Services",
         "status": "Status",
         "username": "Username"

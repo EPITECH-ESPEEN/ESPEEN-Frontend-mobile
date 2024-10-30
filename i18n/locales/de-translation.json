@@ -64,20 +64,29 @@
         "leonard_oursel": "Datenbank- und Backend-Entwickler",
         "nathan_tirolf": "Frontend- und Mobile-Entwickler"
     },
+    "profile": {
+        "modify": "Ändern Sie Ihre Profilinformationen",
+        "modify_password": "Wenn Sie Ihr Passwort ändern möchten, füllen Sie bitte die folgenden Felder aus, andernfalls lassen Sie sie leer"
+    },
     "dico": {
         "action": "Aktion",
         "actions": "Aktionen",
+        "cancel": "Stornieren",
         "clear": "Klar",
         "email": "E-Mail",
         "error": "Fehler",
+        "hello": "Hallo",
         "language": "Sprache",
         "login": "Login",
         "logout": "Ausloggen",
+        "modify_profile": "Profil ändern",
         "name": "Name",
         "password": "Passwort",
+        "password_confirm": "Passwort bestätigen",
         "profile": "Profil",
         "reaction": "Reaktion",
         "register": "Registrieren",
+        "save": "Speichern",
         "services": "Dienstleistungen",
         "status": "Status",
         "username": "Benutzername"

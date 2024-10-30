@@ -8,7 +8,7 @@
 
 /* ----- IMPORTS ----- */
 import React, { useEffect, useState } from "react";
-import { StyleSheet, ScrollView, Text } from "react-native";
+import { StyleSheet, ScrollView, Text, View } from "react-native";
 import { colors, colorsStyle } from "../styles/colors";
 import { logout } from "../services/authService";
 import Button from "../components/inputs/button";
@@ -19,12 +19,14 @@ import { getUser } from "../stores/User";
 import { IUser } from "../types/User";
 import { textsStyle } from "../styles/textsStyle";
 import LoadingPage from "../components/loading/LoadingPage";
+import { useNavigation } from "@react-navigation/native";
 
 
 /* ----- COMPONENT ----- */
 const ProfileScreen: React.FC = () => {
     const [user , setUser] = useState<IUser | null>(null);
     const { t } = useTranslation();
+    const { navigate } = useNavigation();
 
     const logoutButton = async () => {
         await logout();
@@ -55,13 +57,19 @@ const ProfileScreen: React.FC = () => {
 
     return (
         <ScrollView contentContainerStyle={styles.scrollContainer}>
-            <Text style={[textsStyle.title, colorsStyle.light]}>{user.username} {t('dico.profile')}</Text>
+            <Text style={[textsStyle.title, colorsStyle.light]}>{t('dico.hello')} {user.username}</Text>
             <LangSelecter />
             <ColorBlindSelecter />
-            <Button
-                label={t('dico.logout')}
-                onPress={logoutButton}
-            />
+            <View style={styles.buttonContainer}>
+                <Button
+                    label={t('dico.modify_profile')}
+                    onPress={() => navigate('modifyProfile')}
+                />
+                <Button
+                    label={t('dico.logout')}
+                    onPress={logoutButton}
+                />
+            </View>
         </ScrollView>
     );
 };
@@ -77,7 +85,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: colors.dark,
         gap: 40,
-    }
+    },
+    buttonContainer: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 20,
+    },
 });
 
 

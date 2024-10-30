@@ -17,10 +17,11 @@ interface TextInputProps {
     label: string;
     value: string;
     onChangeText: (text: string) => void;
+    color?: keyof typeof colors;
 }
 
 /* ----- COMPONENT ----- */
-const PasswordInput: React.FC<TextInputProps> = ({ label, value, onChangeText }) => {
+const PasswordInput: React.FC<TextInputProps> = ({ label, value, onChangeText, color = "green" }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
@@ -43,7 +44,7 @@ const PasswordInput: React.FC<TextInputProps> = ({ label, value, onChangeText })
                 secureTextEntry={!isPasswordVisible}
                 autoComplete="off"
             />
-            <Text style={[styles.label, isFocused || value ? styles.labelFocused : {}]}>
+            <Text style={[styles.label, isFocused || value ? [styles.labelFocused, {backgroundColor: colors[color]}] : {}]}>
                 {label}
             </Text>
             <TouchableOpacity style={styles.toggleButton} onPress={togglePasswordVisibility}>
@@ -58,6 +59,7 @@ const styles = StyleSheet.create({
     inputGroup: {
         fontFamily: "montserrat-alternates-regular",
         position: "relative",
+        width: "100%",
     },
     input: {
         fontFamily: "montserrat-alternates-regular",

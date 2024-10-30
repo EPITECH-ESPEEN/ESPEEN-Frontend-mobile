@@ -53,7 +53,7 @@
     },
     "espeen": {
         "moto": "Transformez les actions en réactions !",
-        "presentation": "Espeen est une plateforme innovante conçue pour automatiser les flux de travail en connectant de manière transparente les API dans un modèle « action et réaction ». Inspirée d'outils tels que Microsoft Power Automate, Espeen permet aux utilisateurs de créer des déclencheurs (actions) personnalisables qui déclenchent automatiquement des réponses (réactions) dans diverses applications et services. Cela permet une intégration et une automatisation sans effort des tâches répétitives, des notifications et de la gestion des données. Espeen simplifie les processus complexes, facilitant ainsi la rationalisation des flux de travail quotidiens et améliorant la productivité dans les contextes personnels et professionnels.",
+        "presentation": "Espeen est une plateforme innovante conçue pour automatiser les flux de travail en connectant de manière transparente les API dans un modèle « action et réaction ». Inspirée par des outils tels que Microsoft Power Automate, Espeen permet aux utilisateurs de créer des déclencheurs personnalisables (actions) qui déclenchent automatiquement des réponses (réactions) dans diverses applications et services. Cela permet une intégration et une automatisation sans effort des tâches répétitives, des notifications et de la gestion des données. Espeen simplifie les processus complexes, facilitant ainsi la rationalisation des flux de travail quotidiens et améliorant la productivité dans les contextes personnels et professionnels.",
         "team_description": "Notre équipe est composée de cinq étudiants passionnés, chacun apportant un ensemble de compétences unique au projet Espeen. Avec des antécédents en développement de logiciels, en conception UI/UX et en intégration d'API, nous collaborons pour donner vie à des idées innovantes. Notre engagement envers l'accessibilité et la conception conviviale nous pousse à créer des solutions qui non seulement répondent aux exigences techniques, mais améliorent également l'expérience utilisateur. Ensemble, nous nous consacrons à la construction d'une plateforme qui redéfinit la manière dont les gens interagissent avec leurs environnements numériques et les automatisent.",
         "team_presentation": "Rencontrez l'équipe"
     },
@@ -64,20 +64,29 @@
         "leonard_oursel": "Développeur de bases de données et back-end",
         "nathan_tirolf": "Développeur Front-End et Mobile"
     },
+    "profile": {
+        "modify": "Modifiez les informations de votre profil",
+        "modify_password": "Si vous souhaitez modifier votre mot de passe, veuillez remplir les champs suivants, sinon laissez-les vides"
+    },
     "dico": {
         "action": "Action",
         "actions": "Actes",
+        "cancel": "Annuler",
         "clear": "Clair",
         "email": "E-mail",
         "error": "Erreur",
+        "hello": "Bonjour",
         "language": "Langue",
         "login": "Se connecter",
         "logout": "Déconnexion",
+        "modify_profile": "Modifier le profil",
         "name": "Nom",
         "password": "Mot de passe",
+        "password_confirm": "Confirmez le mot de passe",
         "profile": "Profil",
         "reaction": "Réaction",
         "register": "Registre",
+        "save": "Sauvegarder",
         "services": "Services",
         "status": "Statut",
         "username": "Nom d'utilisateur"
