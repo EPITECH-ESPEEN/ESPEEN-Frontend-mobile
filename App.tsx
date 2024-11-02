@@ -24,10 +24,10 @@ import { getUser } from './stores/User';
 /* ----- LOAD FONTS ----- */
 const loadFonts = async () => {
     await Font.loadAsync({
+        'montserrat-alternates-black': require('./assets/fonts/MontserratAlternates-Black.ttf'),
+        'montserrat-alternates-bold': require('./assets/fonts/MontserratAlternates-Bold.ttf'),
         'montserrat-alternates-regular': require('./assets/fonts/MontserratAlternates-Regular.ttf'),
         'montserrat-alternates-semibold': require('./assets/fonts/MontserratAlternates-SemiBold.ttf'),
-        'montserrat-alternates-bold': require('./assets/fonts/MontserratAlternates-Bold.ttf'),
-        'montserrat-alternates-black': require('./assets/fonts/MontserratAlternates-Black.ttf'),
     });
 };
 

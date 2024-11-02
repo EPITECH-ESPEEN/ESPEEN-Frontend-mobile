@@ -15,11 +15,14 @@ import { useTranslation } from "react-i18next";
 import { teamMembers } from "../stores/Team";
 import TeamMemberCard from "../components/card/TeamMemberCard";
 import { ITeamMember } from "../types/Team";
+import { useNavigation } from "@react-navigation/native";
+import ClickableLine from "../components/inputs/clickableLine";
 
 
 /* ----- COMPONENT ----- */
 const EspeenScreen: React.FC = () => {
     const { t } = useTranslation();
+    const { navigate } = useNavigation();
 
     return (
         <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -37,6 +40,14 @@ const EspeenScreen: React.FC = () => {
                     <TeamMemberCard key={index} member={member} />
                 ))
             }
+            <ClickableLine
+                label={t('espeen.privacy_policy')}
+                onPress={() => navigate('privacyPolicy')}
+            />
+            <ClickableLine
+                label={t('espeen.terms_of_service')}
+                onPress={() => navigate('termsOfService')}
+            />
         </ScrollView>
     );
 };
@@ -51,6 +62,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: colors.dark,
+        paddingTop: 50,
+        paddingBottom: 50,
     },
     textContainer: {
         display: 'flex',

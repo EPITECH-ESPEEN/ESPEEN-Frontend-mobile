@@ -76,7 +76,9 @@
         "moto": "¡Convierte las acciones en reacciones!",
         "presentation": "Espeen es una plataforma innovadora diseñada para automatizar flujos de trabajo mediante la conexión fluida de API en un modelo de \"acción y reacción\". Inspirada en herramientas como Microsoft Power Automate, Espeen permite a los usuarios crear activadores personalizables (acciones) que inician automáticamente respuestas (reacciones) en varias aplicaciones y servicios. Esto permite una integración y automatización sin esfuerzo de tareas repetitivas, notificaciones y gestión de datos. Espeen simplifica procesos complejos, lo que facilita la optimización de los flujos de trabajo diarios y la mejora de la productividad tanto en contextos personales como profesionales.",
         "team_description": "Nuestro equipo está compuesto por cinco estudiantes apasionados, cada uno de los cuales aporta un conjunto único de habilidades al proyecto Espeen. Con experiencia en desarrollo de software, diseño de UI/UX e integración de API, colaboramos para dar vida a ideas innovadoras. Nuestro compromiso con la accesibilidad y el diseño fácil de usar nos impulsa a crear soluciones que no solo satisfacen las demandas técnicas, sino que también mejoran la experiencia del usuario. Juntos, nos dedicamos a construir una plataforma que redefina la forma en que las personas interactúan con sus entornos digitales y los automatizan.",
-        "team_presentation": "Conozca al equipo"
+        "team_presentation": "Conozca al equipo",
+        "privacy_policy": "Echa un vistazo a nuestra política de privacidad",
+        "terms_of_service": "Echa un vistazo a nuestras condiciones de servicio"
     },
     "team": {
         "caroline_boilly": "Desarrollador Fullstack y SCRUM Master",

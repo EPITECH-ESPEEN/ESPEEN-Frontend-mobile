@@ -14,6 +14,8 @@ import AreaScreen from "../screens/areaScreen";
 import ProfileScreen from "../screens/profileScreen";
 import LoginScreen from "../screens/loginScreen";
 import ModifyProfileScreen from "../screens/modifyProfileScreen";
+import PrivacyPolicyScreen from "../screens/privacyPolicyScreen";
+import TermsOfServiceScreen from "../screens/TermsOfServiceScreen";
 
 export type ScreenConfig = {
     name: string;
@@ -31,6 +33,8 @@ const ScreensConfigs: ScreenConfig[] = [
     { name : 'profile', content: ProfileScreen, icon: UserRound, logged: true, accessible: true },
     { name : 'login', content: LoginScreen, logged: false, accessible: false },
     { name : 'modifyProfile', content: ModifyProfileScreen, logged: true, accessible: false },
+    { name : 'privacyPolicy', content: PrivacyPolicyScreen, logged: false, accessible: false },
+    { name : 'termsOfService', content: TermsOfServiceScreen, logged: false, accessible: false },
 ]
 
 export function getScreensConfigs(): ScreenConfig[] {
