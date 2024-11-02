@@ -40,7 +40,7 @@ const TextInput: React.FC<TextInputProps> = ({ label, value, onChangeText, color
                 placeholder=""
                 autoComplete="off"
             />
-            <Text style={[styles.label, isFocused || value ? [styles.labelFocused, {backgroundColor: colors[color], color: colors[borderColor]}] : {}]}>
+            <Text style={[styles.label, {color: colors[borderColor]}, isFocused || value ? [styles.labelFocused, {backgroundColor: colors[color]}] : {}]}>
                 {label}
             </Text>
         </View>

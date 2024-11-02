@@ -18,6 +18,8 @@ import { IService, IServiceButton } from "../../types/Services";
 import { getBaseUrl } from "../../services/fetch";
 import LoadingPage from "../loading/LoadingPage";
 import { isServiceLinked } from "../../services/services";
+import { getToken } from "../../services/token";
+import { reloadAsync } from "expo-updates";
 
 /* ----- PROPS ----- */
 interface ServiceCardProps {
@@ -29,19 +31,22 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     const { t } = useTranslation();
     const [webViewUrl, setWebViewUrl] = useState<string | null>(null);
     const [isLinked, setIsLinked] = useState<boolean | null>(null);
+    const [token, setToken] = useState<string | null>(null);
 
 
     useEffect(() => {
         const getDatas = async () => {
             const linked = await isServiceLinked(service.name);
             setIsLinked(linked);
+            const token = await getToken();
+            setToken(token);
         };
-        if (isLinked === null) {
+        if (isLinked === null || token === null) {
             getDatas();
         }
     }, [isLinked, service.name]);
 
-    if (isLinked === null) {
+    if (isLinked === null || token === null) {
         return <LoadingPage />;
     }
 
@@ -50,13 +55,18 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
         (function() {
             const expires = new Date();
             expires.setTime(expires.getTime() + 7 * 24 * 60 * 60 * 1000); // 1-week expiration
-            document.cookie = "authToken=abc;expires=" + expires.toUTCString() + ";path=/";
+            document.cookie = "authToken=${token};expires=" + expires.toUTCString() + ";path=/";
         })();
     `;
 
     const openWebViewWithCookie = async (action: IServiceButton) => {
         const url = `${getBaseUrl()}/${action.path}`;
         setWebViewUrl(url);
+    };
+
+    const handleWebViewClose = () => {
+        setWebViewUrl(null);
+        reloadAsync();
     };
 
     const customUserAgent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Mobile Safari/537.36';
@@ -69,18 +79,20 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                     <Text style={[textsStyle.text, colorsStyle.gray]}>{t('dico.name')}</Text>
                     <Text style={[textsStyle.text, colorsStyle.dark]}>{service.name}</Text>
                 </View>
-                <View style={styles.buttonContainer}>
-                    <Text style={[textsStyle.text, colorsStyle.gray]}>{t('dico.actions')}</Text>
-                    {service.buttons.map((action, index) => {
-                        if (action.name === "logout" && !isLinked) return null;
-                        if (action.name === "not_linked" && isLinked) return null;
-                        return (
-                            <Button key={index} mode="contained" onPress={() => openWebViewWithCookie(action)} buttonColor={action.name === "linked" ? colors.green : action.name === "not_linked" ? colors.red : colors.dark} labelStyle={[textsStyle.cardText, colorsStyle.light]}>
-                                {t(`services.${action.name}`)}
-                            </Button>
-                        );
-                    })}
-                </View>
+                { service.buttons.length > 0 && (
+                    <View style={styles.buttonContainer}>
+                        <Text style={[textsStyle.text, colorsStyle.gray]}>{t('dico.actions')}</Text>
+                        {service.buttons.map((action, index) => {
+                            if (action.name === "logout" && !isLinked) return null;
+                            if (action.name === "not_linked" && isLinked) return null;
+                            return (
+                                <Button key={index} mode="contained" onPress={() => openWebViewWithCookie(action)} buttonColor={action.name === "linked" ? colors.green : action.name === "not_linked" ? colors.red : colors.dark} labelStyle={[textsStyle.cardText, colorsStyle.light]}>
+                                    {t(`services.${action.name}`)}
+                                </Button>
+                            );
+                        })}
+                    </View>
+                )}
             </View>
 
             {/* WebView Modal */}
@@ -91,7 +103,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                     style={styles.webview}
                     userAgent={customUserAgent}
                 />
-                <Button onPress={() => setWebViewUrl(null)} mode="contained" style={styles.closeButton}>
+                <Button onPress={() => handleWebViewClose()} mode="contained" style={styles.closeButton}>
                     Close
                 </Button>
             </Modal>
