@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: colors.dark,
         gap: 80,
-        padding: 40,
+        padding: 60,
     },
     buttonLeft: {
         position: 'absolute',

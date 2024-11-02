@@ -11,7 +11,7 @@ import { getToken } from "./token";
 
 
 /* ----- DATAS ----- */
-const API_URL = "http://10.73.190.160:8080/api";
+const API_URL = "http://192.168.1.28:8080/api";
 
 
 /* ----- FUNCTIONS ----- */

@@ -9,6 +9,7 @@
 export interface INodeDatas {
     service: string | null;
     option: string | null;
+    fields: string[];
 }
 
 export interface INode {

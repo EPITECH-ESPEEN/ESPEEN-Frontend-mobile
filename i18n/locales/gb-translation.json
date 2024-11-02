@@ -19,6 +19,7 @@
     },
     "error": {
         "fill_all_actions_reactions": "You must fill all actions and reactions",
+        "fill_all_fields": "You must fill all fields",
         "invalid_login": "Invalid login or password",
         "invalid_register": "Invalid registration",
         "link_all_actions_reactions": "You must link all actions and reactions",
@@ -33,9 +34,11 @@
         "logout": "Logout"
     },
     "area": {
+        "no_action_reaction": "Not enough actions and reactions",
+        "subscribe_action_reaction": "Subscribe at least one action and one reaction to start using Espeen",
         "select_service": "Select a service",
         "select_action": "Select an action",
-        "select_reaction": "Select an reaction",
+        "select_reaction": "Select a reaction",
         "discord": {
             "bot": {
                 "receive_message": "Receive a message"
@@ -49,6 +52,24 @@
                 "receive_email": "Receive an email",
                 "send_email": "Send an email"
             }
+        },
+        "github": {
+            "push_events": "Push events"
+        },
+        "youtube": {
+            "new_video": "New video"
+        },
+        "twitch": {
+            "update_description": "Update biography",
+            "get_banned_users": "Get banned users",
+            "get_modos": "Get moderators",
+            "get_channel_infos": "Get channel informations",
+            "get_user_clips": "Get channel popular clips",
+            "get_top_games": "Get the most popular live games"
+        },
+        "fields": {
+            "channel": "Enter a channel",
+            "webhook": "Enter a webhook"
         }
     },
     "espeen": {
@@ -75,9 +96,11 @@
         "clear": "Clear",
         "email": "Email",
         "error": "Error",
+        "fields": "Fields",
         "hello": "Hello",
         "language": "Language",
         "login": "Login",
+        "login_with": "Login with",
         "logout": "Logout",
         "modify_profile": "Modify profile",
         "name": "Name",

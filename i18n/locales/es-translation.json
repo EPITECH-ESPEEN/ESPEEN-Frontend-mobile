@@ -19,6 +19,7 @@
     },
     "error": {
         "fill_all_actions_reactions": "Debes completar todas las acciones y reacciones.",
+        "fill_all_fields": "Debes rellenar todos los campos",
         "invalid_login": "Usuario o contraseña no válidos",
         "invalid_register": "Registro inválido",
         "link_all_actions_reactions": "Debes vincular todas las acciones y reacciones.",
@@ -33,6 +34,8 @@
         "logout": "Cerrar sesión"
     },
     "area": {
+        "no_action_reaction": "No hay suficientes acciones y reacciones",
+        "subscribe_action_reaction": "Suscríbete al menos a una acción y una reacción para comenzar a usar Espeen",
         "select_service": "Seleccione un servicio",
         "select_action": "Seleccione una acción",
         "select_reaction": "Seleccione una reacción",
@@ -49,6 +52,24 @@
                 "receive_email": "Recibir un correo electrónico",
                 "send_email": "Enviar un correo electrónico"
             }
+        },
+        "github": {
+            "push_events": "Eventos push"
+        },
+        "youtube": {
+            "new_video": "Nuevo video"
+        },
+        "twitch": {
+            "update_description": "Actualizar biografía",
+            "get_banned_users": "Obtener usuarios baneados",
+            "get_modos": "Conseguir moderadores",
+            "get_channel_infos": "Obtener información del canal",
+            "get_user_clips": "Obtenga clips populares del canal",
+            "get_top_games": "Obtenga los juegos en vivo más populares"
+        },
+        "fields": {
+            "channel": "Ingresar un canal",
+            "webhook": "Ingresar un webhook"
         }
     },
     "espeen": {
@@ -75,9 +96,11 @@
         "clear": "Claro",
         "email": "Correo electrónico",
         "error": "Error",
+        "fields": "Campos",
         "hello": "Hola",
         "language": "Idioma",
         "login": "Acceso",
+        "login_with": "Iniciar sesión con",
         "logout": "Cerrar sesión",
         "modify_profile": "Modificar perfil",
         "name": "Nombre",

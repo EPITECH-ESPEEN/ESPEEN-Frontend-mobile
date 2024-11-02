@@ -8,29 +8,56 @@
 
 /* ----- IMPORTS ----- */
 import { getLinkedServices, getServices } from "../stores/Services";
-import { IServiceSelecterItem } from "../types/Services";
+import { IServiceSelecter } from "../types/Selecter";
 
 
 /* ----- FUNCTIONS ----- */
-async function getAreaServices(): Promise<IServiceSelecterItem[]> {
+async function getFormattedAreaServices(): Promise<IServiceSelecter> {
     const tmp = await getServices();
-    const services: IServiceSelecterItem[] = [];
+    const services: IServiceSelecter = {
+        actions: [],
+        reactions: [],
+    }
     tmp.forEach((service) => {
-        services.push({
-            item: {
+        services.actions.push({
+            service: {
                 label: service.name,
                 value: service.uid.toString(),
             },
-            actions: service.actions.map((action) => {
+            options: service.actions.map((action) => {
                 return {
-                    label: action.name,
-                    value: action.action_id.toString(),
+                    option: {
+                        label: action.name,
+                        value: action.action_id.toString(),
+                    },
+                    fields: action.fields.map((field) => {
+                        return {
+                            label: field.name,
+                            value: "",
+                            type: field.type,
+                        };
+                    }),
                 };
             }),
-            reactions: service.reactions.map((reaction) => {
+        });
+        services.reactions.push({
+            service: {
+                label: service.name,
+                value: service.uid.toString(),
+            },
+            options: service.reactions.map((reaction) => {
                 return {
-                    label: reaction.name,
-                    value: reaction.reaction_id.toString(),
+                    option: {
+                        label: reaction.name,
+                        value: reaction.reaction_id.toString(),
+                    },
+                    fields: reaction.fields.map((field) => {
+                        return {
+                            label: field.name,
+                            value: "",
+                            type: field.type,
+                        };
+                    }),
                 };
             }),
         });
@@ -38,17 +65,23 @@ async function getAreaServices(): Promise<IServiceSelecterItem[]> {
     return services;
 }
 
-export async function getAreaServicesActions(): Promise<IServiceSelecterItem[]> {
-    const services = await getAreaServices();
-    const filteredServices = services.filter((service) => service.actions.length > 0);
-    return filteredServices;
+export async function getAreaServices(): Promise<IServiceSelecter> {
+    const services = await getFormattedAreaServices();
+    services.actions = services.actions.filter((service) => service.options.length > 0);
+    services.reactions = services.reactions.filter((service) => service.options.length > 0);
+    return services;
 }
 
-export async function getAreaServicesReactions(): Promise<IServiceSelecterItem[]> {
 
+export async function atLeastOneActionReaction(): Promise<boolean> {
     const services = await getAreaServices();
-    const filteredServices = services.filter((service) => service.reactions.length > 0);
-    return filteredServices;
+    for (let i = 0; i < services.actions.length; i++) {
+        if (services.actions[i].options.length > 0)
+            return true;
+        if (services.reactions[i].options.length > 0)
+            return true;
+    }
+    return false;
 }
 
 export async function isServiceLinked(serviceName: string): Promise<boolean> {

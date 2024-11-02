@@ -19,6 +19,7 @@
     },
     "error": {
         "fill_all_actions_reactions": "Sie müssen alle Aktionen und Reaktionen ausfüllen",
+        "fill_all_fields": "Sie müssen alle Felder ausfüllen",
         "invalid_login": "Ungültiger Login oder ungültiges Passwort",
         "invalid_register": "Ungültige Registrierung",
         "link_all_actions_reactions": "Sie müssen alle Aktionen und Reaktionen verknüpfen",
@@ -33,6 +34,8 @@
         "logout": "Ausloggen"
     },
     "area": {
+        "no_action_reaction": "Nicht genügend Aktionen und Reaktionen",
+        "subscribe_action_reaction": "Abonnieren Sie mindestens eine Aktion und eine Reaktion, um Espeen nutzen zu können",
         "select_service": "Wählen Sie einen Dienst aus",
         "select_action": "Auswählen einer Aktion",
         "select_reaction": "Wählen Sie eine Reaktion aus",
@@ -49,6 +52,24 @@
                 "receive_email": "Erhalten Sie eine E-Mail",
                 "send_email": "Senden Sie eine E-Mail"
             }
+        },
+        "github": {
+            "push_events": "Push-Ereignisse"
+        },
+        "youtube": {
+            "new_video": "Neues Video"
+        },
+        "twitch": {
+            "update_description": "Biografie aktualisieren",
+            "get_banned_users": "Erhalten Sie gesperrte Benutzer",
+            "get_modos": "Holen Sie sich Moderatoren",
+            "get_channel_infos": "Kanalinformationen abrufen",
+            "get_user_clips": "Beliebte Clips aus dem Kanal abrufen",
+            "get_top_games": "Holen Sie sich die beliebtesten Live-Spiele"
+        },
+        "fields": {
+            "channel": "Betreten Sie einen Kanal",
+            "webhook": "Geben Sie einen Webhook ein"
         }
     },
     "espeen": {
@@ -75,9 +96,11 @@
         "clear": "Klar",
         "email": "E-Mail",
         "error": "Fehler",
+        "fields": "Felder",
         "hello": "Hallo",
         "language": "Sprache",
         "login": "Login",
+        "login_with": "Einloggen mit",
         "logout": "Ausloggen",
         "modify_profile": "Profil ändern",
         "name": "Name",

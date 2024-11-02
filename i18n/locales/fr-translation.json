@@ -19,6 +19,7 @@
     },
     "error": {
         "fill_all_actions_reactions": "Vous devez remplir toutes les actions et réactions",
+        "fill_all_fields": "Vous devez remplir tous les champs",
         "invalid_login": "Login ou mot de passe invalide",
         "invalid_register": "Inscription invalide",
         "link_all_actions_reactions": "Vous devez lier toutes les actions et réactions",
@@ -33,6 +34,8 @@
         "logout": "Déconnexion"
     },
     "area": {
+        "no_action_reaction": "Pas assez d'actions et de réactions",
+        "subscribe_action_reaction": "Souscrivez au moins une action et une réaction pour commencer à utiliser Espeen",
         "select_service": "Sélectionnez un service",
         "select_action": "Sélectionnez une action",
         "select_reaction": "Sélectionnez une réaction",
@@ -49,6 +52,24 @@
                 "receive_email": "Recevoir un email",
                 "send_email": "Envoyer un email"
             }
+        },
+        "github": {
+            "push_events": "Événements push"
+        },
+        "youtube": {
+            "new_video": "Nouvelle vidéo"
+        },
+        "twitch": {
+            "update_description": "Mettre à jour la biographie",
+            "get_banned_users": "Obtenir des utilisateurs bannis",
+            "get_modos": "Obtenir des modérateurs",
+            "get_channel_infos": "Obtenir des informations sur la chaîne",
+            "get_user_clips": "Obtenez les clips populaires de la chaîne",
+            "get_top_games": "Obtenez les jeux en direct les plus populaires"
+        },
+        "fields": {
+            "channel": "Entrer dans une chaîne",
+            "webhook": "Entrer un webhook"
         }
     },
     "espeen": {
@@ -58,7 +79,7 @@
         "team_presentation": "Rencontrez l'équipe"
     },
     "team": {
-        "caroline_boilly": "Développeur Fullstack & SCRUM Master",
+        "caroline_boilly": "Développeuse Fullstack & SCRUM Master",
         "clement_piasco": "Développeur Cybersécurité & DevOps",
         "daniil_stepanov": "Développeur de bases de données et back-end",
         "leonard_oursel": "Développeur de bases de données et back-end",
@@ -75,9 +96,11 @@
         "clear": "Clair",
         "email": "E-mail",
         "error": "Erreur",
+        "fields": "Champs",
         "hello": "Bonjour",
         "language": "Langue",
         "login": "Se connecter",
+        "login_with": "Connectez-vous avec",
         "logout": "Déconnexion",
         "modify_profile": "Modifier le profil",
         "name": "Nom",

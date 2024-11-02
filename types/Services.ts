@@ -6,7 +6,10 @@
     --U-----U------------------------
 */
 
-import { ISelecterItem } from "./Selecter";
+export interface IServiceField {
+    name: string;
+    type: string;
+};
 
 export interface IServiceButton {
     name: string;
@@ -16,25 +19,20 @@ export interface IServiceButton {
 export interface IServiceAction {
     action_id: number;
     name: string;
+    fields: IServiceField[];
 }
 
 export interface IServiceReaction {
     reaction_id: number;
     name: string;
+    fields: IServiceField[];
 }
 
 export interface IService {
     uid: number;
     name: string;
-    status: boolean;
     icon: string;
     buttons: IServiceButton[];
     actions: IServiceAction[];
     reactions: IServiceReaction[];
 };
-
-export interface IServiceSelecterItem {
-    item: ISelecterItem;
-    actions: ISelecterItem[];
-    reactions: ISelecterItem[];
-}

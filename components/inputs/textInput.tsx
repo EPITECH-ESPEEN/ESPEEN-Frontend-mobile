@@ -18,11 +18,12 @@ interface TextInputProps {
     value: string;
     onChangeText: (text: string) => void;
     color?: keyof typeof colors;
+    borderColor?: keyof typeof colors;
 }
 
 
 /* ----- COMPONENT ----- */
-const TextInput: React.FC<TextInputProps> = ({ label, value, onChangeText, color = "green" }) => {
+const TextInput: React.FC<TextInputProps> = ({ label, value, onChangeText, color = "green", borderColor = "light" }) => {
     const [isFocused, setIsFocused] = useState(false);
 
     const handleFocus = () => setIsFocused(true);
@@ -35,11 +36,11 @@ const TextInput: React.FC<TextInputProps> = ({ label, value, onChangeText, color
                 onBlur={handleBlur}
                 onChangeText={onChangeText}
                 value={value}
-                style={styles.input}
+                style={[styles.input, { borderColor: colors[borderColor], color: colors[borderColor] }]}
                 placeholder=""
                 autoComplete="off"
             />
-            <Text style={[styles.label, isFocused || value ? [styles.labelFocused, {backgroundColor: colors[color]}] : {}]}>
+            <Text style={[styles.label, isFocused || value ? [styles.labelFocused, {backgroundColor: colors[color], color: colors[borderColor]}] : {}]}>
                 {label}
             </Text>
         </View>
@@ -60,12 +61,10 @@ const styles = StyleSheet.create({
         padding: 10,
         paddingLeft: 20,
         paddingRight: 20,
-        borderColor: colors.light,
         backgroundColor: 'transparent',
         borderWidth: 2,
         borderRadius: 10,
         width: '100%',
-        color: colors.light,
     },
     label: {
         fontFamily: "montserrat-alternates-bold",
@@ -76,7 +75,6 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginTop: 4,
         pointerEvents: 'none',
-        color: colors.light,
     },
     labelFocused: {
         transform: [{ translateY: -18 }, { scale: 0.9 }],

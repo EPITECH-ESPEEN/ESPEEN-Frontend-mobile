@@ -10,7 +10,6 @@
 import { fetchGet } from "../services/fetch";
 import { IService } from "../types/Services";
 
-
 /* ----- DATAS ----- */
 let lastFetchServices: number = 0;
 const services: Map<number, { fetch: number; service: IService }> = new Map();

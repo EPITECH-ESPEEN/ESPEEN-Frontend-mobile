@@ -33,12 +33,12 @@ const AddNodePage: React.FC = () => {
         const newPage = {
             id: initialNodes.length,
             source: {
-                data: {service: null, option: null},
+                data: {service: null, option: null, fields: []},
                 type: "action"
             },
             targets: [
                 {
-                    data: {service: null, option: null},
+                    data: {service: null, option: null, fields: []},
                     type: "reaction"
                 }
             ]

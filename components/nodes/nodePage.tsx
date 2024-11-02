@@ -10,13 +10,16 @@
 
 
 /* ----- IMPORTS ----- */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { IGraphNode, INode } from "../../types/Node";
-import Node from "./node";
+import NodeContent from "./nodeContent";
 import IconButton from "../inputs/buttonIcon";
 import { Plus } from 'lucide-react-native';
 import { colors } from "../../styles/colors";
+import { IServiceSelecter } from "../../types/Selecter";
+import { getAreaServices } from "../../services/services";
+import LoadingPage from "../loading/LoadingPage";
 
 
 /* ----- PROPS ----- */
@@ -28,6 +31,17 @@ interface NodePageProps {
 /* ----- COMPONENT ----- */
 const NodePage: React.FC<NodePageProps> = ({graph}) => {
     const [childrens, setChildrens] = useState<INode[]>(graph.targets);
+    const [services, setServices] = useState<IServiceSelecter | null>(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const tmp = await getAreaServices();
+            setServices(tmp);
+        }
+        fetchData();
+    }, []);
+
+    if (!services) return <LoadingPage />;
 
     function deleteNode(id: number) {
         if (id <= 0) return;
@@ -38,17 +52,17 @@ const NodePage: React.FC<NodePageProps> = ({graph}) => {
 
     function addNode() {
         const tmp = graph.targets;
-        tmp.push({data: {service: null, option: null}, type: "reaction"});
+        tmp.push({data: {service: null, option: null, fields: []}, type: "reaction"});
         graph.targets = tmp;
         setChildrens(tmp);
     }
 
     return (
         <>
-            <Node node={graph.source} deleteNode={deleteNode} canBeDeleted={false} />
+            <NodeContent node={graph.source} services={services.actions} deleteNode={() => {}} canBeDeleted={false} />
             {
                 childrens.map((target, index) => (
-                    <Node key={index} id={index} node={target} canBeDeleted={index !== 0} deleteNode={deleteNode} />
+                    <NodeContent key={index} id={index} node={target} services={services.reactions} deleteNode={deleteNode} canBeDeleted={index !== 0} />
                 ))
             }
             <View style={styles.button}>
