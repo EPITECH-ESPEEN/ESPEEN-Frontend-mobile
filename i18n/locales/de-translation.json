@@ -65,7 +65,10 @@
             "get_modos": "Holen Sie sich Moderatoren",
             "get_channel_infos": "Kanalinformationen abrufen",
             "get_user_clips": "Beliebte Clips aus dem Kanal abrufen",
-            "get_top_games": "Holen Sie sich die beliebtesten Live-Spiele"
+            "get_top_games": "Holen Sie sich die beliebtesten Live-Spiele",
+            "get_followed_channels": "Gefolgte Kanäle abrufen",
+            "get_channel_subscriptions": "Abonnenten des Kanals abrufen",
+            "send_chat_announcement": "Chat-Ankündigung senden"
         },
         "fields": {
             "channel": "Betreten Sie einen Kanal",

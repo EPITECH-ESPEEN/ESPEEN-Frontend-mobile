@@ -65,7 +65,10 @@
             "get_modos": "Récupérer les modérateurs",
             "get_channel_infos": "Récupérer les informations de la chaîne",
             "get_user_clips": "Récupérer les clips populaires de la chaîne",
-            "get_top_games": "Récupérer les jeux les plus populaires en direct"
+            "get_top_games": "Récupérer les jeux les plus populaires en direct",
+            "get_followed_channels": "Récupérer les chaînes suivies",
+            "get_channel_subscriptions": "Récupérer les abonnés de la chaîne",
+            "send_chat_announcement": "Envoyer une annonce de chat "
         },
         "fields": {
             "channel": "Entrer dans une chaîne",

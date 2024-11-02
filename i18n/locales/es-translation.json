@@ -65,7 +65,10 @@
             "get_modos": "Conseguir moderadores",
             "get_channel_infos": "Obtener información del canal",
             "get_user_clips": "Obtenga clips populares del canal",
-            "get_top_games": "Obtenga los juegos en vivo más populares"
+            "get_top_games": "Obtenga los juegos en vivo más populares",
+            "get_followed_channels": "Obtener canales seguidos",
+            "get_channel_subscriptions": "Obtener suscriptores del canal",
+            "send_chat_announcement": "Enviar anuncio de chat"
         },
         "fields": {
             "channel": "Ingresar un canal",

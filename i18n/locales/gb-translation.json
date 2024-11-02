@@ -65,7 +65,10 @@
             "get_modos": "Get moderators",
             "get_channel_infos": "Get channel informations",
             "get_user_clips": "Get channel popular clips",
-            "get_top_games": "Get the most popular live games"
+            "get_top_games": "Get the most popular live games",
+            "get_followed_channels": "Get followed channels",
+            "get_channel_subscriptions": "Get channel subscribers",
+            "send_chat_announcement": "Send chat announcement"
         },
         "fields": {
             "channel": "Enter a channel",
