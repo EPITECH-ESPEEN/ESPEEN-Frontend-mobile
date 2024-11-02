@@ -61,11 +61,11 @@
         },
         "twitch": {
             "update_description": "Mettre à jour la biographie",
-            "get_banned_users": "Obtenir des utilisateurs bannis",
-            "get_modos": "Obtenir des modérateurs",
-            "get_channel_infos": "Obtenir des informations sur la chaîne",
-            "get_user_clips": "Obtenez les clips populaires de la chaîne",
-            "get_top_games": "Obtenez les jeux en direct les plus populaires"
+            "get_banned_users": "Récupérer les utilisateurs bannis",
+            "get_modos": "Récupérer les modérateurs",
+            "get_channel_infos": "Récupérer les informations de la chaîne",
+            "get_user_clips": "Récupérer les clips populaires de la chaîne",
+            "get_top_games": "Récupérer les jeux les plus populaires en direct"
         },
         "fields": {
             "channel": "Entrer dans une chaîne",
