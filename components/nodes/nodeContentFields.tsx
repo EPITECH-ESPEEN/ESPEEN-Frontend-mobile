@@ -17,6 +17,7 @@ import { useTranslation } from "react-i18next";
 import { View, StyleSheet, Text } from "react-native";
 import { textsStyle } from "../../styles/textsStyle";
 import TextInput from "../inputs/textInput";
+import TimeInput from "../inputs/timeInput";
 
 
 /* ----- PROPS ----- */
@@ -55,17 +56,28 @@ const NodeContentFields: React.FC<NodeContentFieldsProps> = ({ node, fields}) =>
         <>
             <View style={styles.space} />
             <Text style={textsStyle.title}>{t("dico.fields")}</Text>
-            {fields && fields.map((field, index) => (
-                <View key={index} style={styles.container}>
-                    <TextInput
-                        label={t(`area.fields.${field.label}`)}
-                        value={values[index]}
-                        onChangeText={(text) => handleFieldValueChange(index, text)}
-                        color="light"
-                        borderColor="dark"
-                    />
-                </View>
-            ))}
+            {fields && fields.map((field, index) => {
+                if ([`text`, `password`, `email`, `number`, `phone`, `textarea`].includes(field.type))
+                    return <View key={index} style={styles.container}>
+                        <TextInput
+                            label={t(`area.fields.${field.label}`)}
+                            value={values[index]}
+                            onChangeText={(text) => handleFieldValueChange(index, text)}
+                            color="light"
+                            borderColor="dark"
+                        />
+                    </View>
+                if (field.type === "time")
+                    return <View key={index} style={styles.container}>
+                        <TimeInput
+                            label={t(`area.fields.${field.label}`)}
+                            value={values[index]}
+                            onChange={(text) => handleFieldValueChange(index, text)}
+                            color="light"
+                            borderColor="dark"
+                        />
+                    </View>
+            })}
         </>
     );
 }

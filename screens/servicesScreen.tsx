@@ -11,7 +11,6 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, ScrollView, View } from "react-native";
 import { colors } from "../styles/colors";
 import ServiceCardWithWebView from "../components/card/ServiceCardWithWebView";
-import ServiceCardLocked from "../components/card/ServiceCardLocked";
 import TextInput from "../components/inputs/textInput";
 import { IService } from "../types/Services";
 import { getServices } from "../stores/Services";
@@ -57,8 +56,7 @@ const ServicesScreen: React.FC = () => {
             </View>
             <View style={styles.libraryContainer}>
                 {filteredServices.map((service: IService, key: number) => (
-                    // <ServiceCardWithWebView service={service} key={key} /> //TODO: Active this line if back-end not using localhost
-                    <ServiceCardLocked service={service} key={key} /> // else active this line
+                    <ServiceCardWithWebView service={service} key={key} />
                 ))}
             </View>
         </ScrollView>
