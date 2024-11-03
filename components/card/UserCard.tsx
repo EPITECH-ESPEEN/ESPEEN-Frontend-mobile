@@ -54,10 +54,8 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
 
     const handlePromote = async () => {
         user.role = user.role === 'admin' ? 'user' : 'admin';
-        console.log("user: ", user);
         const response = await fetchPost(`users/${user.uid}`, user);
         const responseJson = await response.json();
-        console.log("response: ", responseJson);
         if (response.status === 200) {
             await fetchUsers();
             reloadAsync();
