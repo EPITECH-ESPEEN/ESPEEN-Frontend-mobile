@@ -70,7 +70,11 @@
             "get_channel_subscriptions": "Get channel subscribers",
             "send_chat_announcement": "Send chat announcement"
         },
+        "meteo": {
+            "get_weather": "Get weather"
+        },
         "fields": {
+            "city": "Enter a city",
             "channel": "Enter a channel",
             "description": "Enter a description",
             "webhook": "Enter a webhook"

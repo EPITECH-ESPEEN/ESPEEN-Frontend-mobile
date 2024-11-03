@@ -59,6 +59,9 @@
         "youtube": {
             "new_video": "Новое видео"
         },
+        "meteo": {
+            "get_weather": "Получить погоду"
+        },
         "twitch": {
             "update_description": "Обновить биографию",
             "get_banned_users": "Получить забаненных пользователей",
@@ -71,6 +74,7 @@
             "send_chat_announcement": "Отправить объявление в чате"
         },
         "fields": {
+            "city": "Введите город",
             "channel": "Введите канал",
             "description": "Введите описание",
             "webhook": "Введите вебхук"
