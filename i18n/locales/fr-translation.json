@@ -72,6 +72,7 @@
         },
         "fields": {
             "channel": "Entrer dans une chaîne",
+            "description": "Entrez une description",
             "webhook": "Entrer un webhook"
         }
     },
@@ -96,9 +97,10 @@
     },
     "dico": {
         "action": "Action",
-        "actions": "Actes",
+        "actions": "Actions",
         "cancel": "Annuler",
-        "clear": "Clair",
+        "clear": "Effacer",
+        "close": "Fermer",
         "email": "E-mail",
         "error": "Erreur",
         "fields": "Champs",
@@ -118,5 +120,10 @@
         "services": "Services",
         "status": "Statut",
         "username": "Nom d'utilisateur"
+    },
+    "mobile": {
+        "sorry": "Désolé",
+        "action": "Cette action n'est pas disponible sur mobile...",
+        "web": "Pour vous connecter ou vous déconnecter de l'un de vos services, veuillez utiliser la version Web d'Espeen"
     }
 }

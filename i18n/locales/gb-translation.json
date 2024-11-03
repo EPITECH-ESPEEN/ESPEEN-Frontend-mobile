@@ -72,6 +72,7 @@
         },
         "fields": {
             "channel": "Enter a channel",
+            "description": "Enter a description",
             "webhook": "Enter a webhook"
         }
     },
@@ -99,6 +100,7 @@
         "actions": "Actions",
         "cancel": "Cancel",
         "clear": "Clear",
+        "close": "Close",
         "email": "Email",
         "error": "Error",
         "fields": "Fields",
@@ -118,5 +120,10 @@
         "services": "Services",
         "status": "Status",
         "username": "Username"
+    },
+    "mobile": {
+        "sorry": "Sorry",
+        "action": "This action is not available on mobile...",
+        "web": "To login or logout one of your services, please use the web version of Espeen"
     }
 }

@@ -67,11 +67,12 @@
             "get_user_clips": "Obtenga clips populares del canal",
             "get_top_games": "Obtenga los juegos en vivo más populares",
             "get_followed_channels": "Obtener canales seguidos",
-            "get_channel_subscriptions": "Obtener suscriptores del canal",
+            "get_channel_subscriptions": "Conseguir suscriptores para el canal",
             "send_chat_announcement": "Enviar anuncio de chat"
         },
         "fields": {
             "channel": "Ingresar un canal",
+            "description": "Introduzca una descripción",
             "webhook": "Ingresar un webhook"
         }
     },
@@ -99,6 +100,7 @@
         "actions": "Comportamiento",
         "cancel": "Cancelar",
         "clear": "Claro",
+        "close": "Cerca",
         "email": "Correo electrónico",
         "error": "Error",
         "fields": "Campos",
@@ -118,5 +120,10 @@
         "services": "Servicios",
         "status": "Estado",
         "username": "Nombre de usuario"
+    },
+    "mobile": {
+        "sorry": "Lo siento",
+        "action": "Esta acción no está disponible en dispositivos móviles...",
+        "web": "Para iniciar o cerrar sesión en uno de sus servicios, utilice la versión web de Espeen"
     }
 }

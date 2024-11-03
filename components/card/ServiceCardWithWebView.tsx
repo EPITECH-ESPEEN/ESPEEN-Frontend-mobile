@@ -10,7 +10,6 @@
 import React, { useEffect, useState } from "react";
 import { Text, StyleSheet, View, Image, Modal } from "react-native";
 import { Button } from 'react-native-paper';
-import { WebView } from "react-native-webview";
 import { textsStyle } from "../../styles/textsStyle";
 import { colors, colorsStyle } from "../../styles/colors";
 import { useTranslation } from "react-i18next";
@@ -20,6 +19,7 @@ import LoadingPage from "../loading/LoadingPage";
 import { isServiceLinked } from "../../services/services";
 import { getToken } from "../../services/token";
 import { reloadAsync } from "expo-updates";
+import WebViewWithCookies from "../webview/WebView";
 
 /* ----- PROPS ----- */
 interface ServiceCardProps {
@@ -27,7 +27,7 @@ interface ServiceCardProps {
 }
 
 /* ----- COMPONENT ----- */
-const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
+const ServiceCardWithWebView: React.FC<ServiceCardProps> = ({ service }) => {
     const { t } = useTranslation();
     const [webViewUrl, setWebViewUrl] = useState<string | null>(null);
     const [isLinked, setIsLinked] = useState<boolean | null>(null);
@@ -50,15 +50,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
         return <LoadingPage />;
     }
 
-
-    const setAuthTokenCookie = `
-        (function() {
-            const expires = new Date();
-            expires.setTime(expires.getTime() + 7 * 24 * 60 * 60 * 1000); // 1-week expiration
-            document.cookie = "authToken=${token};expires=" + expires.toUTCString() + ";path=/";
-        })();
-    `;
-
     const openWebViewWithCookie = async (action: IServiceButton) => {
         const url = `${getBaseUrl()}/${action.path}`;
         setWebViewUrl(url);
@@ -68,8 +59,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
         setWebViewUrl(null);
         reloadAsync();
     };
-
-    const customUserAgent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Mobile Safari/537.36';
 
     return (
         <View style={styles.container}>
@@ -94,19 +83,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                     </View>
                 )}
             </View>
-
-            {/* WebView Modal */}
-            <Modal visible={!!webViewUrl} animationType="slide" onRequestClose={() => setWebViewUrl(null)}>
-                <WebView
-                    source={{ uri: webViewUrl || '' }}
-                    injectedJavaScript={setAuthTokenCookie}
-                    style={styles.webview}
-                    userAgent={customUserAgent}
-                />
-                <Button onPress={() => handleWebViewClose()} mode="contained" style={styles.closeButton}>
-                    Close
-                </Button>
-            </Modal>
+            { webViewUrl && <WebViewWithCookies token={token} webViewUrl={webViewUrl} onClose={handleWebViewClose} /> }
         </View>
     );
 };
@@ -141,12 +118,6 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         gap: 10,
     },
-    webview: {
-        flex: 1,
-    },
-    closeButton: {
-        margin: 10,
-    },
 });
 
-export default ServiceCard;
+export default ServiceCardWithWebView;

@@ -66,12 +66,13 @@
             "get_channel_infos": "Kanalinformationen abrufen",
             "get_user_clips": "Beliebte Clips aus dem Kanal abrufen",
             "get_top_games": "Holen Sie sich die beliebtesten Live-Spiele",
-            "get_followed_channels": "Gefolgte Kanäle abrufen",
-            "get_channel_subscriptions": "Abonnenten des Kanals abrufen",
+            "get_followed_channels": "Abrufen verfolgter Kanäle",
+            "get_channel_subscriptions": "Kanalabonnenten gewinnen",
             "send_chat_announcement": "Chat-Ankündigung senden"
         },
         "fields": {
             "channel": "Betreten Sie einen Kanal",
+            "description": "Geben Sie eine Beschreibung ein",
             "webhook": "Geben Sie einen Webhook ein"
         }
     },
@@ -99,6 +100,7 @@
         "actions": "Aktionen",
         "cancel": "Stornieren",
         "clear": "Klar",
+        "close": "Schließen",
         "email": "E-Mail",
         "error": "Fehler",
         "fields": "Felder",
@@ -118,5 +120,10 @@
         "services": "Dienstleistungen",
         "status": "Status",
         "username": "Benutzername"
+    },
+    "mobile": {
+        "sorry": "Entschuldigung",
+        "action": "Diese Aktion ist auf Mobilgeräten nicht verfügbar ...",
+        "web": "Um sich bei einem Ihrer Dienste anzumelden oder abzumelden, verwenden Sie bitte die Webversion von Espeen"
     }
 }
