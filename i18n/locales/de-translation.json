@@ -55,6 +55,7 @@
             }
         },
         "github": {
+            "create_repo": "Erstellen eines Repositorys",
             "push_events": "Push-Ereignisse"
         },
         "youtube": {
