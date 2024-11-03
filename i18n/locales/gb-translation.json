@@ -100,12 +100,20 @@
         "modify": "Modify your profile informations",
         "modify_password": "If you want to modify your password, please fill the following fields, otherwise leave them empty"
     },
+    "admin": {
+        "access": "Access to the admin panel",
+        "not_admin": "You have to be an administrator to access this page",
+        "search": "Search by username..."
+    },
     "dico": {
         "action": "Action",
         "actions": "Actions",
+        "admin": "Administrator",
         "cancel": "Cancel",
         "clear": "Clear",
         "close": "Close",
+        "created_at": "Created at",
+        "delete_profile": "Delete profile",
         "email": "Email",
         "error": "Error",
         "fields": "Fields",
@@ -118,12 +126,15 @@
         "name": "Name",
         "password": "Password",
         "password_confirm": "Confirm password",
+        "please_reload": "Please reload the page",
         "profile": "Profile",
         "reaction": "Reaction",
         "register": "Register",
+        "role": "Role",
         "save": "Save",
         "services": "Services",
         "status": "Status",
+        "user": "User",
         "username": "Username"
     },
     "mobile": {

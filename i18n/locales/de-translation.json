@@ -60,9 +60,6 @@
         "youtube": {
             "new_video": "Neues Video"
         },
-        "meteo": {
-            "get_weather": "Wetter abrufen"
-        },
         "twitch": {
             "update_description": "Biografie aktualisieren",
             "get_banned_users": "Erhalten Sie gesperrte Benutzer",
@@ -73,6 +70,9 @@
             "get_followed_channels": "Abrufen verfolgter Kanäle",
             "get_channel_subscriptions": "Kanalabonnenten gewinnen",
             "send_chat_announcement": "Chat-Ankündigung senden"
+        },
+        "meteo": {
+            "get_weather": "Wetter abrufen"
         },
         "fields": {
             "city": "Geben Sie eine Stadt ein",
@@ -100,12 +100,20 @@
         "modify": "Ändern Sie Ihre Profilinformationen",
         "modify_password": "Wenn Sie Ihr Passwort ändern möchten, füllen Sie bitte die folgenden Felder aus, andernfalls lassen Sie sie leer"
     },
+    "admin": {
+        "access": "Zugriff auf das Admin-Panel",
+        "not_admin": "Sie müssen Administrator sein, um auf diese Seite zugreifen zu können",
+        "search": "Nach Benutzernamen suchen..."
+    },
     "dico": {
         "action": "Aktion",
         "actions": "Aktionen",
+        "admin": "Administrator",
         "cancel": "Stornieren",
         "clear": "Klar",
         "close": "Schließen",
+        "created_at": "Erstellt am",
+        "delete_profile": "Profil löschen",
         "email": "E-Mail",
         "error": "Fehler",
         "fields": "Felder",
@@ -118,12 +126,15 @@
         "name": "Name",
         "password": "Passwort",
         "password_confirm": "Passwort bestätigen",
+        "please_reload": "Bitte laden Sie die Seite neu",
         "profile": "Profil",
         "reaction": "Reaktion",
         "register": "Registrieren",
+        "role": "Rolle",
         "save": "Speichern",
         "services": "Dienstleistungen",
         "status": "Status",
+        "user": "Benutzer",
         "username": "Benutzername"
     },
     "mobile": {
