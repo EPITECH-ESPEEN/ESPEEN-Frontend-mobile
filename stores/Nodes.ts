@@ -19,3 +19,7 @@ export let initialNodes: IGraphNode[] = [];
 export function setInitialNodes(nodes: IGraphNode[]): void {
     initialNodes = nodes;
 }
+
+export function clearNodes(): void {
+    initialNodes = [];
+}

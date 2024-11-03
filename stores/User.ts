@@ -29,13 +29,7 @@ export async function fetchUser() {
             throw new Error("Error fetching user");
         const jsonResponse = await response.json();
         const tmp = { ...(jsonResponse.user as IUser) };
-        user = {
-            uid: tmp.uid,
-            username: tmp.username,
-            email: tmp.email,
-            actionReaction: tmp.actionReaction,
-            password: "",
-        }
+        user = tmp;
         lastFetch = Date.now();
         const graph = tableToGraph(user.actionReaction);
         if (typeof graph === "boolean")

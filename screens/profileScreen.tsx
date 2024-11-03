@@ -20,11 +20,13 @@ import { IUser } from "../types/User";
 import { textsStyle } from "../styles/textsStyle";
 import LoadingPage from "../components/loading/LoadingPage";
 import { useNavigation } from "@react-navigation/native";
+import { fetchDelete } from "../services/fetch";
 
 
 /* ----- COMPONENT ----- */
 const ProfileScreen: React.FC = () => {
     const [user , setUser] = useState<IUser | null>(null);
+    const [askLogout, setAskLogout] = useState<boolean>(false);
     const { t } = useTranslation();
     const { navigate } = useNavigation();
 
@@ -48,12 +50,34 @@ const ProfileScreen: React.FC = () => {
         return () => clearInterval(interval);
     }, [user]);
 
-    if (!user)
+    if (!user) {
+        setTimeout(() => {
+            setAskLogout(true);
+        }, 4000);
+        if (askLogout) {
+            return (
+                <ScrollView contentContainerStyle={styles.scrollContainer}>
+                    <Text style={[textsStyle.title, colorsStyle.red]}>{t("error.logout")}</Text>
+                    <Button
+                        label={t("dico.logout")}
+                        onPress={logoutButton}
+                    />
+                </ScrollView>
+            )
+        }
         return (
             <ScrollView contentContainerStyle={styles.scrollContainer}>
                 <LoadingPage />
             </ScrollView>
         );
+    }
+
+    const handleDeleteProfile = async () => {
+        const response = await fetchDelete("user");
+        if (response.ok) {
+            await logout();
+        }
+    }
 
     return (
         <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -69,6 +93,16 @@ const ProfileScreen: React.FC = () => {
                     label={t('dico.logout')}
                     onPress={logoutButton}
                 />
+                <Button
+                    label={t("dico.delete_profile")}
+                    onPress={handleDeleteProfile}
+                />
+                {user.role === "admin" &&
+                    <Button
+                        label={t("admin.access")}
+                        onPress={() => navigate('adminPanel')}
+                    />
+                }
             </View>
         </ScrollView>
     );

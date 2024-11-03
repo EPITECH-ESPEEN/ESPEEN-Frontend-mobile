@@ -11,6 +11,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { fetchPost } from './fetch';
 import { reloadAsync } from 'expo-updates';
 import { getUser, setUser } from '../stores/User';
+import { clearNodes } from '../stores/Nodes';
+import { clearServices } from '../stores/Services';
+import { clearUsers } from '../stores/Users';
 
 
 /* ----- FUNCTIONS ----- */
@@ -78,3 +81,13 @@ export const logout = async (): Promise<void> => {
     setUser(null);
     reloadAsync();
 };
+
+export const setToken = async (token: string): Promise<void> => {
+    await AsyncStorage.setItem('authToken', token);
+    setTokenCookie(token);
+    clearNodes();
+    clearServices();
+    setUser(null);
+    clearUsers();
+    reloadAsync();
+}

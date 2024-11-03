@@ -12,9 +12,9 @@ import { ITeamMember } from "../types/Team";
 
 /* ----- DATAS ----- */
 export const teamMembers: ITeamMember[] = [
-    { name: "Caroline Boilly", role: "caroline_boilly" },
-    { name: "Clement Piasco", role: "clement_piasco" },
-    { name: "Daniil Stepanov", role: "daniil_stepanov" },
+    { name: "Caroline BOILLY", role: "caroline_boilly" },
+    { name: "Clement PIASCO", role: "clement_piasco" },
+    { name: "Daniil STEPANOV", role: "daniil_stepanov" },
     { name: "Léonard OURSEL", role: "leonard_oursel" },
     { name: "Nathan TIROLF", role: "nathan_tirolf" },
 ];

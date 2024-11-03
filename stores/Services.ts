@@ -78,3 +78,10 @@ export async function getLinkedServices() {
     if (linkedServices.length === 0 || Date.now() - lastFetchLinkedServices > 1000 * 60 * 60 * 24) await fetchLinkedServices();
     return linkedServices;
 }
+
+
+/* ----- FUNCTION ----- */
+export async function clearServices() {
+    services.clear();
+    linkedServices = [];
+}
