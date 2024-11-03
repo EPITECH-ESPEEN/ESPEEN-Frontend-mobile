@@ -23,6 +23,7 @@
         "invalid_login": "Invalid login or password",
         "invalid_register": "Invalid registration",
         "link_all_actions_reactions": "You must link all actions and reactions",
+        "logout": "Please try to logout and login again",
         "save_failed": "Save failed. Retry later...",
         "user_not_found": "User not found. Retry later..."
     },
@@ -70,7 +71,11 @@
             "get_channel_subscriptions": "Get channel subscribers",
             "send_chat_announcement": "Send chat announcement"
         },
+        "meteo": {
+            "get_weather": "Get weather"
+        },
         "fields": {
+            "city": "Enter a city",
             "channel": "Enter a channel",
             "description": "Enter a description",
             "webhook": "Enter a webhook"

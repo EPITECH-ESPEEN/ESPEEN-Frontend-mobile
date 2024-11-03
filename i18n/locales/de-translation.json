@@ -23,6 +23,7 @@
         "invalid_login": "Ungültiger Login oder ungültiges Passwort",
         "invalid_register": "Ungültige Registrierung",
         "link_all_actions_reactions": "Sie müssen alle Aktionen und Reaktionen verknüpfen",
+        "logout": "Bitte versuchen Sie, sich abzumelden und erneut anzumelden",
         "save_failed": "Speichern fehlgeschlagen. Später erneut versuchen ...",
         "user_not_found": "Benutzer nicht gefunden. Versuchen Sie es später erneut ..."
     },
@@ -59,6 +60,9 @@
         "youtube": {
             "new_video": "Neues Video"
         },
+        "meteo": {
+            "get_weather": "Wetter abrufen"
+        },
         "twitch": {
             "update_description": "Biografie aktualisieren",
             "get_banned_users": "Erhalten Sie gesperrte Benutzer",
@@ -71,6 +75,7 @@
             "send_chat_announcement": "Chat-Ankündigung senden"
         },
         "fields": {
+            "city": "Geben Sie eine Stadt ein",
             "channel": "Betreten Sie einen Kanal",
             "description": "Geben Sie eine Beschreibung ein",
             "webhook": "Geben Sie einen Webhook ein"
