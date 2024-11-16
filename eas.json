@@ -16,7 +16,8 @@
     },
     "build_app": {
         "android": {
-            "buildType": "apk"
+            "buildType": "apk",
+            "distribution": "internal"
         }
     }
   },
