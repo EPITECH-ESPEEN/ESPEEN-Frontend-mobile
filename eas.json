@@ -15,10 +15,10 @@
       "autoIncrement": true
     },
     "build_app": {
-        "android": {
-            "buildType": "apk",
-            "distribution": "internal"
-        }
+      "android": {
+        "buildType": "apk",
+        "distribution": "internal"
+      }
     }
   },
   "submit": {
